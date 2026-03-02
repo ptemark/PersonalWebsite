@@ -1,0 +1,26 @@
+# Include your project-specific ignores in this file
+# Read about how to use .gitignore: https://help.github.com/articles/ignoring-files
+# Useful .gitignore templates: https://github.com/github/gitignore
+node_modules
+dist
+.cache
+logs
+.DS_Store
+*.pdf
+spec/samples
+
+# IDE
+.idea
+*.iml
+.claude
+
+# Secrets — never commit these
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+secrets.json
+secrets.yaml
+secrets.yml
