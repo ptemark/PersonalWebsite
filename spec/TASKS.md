@@ -17,10 +17,10 @@ Tasks are ordered by dependency. Complete them top to bottom.
 
 ### Phase 1 — Project Scaffolding
 
-- [ ] **1** — Create `CNAME` file in project root containing `petermark.dev`
-- [ ] **2** — Update `webpack.config.prod.js` CopyPlugin to include `CNAME` in dist output
-- [ ] **3** — Create `.github/workflows/deploy.yml` — GitHub Actions workflow that runs `npm run build` on push to `main` and deploys `dist/` to GitHub Pages using `actions/upload-pages-artifact` and `actions/deploy-pages`
-- [ ] **4** — Create `README.md` at repo root with project description, live site link (`petermark.dev`), and a spec table linking to `spec/DESIGN.md`, `spec/TASKS.md`, and `RALPH.md` on GitHub
+- [x] **1** — Create `CNAME` file in project root containing `petermark.dev`
+- [x] **2** — Update `webpack.config.prod.js` CopyPlugin to include `CNAME` in dist output
+- [x] **3** — Create `.github/workflows/deploy.yml` — GitHub Actions workflow that runs `npm run build` on push to `main` and deploys `dist/` to GitHub Pages using `actions/upload-pages-artifact` and `actions/deploy-pages`
+- [x] **4** — Create `README.md` at repo root with project description, live site link (`petermark.dev`), and a spec table linking to `spec/DESIGN.md`, `spec/TASKS.md`, and `RALPH.md` on GitHub
 
 ### Phase 2 — Base HTML & CSS
 
@@ -79,4 +79,8 @@ Tasks are ordered by dependency. Complete them top to bottom.
 
 | # | Date | Task | Files Changed | Notes |
 |---|------|------|---------------|-------|
+| 1 | 2026-03-02 | Create CNAME file | CNAME | Contains petermark.dev for GitHub Pages custom domain |
+| 2 | 2026-03-02 | Update webpack CopyPlugin to include CNAME | webpack.config.prod.js | Added toType: 'file' to ensure CNAME copies as a file, not directory |
+| 3 | 2026-03-02 | Create GitHub Actions deploy workflow | .github/workflows/deploy.yml | Builds on push to main, deploys dist/ to GitHub Pages |
+| 4 | 2026-03-02 | Create README.md | README.md | Project description, live site link, spec table with GitHub links |
 
