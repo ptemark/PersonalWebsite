@@ -161,6 +161,34 @@ textarea {
 }
 
 /* ==========================================================================
+   Layout Utilities
+   ========================================================================== */
+
+.container {
+  max-width: var(--spacing-container-max);
+  margin-inline: auto;
+  padding-inline: var(--spacing-page-horizontal);
+}
+
+.section {
+  padding-block: var(--spacing-section-vertical);
+}
+
+.section__heading {
+  font-size: var(--font-size-heading-section);
+  font-weight: var(--font-weight-heading-section);
+  letter-spacing: var(--letter-spacing-heading);
+  color: var(--color-text);
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --spacing-page-horizontal: 48px;
+  }
+}
+
+/* ==========================================================================
    Helper Classes
    ========================================================================== */
 
