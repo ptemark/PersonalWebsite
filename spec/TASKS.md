@@ -43,7 +43,7 @@ Tasks are ordered by dependency. Complete them top to bottom.
 
 - [x] **12** — Copy `spec/peter.jpg` to `img/peter.jpg`. Correct the 90° clockwise rotation — apply `transform: rotate(-90deg)` via CSS on the `<img>` element (or fix the file directly if tooling is available)
 - [x] **13** — Implement hero section HTML: greeting label, name `h1`, title, tagline, two CTA `<a>` buttons ("View My Work" → `#projects`, "Get In Touch" → `#footer`), social icon links row (GitHub, LinkedIn, Email — all with `rel="noopener noreferrer"` and `aria-label`), and photo `<img>` with `alt="Peter Mark on a mountain summit"`
-- [ ] **14** — Style hero section: `min-height: 100vh`, flexbox centered layout, two-column layout on desktop (text left, photo right), circular/rounded photo, name in accent color at `3rem+` weight `700`, muted title and tagline, filled accent CTA button and outlined secondary button, social icon row spacing
+- [x] **14** — Style hero section: `min-height: 100vh`, flexbox centered layout, two-column layout on desktop (text left, photo right), circular/rounded photo, name in accent color at `3rem+` weight `700`, muted title and tagline, filled accent CTA button and outlined secondary button, social icon row spacing
 
 ### Phase 5 — Experience Section
 
@@ -96,4 +96,5 @@ Tasks are ordered by dependency. Complete them top to bottom.
 | 11 | 2026-03-02 | Implement scroll spy | js/app.js | IntersectionObserver with -10%/0px/-60% rootMargin for section active state; scroll event for nav--scrolled class |
 | 12 | 2026-03-02 | Copy and rotation-correct peter.jpg | img/peter.jpg | Used sips -r 270 to fix 90° clockwise rotation directly in file; portrait 3024×4032 |
 | 13 | 2026-03-02 | Implement hero section HTML | index.html | Greeting, h1, title, tagline, two CTA buttons, social icon links (GitHub/LinkedIn/Email), photo img; all ext links with rel="noopener noreferrer" and aria-label |
+| 14 | 2026-03-02 | Style hero section | css/style.css | min-height calc(100vh - nav-height), flex centered, two-column desktop layout, circular photo 220/300px, accent name, muted title/tagline, filled/outlined CTA buttons, social icon row |
 
