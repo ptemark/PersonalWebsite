@@ -1,57 +1,95 @@
-/*! HTML5 Boilerplate v9.0.1 | MIT License | https://html5boilerplate.com/ */
-
-/* main.css 3.0.0 | MIT License | https://github.com/h5bp/main.css#readme */
-/*
- * What follows is the result of much research on cross-browser styling.
- * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
- * Kroc Camen, and the H5BP dev community and team.
- */
-
 /* ==========================================================================
-   Base styles: opinionated defaults
+   Design Tokens — petermark.dev
    ========================================================================== */
 
-html {
-  color: #222;
-  font-size: 1em;
-  line-height: 1.4;
+/* Dark theme (default) */
+:root {
+  /* Colors */
+  --color-bg: #0f0f0f;
+  --color-surface: #1a1a1a;
+  --color-text: #e5e5e5;
+  --color-text-muted: #888888;
+  --color-accent: #a78bfa;
+  --color-border: #2a2a2a;
+
+  /* Typography */
+  --font-family-base: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-size-base: 16px;
+  --line-height-base: 1.6;
+
+  --font-size-heading-section: 1.75rem;
+  --font-weight-heading-section: 600;
+  --letter-spacing-heading: -0.02em;
+
+  --font-size-hero-name: 3rem;
+  --font-weight-hero-name: 700;
+
+  /* Spacing */
+  --spacing-section-vertical: 80px;
+  --spacing-page-horizontal: 24px;
+  --spacing-container-max: 860px;
+
+  /* Transitions */
+  --transition-default: 200ms ease;
 }
 
-/*
- * Remove text-shadow in selection highlight:
- * https://twitter.com/miketaylr/status/12228805301
- *
- * Customize the background color to match your design.
- */
+/* Light theme override */
+[data-theme="light"] {
+  --color-bg: #fafafa;
+  --color-surface: #ffffff;
+  --color-text: #111111;
+  --color-text-muted: #555555;
+  --color-accent: #7c3aed;
+  --color-border: #e5e5e5;
+}
+
+/* ==========================================================================
+   Base Reset & Global Styles
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-family-base);
+  font-size: 1rem;
+  line-height: var(--line-height-base);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  margin: 0;
+  padding: 0;
+  transition: background-color var(--transition-default), color var(--transition-default);
+}
+
+/* ==========================================================================
+   Selection
+   ========================================================================== */
 
 ::-moz-selection {
-  background: #b3d4fc;
+  background: var(--color-accent);
+  color: var(--color-bg);
   text-shadow: none;
 }
 
 ::selection {
-  background: #b3d4fc;
+  background: var(--color-accent);
+  color: var(--color-bg);
   text-shadow: none;
 }
 
-/*
- * A better looking default horizontal rule
- */
-
-hr {
-  display: block;
-  height: 1px;
-  border: 0;
-  border-top: 1px solid #ccc;
-  margin: 1em 0;
-  padding: 0;
-}
-
-/*
- * Remove the gap between audio, canvas, iframes,
- * images, videos and the bottom of their containers:
- * https://github.com/h5bp/html5-boilerplate/issues/440
- */
+/* ==========================================================================
+   Media Elements
+   ========================================================================== */
 
 audio,
 canvas,
@@ -62,9 +100,55 @@ video {
   vertical-align: middle;
 }
 
-/*
- * Remove default fieldset styles.
- */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ==========================================================================
+   Typography Reset
+   ========================================================================== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+p {
+  margin: 0;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color var(--transition-default);
+}
+
+a:hover {
+  color: var(--color-text);
+}
+
+/* ==========================================================================
+   Form Elements
+   ========================================================================== */
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
 
 fieldset {
   border: 0;
@@ -72,39 +156,18 @@ fieldset {
   padding: 0;
 }
 
-/*
- * Allow only vertical resizing of textareas.
- */
-
 textarea {
   resize: vertical;
 }
 
 /* ==========================================================================
-   Author's custom styles
+   Helper Classes
    ========================================================================== */
-
-/* ==========================================================================
-   Helper classes
-   ========================================================================== */
-
-/*
- * Hide visually and from screen readers
- */
 
 .hidden,
 [hidden] {
-  display: none !important;
+  display: none;
 }
-
-/*
- * Hide only visually, but have it available for screen readers:
- * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
- *
- * 1. For long content, line feeds are not interpreted as spaces and small width
- *    causes content to wrap 1 word per line:
- *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
- */
 
 .visually-hidden {
   border: 0;
@@ -116,14 +179,7 @@ textarea {
   position: absolute;
   white-space: nowrap;
   width: 1px;
-  /* 1 */
 }
-
-/*
- * Extends the .visually-hidden class to allow the element
- * to be focusable when navigated to via the keyboard:
- * https://www.drupal.org/node/897638
- */
 
 .visually-hidden.focusable:active,
 .visually-hidden.focusable:focus {
@@ -136,52 +192,8 @@ textarea {
   width: auto;
 }
 
-/*
- * Hide visually and from screen readers, but maintain layout
- */
-
-.invisible {
-  visibility: hidden;
-}
-
-/*
- * Clearfix: contain floats
- *
- * The use of `table` rather than `block` is only necessary if using
- * `::before` to contain the top-margins of child elements.
- */
-
-.clearfix::before,
-.clearfix::after {
-  content: "";
-  display: table;
-}
-
-.clearfix::after {
-  clear: both;
-}
-
 /* ==========================================================================
-   EXAMPLE Media Queries for Responsive Design.
-   These examples override the primary ('mobile first') styles.
-   Modify as content requires.
-   ========================================================================== */
-
-@media only screen and (min-width: 35em) {
-  /* Style adjustments for viewports that meet the condition */
-}
-
-@media print,
-  (-webkit-min-device-pixel-ratio: 1.25),
-  (min-resolution: 1.25dppx),
-  (min-resolution: 120dpi) {
-  /* Style adjustments for high resolution devices */
-}
-
-/* ==========================================================================
-   Print styles.
-   Inlined to avoid the additional HTTP request:
-   https://www.phpied.com/delay-loading-your-print-css/
+   Print Styles
    ========================================================================== */
 
 @media print {
@@ -190,7 +202,6 @@ textarea {
   *::after {
     background: #fff !important;
     color: #000 !important;
-    /* Black prints faster */
     box-shadow: none !important;
     text-shadow: none !important;
   }
@@ -204,21 +215,9 @@ textarea {
     content: " (" attr(href) ")";
   }
 
-  abbr[title]::after {
-    content: " (" attr(title) ")";
-  }
-
-  /*
-   * Don't show links that are fragment identifiers,
-   * or use the `javascript:` pseudo protocol
-   */
   a[href^="#"]::after,
   a[href^="javascript:"]::after {
     content: "";
-  }
-
-  pre {
-    white-space: pre-wrap !important;
   }
 
   pre,
@@ -244,4 +243,3 @@ textarea {
     page-break-after: avoid;
   }
 }
-
