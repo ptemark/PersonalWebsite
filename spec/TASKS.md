@@ -9,6 +9,8 @@ See `RALPH.md` for the full loop process. See `DESIGN.md` for all design decisio
 
 _None in progress._
 
+
+
 ---
 
 ## Next Up
@@ -24,7 +26,7 @@ Tasks are ordered by dependency. Complete them top to bottom.
 
 ### Phase 2 — Base HTML & CSS
 
-- [ ] **5** — Rewrite `index.html` with full semantic shell: `<nav>`, `<main>` containing `<section id="hero">`, `<section id="experience">`, `<section id="projects">`, `<section id="hobbies">`, and `<footer>`. Include Inter font from Google Fonts, CSP meta tag, and link to `css/style.css` and `js/app.js`
+- [x] **5** — Rewrite `index.html` with full semantic shell: `<nav>`, `<main>` containing `<section id="hero">`, `<section id="experience">`, `<section id="projects">`, `<section id="hobbies">`, and `<footer>`. Include Inter font from Google Fonts, CSP meta tag, and link to `css/style.css` and `js/app.js`
 - [ ] **6** — Set up `css/style.css` from scratch: CSS custom properties for full dark and light palettes (colors, spacing, typography tokens), `:root` defaults to dark, `[data-theme="light"]` overrides, `scroll-behavior: smooth` on `html`, base `font-family`, `font-size`, `line-height`
 - [ ] **7** — Add layout utilities to `css/style.css`: `.container` max-width `860px` centered, section vertical padding `80px`, horizontal page padding (`24px` mobile / `48px` desktop), global `box-sizing: border-box`, `200ms ease` transition default
 
@@ -83,4 +85,5 @@ Tasks are ordered by dependency. Complete them top to bottom.
 | 2 | 2026-03-02 | Update webpack CopyPlugin to include CNAME | webpack.config.prod.js | Added toType: 'file' to ensure CNAME copies as a file, not directory |
 | 3 | 2026-03-02 | Create GitHub Actions deploy workflow | .github/workflows/deploy.yml | Builds on push to main, deploys dist/ to GitHub Pages |
 | 4 | 2026-03-02 | Create README.md | README.md | Project description, live site link, spec table with GitHub links |
+| 5 | 2026-03-02 | Rewrite index.html with semantic shell | index.html, webpack.config.prod.js | Inter font, CSP, nav/main/sections/footer structure; fixed HtmlWebpackPlugin duplicate script via inject:false |
 
