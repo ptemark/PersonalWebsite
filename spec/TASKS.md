@@ -32,7 +32,7 @@ Tasks are ordered by dependency. Complete them top to bottom.
 
 ### Phase 3 — Navigation
 
-- [ ] **8** — Implement navbar HTML inside `<nav>`: wordmark "Peter Mark" anchor left (links to `#hero`), anchor links "Experience" and "Projects" right, theme toggle `<button>` with `aria-label` and sun/moon icon (SVG inline)
+- [x] **8** — Implement navbar HTML inside `<nav>`: wordmark "Peter Mark" anchor left (links to `#hero`), anchor links "Experience" and "Projects" right, theme toggle `<button>` with `aria-label` and sun/moon icon (SVG inline)
 - [ ] **9** — Style navbar in CSS: fixed top, full width, surface background + `backdrop-filter: blur(8px)`, BEM classes, hover states, scrolled state border (JS adds `.nav--scrolled` class), active link style (`.nav__link--active`)
 - [ ] **10** — Implement theme toggle in `js/app.js`: detect `prefers-color-scheme` on load, read/write `localStorage` key `theme`, toggle `data-theme` attribute on `<html>`, swap sun/moon icon on toggle. Wrap in `'use strict'` IIFE, use `DOMContentLoaded`
 - [ ] **11** — Implement scroll spy in `js/app.js`: use `IntersectionObserver` to watch each `<section>`, add/remove `.nav__link--active` on the corresponding nav link as sections enter/leave viewport. Also add/remove `.nav--scrolled` on `<nav>` when page is scrolled past `0`
@@ -88,4 +88,5 @@ Tasks are ordered by dependency. Complete them top to bottom.
 | 5 | 2026-03-02 | Rewrite index.html with semantic shell | index.html, webpack.config.prod.js | Inter font, CSP, nav/main/sections/footer structure; fixed HtmlWebpackPlugin duplicate script via inject:false |
 | 6 | 2026-03-02 | Set up css/style.css with design tokens and base styles | css/style.css | Dark/light CSS custom properties, :root dark defaults, [data-theme="light"] overrides, smooth scroll, base reset |
 | 7 | 2026-03-02 | Add layout utilities to css/style.css | css/style.css | .container (860px centered), .section (80px padding), .section__heading, desktop padding override at 768px |
+| 8 | 2026-03-02 | Implement navbar HTML | index.html | nav__inner, nav__wordmark, nav__links with Experience/Projects anchors, nav__theme-toggle with inline sun+moon SVGs |
 
