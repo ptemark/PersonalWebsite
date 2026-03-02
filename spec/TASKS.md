@@ -54,7 +54,7 @@ Tasks are ordered by dependency. Complete them top to bottom.
 
 - [x] **17** — Create `img/projects/` directory and add a placeholder image `img/projects/personal-website.png` (a solid-color placeholder is fine — screenshot to be added later)
 - [x] **18** — Implement projects section HTML: `<section id="projects">` with heading "Projects", card grid containing one card for "Personal Website" — thumbnail `<img>`, project name, description, tech tag pills (HTML, CSS, JavaScript, Webpack), GitHub icon link (`https://github.com/ptemark/PersonalWebsite`) and live site icon link (`https://petermark.dev`), all external links with `rel="noopener noreferrer"`
-- [ ] **19** — Style projects section: CSS Grid single column mobile / two columns at `768px`, card surface background + border + border-radius, thumbnail `aspect-ratio: 16/9` `object-fit: cover`, tag pills accent-tinted, card hover `box-shadow` + `translateY(-4px)` transition
+- [x] **19** — Style projects section: CSS Grid single column mobile / two columns at `768px`, card surface background + border + border-radius, thumbnail `aspect-ratio: 16/9` `object-fit: cover`, tag pills accent-tinted, card hover `box-shadow` + `translateY(-4px)` transition
 
 ### Phase 7 — Hobbies Section
 
@@ -101,4 +101,5 @@ Tasks are ordered by dependency. Complete them top to bottom.
 | 16 | 2026-03-02 | Style experience section | css/style.css | Vertical timeline with accent border-left, left-padded entries, role bold, date muted+right-aligned on desktop, disc bullet list |
 | 17 | 2026-03-02 | Create img/projects/ placeholder image | img/projects/personal-website.png | Solid-color 640×360 PNG (#1a1a1a) generated via Python; copied to dist/ by webpack CopyPlugin |
 | 18 | 2026-03-02 | Implement projects section HTML | index.html | projects__grid ul with one card: thumbnail img, h3 name, desc, tag pills, GitHub + live site icon links with rel="noopener noreferrer" |
+| 19 | 2026-03-02 | Style projects section | css/style.css | CSS Grid 1→2 col at 768px, card surface+border+border-radius, 16/9 thumbnail, accent-tinted tag pills, hover box-shadow+translateY(-4px) |
 
