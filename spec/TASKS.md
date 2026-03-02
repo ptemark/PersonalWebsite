@@ -58,7 +58,7 @@ Tasks are ordered by dependency. Complete them top to bottom.
 
 ### Phase 7 — Hobbies Section
 
-- [ ] **20** — Implement hobbies section HTML: `<section id="hobbies">` with heading "When I'm not coding..." and a wrapping row of `<span>` chip elements: 🏒 Hockey, 🃏 Poker, 🥾 Hiking, ⛷️ Skiing, 🎮 Gaming, 📚 Brandon Sanderson Books
+- [x] **20** — Implement hobbies section HTML: `<section id="hobbies">` with heading "When I'm not coding..." and a wrapping row of `<span>` chip elements: 🏒 Hockey, 🃏 Poker, 🥾 Hiking, ⛷️ Skiing, 🎮 Gaming, 📚 Brandon Sanderson Books
 - [ ] **21** — Style hobbies section: `display: flex; flex-wrap: wrap; gap`, chips with surface background, border, border-radius, muted text, no accent color — intentionally low-key
 
 ### Phase 8 — Footer
@@ -102,4 +102,5 @@ Tasks are ordered by dependency. Complete them top to bottom.
 | 17 | 2026-03-02 | Create img/projects/ placeholder image | img/projects/personal-website.png | Solid-color 640×360 PNG (#1a1a1a) generated via Python; copied to dist/ by webpack CopyPlugin |
 | 18 | 2026-03-02 | Implement projects section HTML | index.html | projects__grid ul with one card: thumbnail img, h3 name, desc, tag pills, GitHub + live site icon links with rel="noopener noreferrer" |
 | 19 | 2026-03-02 | Style projects section | css/style.css | CSS Grid 1→2 col at 768px, card surface+border+border-radius, 16/9 thumbnail, accent-tinted tag pills, hover box-shadow+translateY(-4px) |
+| 20 | 2026-03-02 | Implement hobbies section HTML | index.html | hobbies__chips div with six hobbies__chip span elements (Hockey, Poker, Hiking, Skiing, Gaming, Brandon Sanderson Books) |
 
