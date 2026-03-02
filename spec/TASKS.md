@@ -48,7 +48,7 @@ Tasks are ordered by dependency. Complete them top to bottom.
 ### Phase 5 — Experience Section
 
 - [x] **15** — Implement experience section HTML: `<section id="experience">` with heading "Experience", a `<ul>` timeline list with four `<li>` entries (FIS, Amazon SWE II, Amazon SWE I, Ciena). Each entry: role + company in `<h3>`, date range, bullet list of accomplishments from `spec/Peter_Mark_Resume.md`
-- [ ] **16** — Style experience section: vertical timeline with `border-left` in accent color, left-padded entries, role bold, date range muted and right-aligned on desktop, entry spacing, BEM classes throughout
+- [x] **16** — Style experience section: vertical timeline with `border-left` in accent color, left-padded entries, role bold, date range muted and right-aligned on desktop, entry spacing, BEM classes throughout
 
 ### Phase 6 — Projects Section
 
@@ -98,4 +98,5 @@ Tasks are ordered by dependency. Complete them top to bottom.
 | 13 | 2026-03-02 | Implement hero section HTML | index.html | Greeting, h1, title, tagline, two CTA buttons, social icon links (GitHub/LinkedIn/Email), photo img; all ext links with rel="noopener noreferrer" and aria-label |
 | 14 | 2026-03-02 | Style hero section | css/style.css | min-height calc(100vh - nav-height), flex centered, two-column desktop layout, circular photo 220/300px, accent name, muted title/tagline, filled/outlined CTA buttons, social icon row |
 | 15 | 2026-03-02 | Implement experience section HTML | index.html | ul.timeline with four li entries (FIS, Amazon SWE II, Amazon SWE I, Ciena); h3 role+company, date span, ul bullets from resume |
+| 16 | 2026-03-02 | Style experience section | css/style.css | Vertical timeline with accent border-left, left-padded entries, role bold, date muted+right-aligned on desktop, disc bullet list |
 
