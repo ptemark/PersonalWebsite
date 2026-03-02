@@ -64,7 +64,7 @@ Tasks are ordered by dependency. Complete them top to bottom.
 ### Phase 8 — Footer
 
 - [x] **22** — Implement footer HTML: `<footer id="footer">` with centered "Peter Mark · Seattle, WA" text, social icon links row (GitHub, LinkedIn, Email — same as hero), "How this was built" link to `https://github.com/ptemark/PersonalWebsite` with `rel="noopener noreferrer"`, and "Built by Peter Mark" line
-- [ ] **23** — Style footer: centered layout, muted text, divider top border, icon link row matching hero, appropriate vertical padding
+- [x] **23** — Style footer: centered layout, muted text, divider top border, icon link row matching hero, appropriate vertical padding
 
 ### Phase 9 — Scroll Animations
 
@@ -105,4 +105,5 @@ Tasks are ordered by dependency. Complete them top to bottom.
 | 20 | 2026-03-02 | Implement hobbies section HTML | index.html | hobbies__chips div with six hobbies__chip span elements (Hockey, Poker, Hiking, Skiing, Gaming, Brandon Sanderson Books) |
 | 21 | 2026-03-02 | Style hobbies section | css/style.css | flex+flex-wrap+gap chips row; surface bg, border, 999px border-radius, muted text; no accent — intentionally low-key |
 | 22 | 2026-03-02 | Implement footer HTML | index.html | footer__inner with name/location, social icons (GitHub/LinkedIn/Email), How this was built link, Built by Peter Mark line |
+| 23 | 2026-03-02 | Style footer | css/style.css | Centered flex column, border-top divider, muted text throughout, social icon row matching hero, 2.5rem vertical padding, subtle built-link hover to accent |
 
