@@ -612,6 +612,25 @@ textarea {
 }
 
 /* ==========================================================================
+   Hobbies Section
+   ========================================================================== */
+
+.hobbies__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.hobbies__chip {
+  font-size: 0.9375rem;
+  color: var(--color-text-muted);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  padding: 0.5rem 1rem;
+}
+
+/* ==========================================================================
    Helper Classes
    ========================================================================== */
 
