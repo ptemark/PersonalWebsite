@@ -5,6 +5,8 @@
     const html = document.documentElement;
     const toggleBtn = document.getElementById('theme-toggle');
 
+    // --- Theme toggle ---
+
     function getInitialTheme() {
       const stored = localStorage.getItem('theme');
       if (stored === 'light' || stored === 'dark') {
@@ -32,6 +34,52 @@
       const next = html.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
       applyTheme(next);
       localStorage.setItem('theme', next);
+    });
+
+    // --- Nav scrolled state ---
+
+    const nav = document.getElementById('nav');
+
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > 0) {
+        nav.classList.add('nav--scrolled');
+      } else {
+        nav.classList.remove('nav--scrolled');
+      }
+    }, { passive: true });
+
+    // --- Scroll spy ---
+
+    const navLinks = document.querySelectorAll('.nav__link');
+    const sections = document.querySelectorAll('section[id]');
+
+    // Map section id → nav link
+    const sectionLinkMap = {};
+    navLinks.forEach(function (link) {
+      const href = link.getAttribute('href');
+      if (href && href.startsWith('#')) {
+        sectionLinkMap[href.slice(1)] = link;
+      }
+    });
+
+    // Activate the nav link for the section entering the upper-middle viewport zone
+    const sectionObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          navLinks.forEach(function (l) { l.classList.remove('nav__link--active'); });
+          const link = sectionLinkMap[entry.target.id];
+          if (link) {
+            link.classList.add('nav__link--active');
+          }
+        }
+      });
+    }, {
+      rootMargin: '-10% 0px -60% 0px',
+      threshold: 0
+    });
+
+    sections.forEach(function (section) {
+      sectionObserver.observe(section);
     });
   });
 }());

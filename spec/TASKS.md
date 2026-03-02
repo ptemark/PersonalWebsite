@@ -37,7 +37,7 @@ Tasks are ordered by dependency. Complete them top to bottom.
 - [x] **8** — Implement navbar HTML inside `<nav>`: wordmark "Peter Mark" anchor left (links to `#hero`), anchor links "Experience" and "Projects" right, theme toggle `<button>` with `aria-label` and sun/moon icon (SVG inline)
 - [x] **9** — Style navbar in CSS: fixed top, full width, surface background + `backdrop-filter: blur(8px)`, BEM classes, hover states, scrolled state border (JS adds `.nav--scrolled` class), active link style (`.nav__link--active`)
 - [x] **10** — Implement theme toggle in `js/app.js`: detect `prefers-color-scheme` on load, read/write `localStorage` key `theme`, toggle `data-theme` attribute on `<html>`, swap sun/moon icon on toggle. Wrap in `'use strict'` IIFE, use `DOMContentLoaded`
-- [ ] **11** — Implement scroll spy in `js/app.js`: use `IntersectionObserver` to watch each `<section>`, add/remove `.nav__link--active` on the corresponding nav link as sections enter/leave viewport. Also add/remove `.nav--scrolled` on `<nav>` when page is scrolled past `0`
+- [x] **11** — Implement scroll spy in `js/app.js`: use `IntersectionObserver` to watch each `<section>`, add/remove `.nav__link--active` on the corresponding nav link as sections enter/leave viewport. Also add/remove `.nav--scrolled` on `<nav>` when page is scrolled past `0`
 
 ### Phase 4 — Hero Section
 
@@ -93,4 +93,5 @@ Tasks are ordered by dependency. Complete them top to bottom.
 | 8 | 2026-03-02 | Implement navbar HTML | index.html | nav__inner, nav__wordmark, nav__links with Experience/Projects anchors, nav__theme-toggle with inline sun+moon SVGs |
 | 9 | 2026-03-02 | Style navbar in CSS | css/style.css | Fixed + blurred nav, --nav-height/--color-nav-bg tokens, BEM hover/active states, scrolled border, sun/moon icon toggling |
 | 10 | 2026-03-02 | Implement theme toggle in js/app.js | js/app.js | prefers-color-scheme detection, localStorage persistence, data-theme toggle on html, aria-label update on button |
+| 11 | 2026-03-02 | Implement scroll spy | js/app.js | IntersectionObserver with -10%/0px/-60% rootMargin for section active state; scroll event for nav--scrolled class |
 
