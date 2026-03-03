@@ -115,7 +115,7 @@ Tasks are ordered by dependency. Complete them top to bottom.
 ### Phase 18 — Branded Error Page & PWA Metadata
 
 - [x] **44** — Custom 404 page: rewrite `404.html` to match the site's design. Link `css/style.css` and the Inter font. Show the accent-colored "404" numeral, a plain-language heading, a short message, and a "Go Back Home" button (reuse `.hero__btn--primary`). Add a `.body--no-nav` class to the 404 body to zero out the nav padding-top; add that rule to `css/style.css`. No inline styles — CSP stays clean. Use same CSP as `index.html` (drop `script-src` since there is no JS on 404).
-- [ ] **45** — Update `site.webmanifest`: set `short_name` to `"Peter Mark"`, `name` to `"Peter Mark — Senior Software Engineer"`, `theme_color` to `"#0f0f0f"` (dark bg, matches `<meta name="theme-color">` in index.html), `background_color` to `"#0f0f0f"`.
+- [x] **45** — Update `site.webmanifest`: set `short_name` to `"Peter Mark"`, `name` to `"Peter Mark — Senior Software Engineer"`, `theme_color` to `"#0f0f0f"` (dark bg, matches `<meta name="theme-color">` in index.html), `background_color` to `"#0f0f0f"`.
 
 ---
 
@@ -145,4 +145,5 @@ Tasks are ordered by dependency. Complete them top to bottom.
 | 42 | 2026-03-03 | CSS print styles | css/style.css | Portfolio-specific @media print rules: hide nav/back-to-top/hero CTAs+social+photo/footer social+meta; force .section opacity:1 (scroll animations); compact hero; break-inside: avoid on timeline/education/project entries; single-column projects grid; remove body top padding |
 | 43 | 2026-03-03 | Mobile hamburger menu | index.html, css/style.css, js/app.js | Nav had 4 links overflowing on mobile; added hamburger button with menu/X icons; links dropdown on mobile via .nav--open; JS closes on link click/outside click/resize; desktop unchanged |
 | 44 | 2026-03-03 | Custom 404 page | 404.html, css/style.css | Rewrote boilerplate 404 to match site design: Inter font, dark theme, accent 404 numeral, Go Back Home button reusing .hero__btn--primary; .body--no-nav utility class zeros out nav padding-top; no inline styles |
+| 45 | 2026-03-03 | Update site.webmanifest | site.webmanifest | Set short_name "Peter Mark", name "Peter Mark — Senior Software Engineer", theme_color "#0f0f0f", background_color "#0f0f0f"; build passes |
 
