@@ -135,6 +135,10 @@ Tasks are ordered by dependency. Complete them top to bottom.
 
 - [x] **53** — Keyboard UX + image decode: (a) Add Escape key listener in `js/app.js` — when mobile menu is open, pressing Escape calls `closeMenu()` and returns focus to the hamburger button (WAI-ARIA Disclosure Button pattern). Update `closeMenu()` to accept an optional `returnFocus` flag. (b) Add `decoding="async"` attribute to the project card `<img>` in `index.html` — moves image decoding off the main thread for below-fold images, reducing potential jank. Hero image intentionally stays without this attr (it's LCP/above-fold).
 
+### Phase 24 — Progressive Enhancement
+
+- [x] **54** — `<noscript>` CSS fallback: `.section` elements default to `opacity: 0; transform: translateY(20px)` for scroll animations. Without JS, the page is blank below the nav since `is-visible` is never added. Create `css/noscript.css` with `.section { opacity: 1; transform: none; }`. Add `<noscript><link rel="stylesheet" href="css/noscript.css"></noscript>` to `index.html` after the main stylesheet. The `css/` CopyPlugin pattern already covers the new file — no webpack config change needed.
+
 ### Phase 18 — Branded Error Page & PWA Metadata
 
 - [x] **44** — Custom 404 page: rewrite `404.html` to match the site's design. Link `css/style.css` and the Inter font. Show the accent-colored "404" numeral, a plain-language heading, a short message, and a "Go Back Home" button (reuse `.hero__btn--primary`). Add a `.body--no-nav` class to the 404 body to zero out the nav padding-top; add that rule to `css/style.css`. No inline styles — CSP stays clean. Use same CSP as `index.html` (drop `script-src` since there is no JS on 404).
@@ -146,15 +150,7 @@ Tasks are ordered by dependency. Complete them top to bottom.
 
 | # | Date | Task | Files Changed | Notes |
 |---|------|------|---------------|-------|
-| 26 | 2026-03-03 | Hero font scale at 1024px+ | css/style.css | @media (min-width: 1024px) overrides --font-size-hero-name to 4rem and .hero__tagline to 1.125rem |
-| 27 | 2026-03-03 | Accessibility pass | index.html, css/style.css | Added :focus-visible outline styles for keyboard nav; aria-labelledby on hero section; prefers-reduced-motion disables scroll animations and smooth scroll |
-| 28 | 2026-03-03 | Final build verification | — | npm run build passes; dist/ contains all 9 required files; 2 non-blocking warnings (peter.jpg size expected; code-split not applicable for static site) |
-| 29 | 2026-03-03 | Periodic codebase review (iteration 29) | css/style.css | Removed dead CSS: fieldset+textarea rules (no forms on site), .visually-hidden+.visually-hidden.focusable (unused in HTML); build still passes |
-| 30 | 2026-03-03 | Image performance pass | index.html | loading="eager" fetchpriority="high" on hero photo (LCP); loading="lazy" on project thumbnail; width/height on both images for CLS prevention |
-| 31 | 2026-03-03 | Education section | index.html, css/style.css | Added <section id="education"> between Experience and Projects; B.Eng Carleton University, capstone + scholarship bullets; "Education" nav link; card-style entry (no timeline); scroll spy works automatically |
-| 32 | 2026-03-03 | Open Graph image | img/og-image.png, index.html, scripts/generate-og-image.py | 1200×630 PNG generated via Pillow script; dark bg + accent text + dot decoration; og:image/width/height meta tags added; img/ already copied by webpack |
-| 33 | 2026-03-03 | JSON-LD structured data | index.html | Person schema with name, jobTitle, url, email, address, sameAs (GitHub + LinkedIn); <script type="application/ld+json"> in <head>; not blocked by existing CSP |
-| 34 | 2026-03-03 | Twitter Card meta tags | index.html | summary_large_image card; twitter:title, twitter:description, twitter:image added after OG block; reuses og-image.png |
+| 35 | 2026-03-03 | Sitemap.xml | sitemap.xml, webpack.config.prod.js | Single-URL sitemap for https://petermark.dev/; added to CopyPlugin so dist/sitemap.xml is included in deploy |
 | 35 | 2026-03-03 | Sitemap.xml | sitemap.xml, webpack.config.prod.js | Single-URL sitemap for https://petermark.dev/; added to CopyPlugin so dist/sitemap.xml is included in deploy |
 | 36 | 2026-03-03 | SEO meta improvements | index.html, robots.txt | Added canonical URL + meta author to <head>; Sitemap directive added to robots.txt pointing to /sitemap.xml |
 | 37 | 2026-03-03 | Project screenshot placeholder | img/projects/personal-website.png, scripts/generate-project-screenshot.py | 640×360 PNG via Pillow: navbar, hero text, CTA buttons, Experience section peek; replaces solid-color placeholder |
@@ -174,4 +170,5 @@ Tasks are ordered by dependency. Complete them top to bottom.
 | 51 | 2026-03-03 | Dual theme-color meta tags | index.html | Replaced single theme-color meta with two media-conditional tags: dark (#0f0f0f) and light (#fafafa); mobile browser chrome matches OS color scheme |
 | 52 | 2026-03-03 | Scroll spy rAF debounce | js/app.js | Maintain Set of intersecting sections; rAF debounce batches simultaneous entries; updateActiveLink picks topmost section (smallest getBoundingClientRect().top); eliminates fast-scroll mis-highlight |
 | 53 | 2026-03-03 | Keyboard UX + image decode | js/app.js, index.html | Escape key closes mobile menu and returns focus to hamburger (WAI-ARIA Disclosure pattern); closeMenu() accepts returnFocus flag; decoding="async" on project card img |
+| 54 | 2026-03-03 | noscript CSS fallback | css/noscript.css, index.html | Created css/noscript.css to reveal .section elements (opacity:1, transform:none) when JS is disabled; linked via <noscript> tag after main stylesheet; css/ CopyPlugin covers it automatically |
 

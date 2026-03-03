@@ -1,0 +1,7 @@
+/* noscript.css — loaded only when JavaScript is disabled via <noscript>
+   Without JS, scroll-animation classes are never applied, so .section elements
+   remain at opacity:0 / translateY(20px). This overrides them to be fully visible. */
+.section {
+  opacity: 1;
+  transform: none;
+}
