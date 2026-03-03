@@ -128,7 +128,7 @@ Tasks are ordered by dependency. Complete them top to bottom.
 ### Phase 22 — Performance & Polish
 
 - [x] **50** — LCP image preload: add `<link rel="preload" as="image" href="img/peter.jpg" fetchpriority="high">` to `<head>` in `index.html` before the stylesheet link. This gives the browser an early signal to fetch the hero photo (the Largest Contentful Paint element) before the HTML parser reaches the `<img>` tag, improving the Core Web Vitals LCP score.
-- [ ] **51** — Theme-color meta for dark/light OS preference: replace the single `<meta name="theme-color" content="#0f0f0f">` with two `<meta name="theme-color">` tags using `media` attributes — one for `(prefers-color-scheme: dark)` with `#0f0f0f` and one for `(prefers-color-scheme: light)` with `#fafafa`. Makes the browser chrome/status bar on mobile match the user's OS color scheme.
+- [x] **51** — Theme-color meta for dark/light OS preference: replace the single `<meta name="theme-color" content="#0f0f0f">` with two `<meta name="theme-color">` tags using `media` attributes — one for `(prefers-color-scheme: dark)` with `#0f0f0f` and one for `(prefers-color-scheme: light)` with `#fafafa`. Makes the browser chrome/status bar on mobile match the user's OS color scheme.
 - [ ] **52** — Scroll spy robustness: wrap the `IntersectionObserver` scroll-spy in a `requestAnimationFrame` debounce so that when multiple sections enter/leave simultaneously (e.g. fast scroll), only the topmost visible section gets the active class. Currently the last entry processed wins, which can mis-highlight the wrong nav link on fast scrolls.
 
 ### Phase 18 — Branded Error Page & PWA Metadata
@@ -167,4 +167,5 @@ Tasks are ordered by dependency. Complete them top to bottom.
 | 48 | 2026-03-03 | Pulsing status dot animation | css/style.css | @keyframes status-pulse box-shadow ring on .hero__status-dot; 2s infinite ease; wrapped in prefers-reduced-motion: no-preference guard; build passes |
 | 49 | 2026-03-03 | Periodic codebase review (iteration 49) | css/style.css | Bug fix: added .nav__link--active:hover to prevent global a:hover overriding active nav accent color; removed redundant text-decoration:none and transition:color from .nav__link, .nav__wordmark, .footer__social-link, .footer__built-link, .projects__card-link, .skip-link (all covered by global a rule); removed redundant color declaration from .nav__wordmark:hover |
 | 50 | 2026-03-03 | LCP image preload | index.html | Added <link rel="preload" as="image" href="img/peter.jpg" fetchpriority="high"> before stylesheet in <head>; gives browser early fetch signal for hero photo (LCP element); build passes |
+| 51 | 2026-03-03 | Dual theme-color meta tags | index.html | Replaced single theme-color meta with two media-conditional tags: dark (#0f0f0f) and light (#fafafa); mobile browser chrome matches OS color scheme |
 
