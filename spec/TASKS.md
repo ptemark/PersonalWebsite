@@ -94,7 +94,7 @@ Tasks are ordered by dependency. Complete them top to bottom.
 - [x] **36** — SEO meta improvements: add `<link rel="canonical" href="https://petermark.dev">` and `<meta name="author" content="Peter Mark">` to `<head>` in `index.html`. Update `robots.txt` to add `Sitemap: https://petermark.dev/sitemap.xml` directive so crawlers discover the sitemap directly.
 - [x] **37** — Project screenshot: generate a representative screenshot-style placeholder for `img/projects/personal-website.png` using Python/Pillow — render a simplified preview of the dark-theme site (nav bar, hero name, section labels) on a `640×360` canvas to replace the plain solid-color placeholder.
 - [x] **38** — Leadership section: add `<section id="leadership">` between Hobbies and Footer with the three bullets from the "Leadership & Collaboration" section of the resume. Style as a simple bullet list with a section heading (no timeline, no card). Add "Leadership" anchor link to the navbar.
-- [ ] **39** — Periodic codebase review (iteration 39): full review of `index.html`, `css/style.css`, and `js/app.js` — check for stale BEM inconsistencies, dead CSS, redundant rules, hardcoded values, and any security/accessibility regressions. Refactor and clean up; confirm `npm run build` passes.
+- [x] **39** — Periodic codebase review (iteration 39): full review of `index.html`, `css/style.css`, and `js/app.js` — check for stale BEM inconsistencies, dead CSS, redundant rules, hardcoded values, and any security/accessibility regressions. Refactor and clean up; confirm `npm run build` passes.
 
 ---
 
@@ -140,4 +140,5 @@ Tasks are ordered by dependency. Complete them top to bottom.
 | 36 | 2026-03-03 | SEO meta improvements | index.html, robots.txt | Added canonical URL + meta author to <head>; Sitemap directive added to robots.txt pointing to /sitemap.xml |
 | 37 | 2026-03-03 | Project screenshot placeholder | img/projects/personal-website.png, scripts/generate-project-screenshot.py | 640×360 PNG via Pillow: navbar, hero text, CTA buttons, Experience section peek; replaces solid-color placeholder |
 | 38 | 2026-03-03 | Leadership section | index.html, css/style.css | Added <section id="leadership"> between Hobbies and Footer; three resume bullets as disc list; "Leadership" nav link added; no timeline/card styling |
+| 39 | 2026-03-03 | Periodic codebase review (iteration 39) | css/style.css | Replaced 4× hardcoded line-height: 1.6 with var(--line-height-base); removed 3 redundant hover rules (.nav__link:hover, .hero__social-link:hover, .footer__social-link:hover) that duplicated global a:hover |
 

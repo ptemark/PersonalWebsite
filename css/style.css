@@ -270,10 +270,6 @@ button {
   transition: color var(--transition-default);
 }
 
-.nav__link:hover {
-  color: var(--color-text);
-}
-
 .nav__link--active {
   color: var(--color-accent);
 }
@@ -419,10 +415,6 @@ button {
   color: var(--color-text-muted);
 }
 
-.hero__social-link:hover {
-  color: var(--color-text);
-}
-
 .hero__photo-wrap {
   flex-shrink: 0;
 }
@@ -517,7 +509,7 @@ button {
 .timeline__bullet {
   font-size: 0.9375rem;
   color: var(--color-text-muted);
-  line-height: 1.6;
+  line-height: var(--line-height-base);
 }
 
 @media (min-width: 768px) {
@@ -580,7 +572,7 @@ button {
 .education__detail {
   font-size: 0.9375rem;
   color: var(--color-text-muted);
-  line-height: 1.6;
+  line-height: var(--line-height-base);
 }
 
 @media (min-width: 768px) {
@@ -647,7 +639,7 @@ button {
 .projects__card-desc {
   font-size: 0.9375rem;
   color: var(--color-text-muted);
-  line-height: 1.6;
+  line-height: var(--line-height-base);
   margin-bottom: 1rem;
 }
 
@@ -734,7 +726,7 @@ button {
 .leadership__item {
   font-size: 0.9375rem;
   color: var(--color-text-muted);
-  line-height: 1.6;
+  line-height: var(--line-height-base);
 }
 
 /* ==========================================================================
@@ -770,10 +762,6 @@ button {
   align-items: center;
   color: var(--color-text-muted);
   transition: color var(--transition-default);
-}
-
-.footer__social-link:hover {
-  color: var(--color-text);
 }
 
 .footer__meta {
