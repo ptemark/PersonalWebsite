@@ -111,4 +111,5 @@ Tasks are ordered by dependency. Complete them top to bottom.
 | 26 | 2026-03-03 | Hero font scale at 1024px+ | css/style.css | @media (min-width: 1024px) overrides --font-size-hero-name to 4rem and .hero__tagline to 1.125rem |
 | 27 | 2026-03-03 | Accessibility pass | index.html, css/style.css | Added :focus-visible outline styles for keyboard nav; aria-labelledby on hero section; prefers-reduced-motion disables scroll animations and smooth scroll |
 | 28 | 2026-03-03 | Final build verification | — | npm run build passes; dist/ contains all 9 required files; 2 non-blocking warnings (peter.jpg size expected; code-split not applicable for static site) |
+| 29 | 2026-03-03 | Periodic codebase review (iteration 29) | css/style.css | Removed dead CSS: fieldset+textarea rules (no forms on site), .visually-hidden+.visually-hidden.focusable (unused in HTML); build still passes |
 
