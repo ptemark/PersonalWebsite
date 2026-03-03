@@ -72,7 +72,7 @@ Tasks are ordered by dependency. Complete them top to bottom.
 
 ### Phase 10 — Polish & Accessibility
 
-- [ ] **25** — Responsive pass: verify navbar, hero two-column layout, project grid, and section padding all behave correctly at mobile (`< 768px`), tablet (`768px`), and desktop (`1024px+`). Fix any layout issues
+- [x] **25** — Responsive pass: verify navbar, hero two-column layout, project grid, and section padding all behave correctly at mobile (`< 768px`), tablet (`768px`), and desktop (`1024px+`). Fix any layout issues
 - [ ] **26** — Hero font scale: at `1024px+` increase hero name to `4rem`, tagline to `1.125rem`
 - [ ] **27** — Accessibility pass: verify all images have `alt`, all icon buttons have `aria-label`, all sections have logical heading hierarchy (`h1` in hero, `h2` for section headings, `h3` for job titles/project names), confirm keyboard navigation works for all interactive elements
 - [ ] **28** — Final build verification: run `npm run build`, confirm `dist/` contains `index.html`, `css/style.css`, `js/app.js`, `img/`, `CNAME`, `favicon.ico`, `robots.txt`, `site.webmanifest`, `404.html`. Confirm no build errors or warnings
@@ -107,4 +107,5 @@ Tasks are ordered by dependency. Complete them top to bottom.
 | 22 | 2026-03-02 | Implement footer HTML | index.html | footer__inner with name/location, social icons (GitHub/LinkedIn/Email), How this was built link, Built by Peter Mark line |
 | 23 | 2026-03-02 | Style footer | css/style.css | Centered flex column, border-top divider, muted text throughout, social icon row matching hero, 2.5rem vertical padding, subtle built-link hover to accent |
 | 24 | 2026-03-03 | Implement scroll animations | js/app.js, css/style.css | IntersectionObserver adds .is-visible to sections on scroll; hero starts visible; CSS opacity+translateY fade-in transition |
+| 25 | 2026-03-03 | Responsive pass | css/style.css | scroll-padding-top on html for fixed nav; nav__links gap 1rem mobile/1.5rem 768px+; hero opacity:1 override (always visible); overflow-wrap:break-word on body |
 
