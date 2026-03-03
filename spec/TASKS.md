@@ -125,6 +125,12 @@ Tasks are ordered by dependency. Complete them top to bottom.
 - [x] **48** — Pulsing status dot: add a `@keyframes status-pulse` animation (box-shadow ring expansion) to `.hero__status-dot` in `css/style.css`. Wraps in `@media (prefers-reduced-motion: no-preference)` so it only runs when the user hasn't requested reduced motion. 2s infinite ease cycle — soft glow ring expands out from the green dot and fades. No JS changes needed.
 - [x] **49** — Periodic codebase review (iteration 49): full review of `index.html`, `css/style.css`, and `js/app.js` — check for BEM inconsistencies, dead CSS, redundant rules, hardcoded values, and security/accessibility regressions. Refactor and clean up; confirm `npm run build` passes. Commit as `refactor: periodic codebase review and cleanup`.
 
+### Phase 22 — Performance & Polish
+
+- [x] **50** — LCP image preload: add `<link rel="preload" as="image" href="img/peter.jpg" fetchpriority="high">` to `<head>` in `index.html` before the stylesheet link. This gives the browser an early signal to fetch the hero photo (the Largest Contentful Paint element) before the HTML parser reaches the `<img>` tag, improving the Core Web Vitals LCP score.
+- [ ] **51** — Theme-color meta for dark/light OS preference: replace the single `<meta name="theme-color" content="#0f0f0f">` with two `<meta name="theme-color">` tags using `media` attributes — one for `(prefers-color-scheme: dark)` with `#0f0f0f` and one for `(prefers-color-scheme: light)` with `#fafafa`. Makes the browser chrome/status bar on mobile match the user's OS color scheme.
+- [ ] **52** — Scroll spy robustness: wrap the `IntersectionObserver` scroll-spy in a `requestAnimationFrame` debounce so that when multiple sections enter/leave simultaneously (e.g. fast scroll), only the topmost visible section gets the active class. Currently the last entry processed wins, which can mis-highlight the wrong nav link on fast scrolls.
+
 ### Phase 18 — Branded Error Page & PWA Metadata
 
 - [x] **44** — Custom 404 page: rewrite `404.html` to match the site's design. Link `css/style.css` and the Inter font. Show the accent-colored "404" numeral, a plain-language heading, a short message, and a "Go Back Home" button (reuse `.hero__btn--primary`). Add a `.body--no-nav` class to the 404 body to zero out the nav padding-top; add that rule to `css/style.css`. No inline styles — CSP stays clean. Use same CSP as `index.html` (drop `script-src` since there is no JS on 404).
@@ -136,7 +142,6 @@ Tasks are ordered by dependency. Complete them top to bottom.
 
 | # | Date | Task | Files Changed | Notes |
 |---|------|------|---------------|-------|
-| 25 | 2026-03-03 | Responsive pass | css/style.css | scroll-padding-top on html for fixed nav; nav__links gap 1rem mobile/1.5rem 768px+; hero opacity:1 override (always visible); overflow-wrap:break-word on body |
 | 26 | 2026-03-03 | Hero font scale at 1024px+ | css/style.css | @media (min-width: 1024px) overrides --font-size-hero-name to 4rem and .hero__tagline to 1.125rem |
 | 27 | 2026-03-03 | Accessibility pass | index.html, css/style.css | Added :focus-visible outline styles for keyboard nav; aria-labelledby on hero section; prefers-reduced-motion disables scroll animations and smooth scroll |
 | 28 | 2026-03-03 | Final build verification | — | npm run build passes; dist/ contains all 9 required files; 2 non-blocking warnings (peter.jpg size expected; code-split not applicable for static site) |
@@ -161,4 +166,5 @@ Tasks are ordered by dependency. Complete them top to bottom.
 | 47 | 2026-03-03 | Skip-to-content link | index.html, css/style.css | .skip-link visually hidden (top:-100%), slides to top:0 on focus; id="main-content" on <main>; accent bg, dark text; hidden in print; implements WCAG 2.4.1 bypass-block |
 | 48 | 2026-03-03 | Pulsing status dot animation | css/style.css | @keyframes status-pulse box-shadow ring on .hero__status-dot; 2s infinite ease; wrapped in prefers-reduced-motion: no-preference guard; build passes |
 | 49 | 2026-03-03 | Periodic codebase review (iteration 49) | css/style.css | Bug fix: added .nav__link--active:hover to prevent global a:hover overriding active nav accent color; removed redundant text-decoration:none and transition:color from .nav__link, .nav__wordmark, .footer__social-link, .footer__built-link, .projects__card-link, .skip-link (all covered by global a rule); removed redundant color declaration from .nav__wordmark:hover |
+| 50 | 2026-03-03 | LCP image preload | index.html | Added <link rel="preload" as="image" href="img/peter.jpg" fetchpriority="high"> before stylesheet in <head>; gives browser early fetch signal for hero photo (LCP element); build passes |
 
