@@ -21,32 +21,36 @@
     function applyTheme(theme) {
       if (theme === 'light') {
         html.setAttribute('data-theme', 'light');
-        toggleBtn.setAttribute('aria-label', 'Switch to dark theme');
+        if (toggleBtn) toggleBtn.setAttribute('aria-label', 'Switch to dark theme');
       } else {
         html.removeAttribute('data-theme');
-        toggleBtn.setAttribute('aria-label', 'Switch to light theme');
+        if (toggleBtn) toggleBtn.setAttribute('aria-label', 'Switch to light theme');
       }
     }
 
     applyTheme(getInitialTheme());
 
-    toggleBtn.addEventListener('click', function () {
-      const next = html.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-      applyTheme(next);
-      localStorage.setItem('theme', next);
-    });
+    if (toggleBtn) {
+      toggleBtn.addEventListener('click', function () {
+        const next = html.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+        applyTheme(next);
+        localStorage.setItem('theme', next);
+      });
+    }
 
     // --- Nav scrolled state ---
 
     const nav = document.getElementById('nav');
 
-    window.addEventListener('scroll', function () {
-      if (window.scrollY > 0) {
-        nav.classList.add('nav--scrolled');
-      } else {
-        nav.classList.remove('nav--scrolled');
-      }
-    }, { passive: true });
+    if (nav) {
+      window.addEventListener('scroll', function () {
+        if (window.scrollY > 0) {
+          nav.classList.add('nav--scrolled');
+        } else {
+          nav.classList.remove('nav--scrolled');
+        }
+      }, { passive: true });
+    }
 
     // --- Scroll spy ---
 
@@ -122,6 +126,7 @@
     const hamburgerBtn = document.getElementById('nav-hamburger');
 
     function closeMenu(returnFocus) {
+      if (!nav || !hamburgerBtn) return;
       nav.classList.remove('nav--open');
       hamburgerBtn.setAttribute('aria-expanded', 'false');
       hamburgerBtn.setAttribute('aria-label', 'Open navigation menu');
@@ -130,55 +135,59 @@
       }
     }
 
-    hamburgerBtn.addEventListener('click', function (e) {
-      e.stopPropagation();
-      const isOpen = nav.classList.toggle('nav--open');
-      hamburgerBtn.setAttribute('aria-expanded', String(isOpen));
-      hamburgerBtn.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
-    });
+    if (hamburgerBtn && nav) {
+      hamburgerBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        const isOpen = nav.classList.toggle('nav--open');
+        hamburgerBtn.setAttribute('aria-expanded', String(isOpen));
+        hamburgerBtn.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+      });
 
-    // Close when a nav link is clicked
-    navLinks.forEach(function (link) {
-      link.addEventListener('click', closeMenu);
-    });
+      // Close when a nav link is clicked
+      navLinks.forEach(function (link) {
+        link.addEventListener('click', closeMenu);
+      });
 
-    // Close when clicking outside the nav
-    document.addEventListener('click', function (e) {
-      if (!nav.contains(e.target)) {
-        closeMenu();
-      }
-    });
+      // Close when clicking outside the nav
+      document.addEventListener('click', function (e) {
+        if (!nav.contains(e.target)) {
+          closeMenu();
+        }
+      });
 
-    // Close on Escape key — return focus to hamburger (WAI-ARIA Disclosure pattern)
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && nav.classList.contains('nav--open')) {
-        closeMenu(true);
-      }
-    });
+      // Close on Escape key — return focus to hamburger (WAI-ARIA Disclosure pattern)
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && nav.classList.contains('nav--open')) {
+          closeMenu(true);
+        }
+      });
 
-    // Close when resizing to desktop
-    window.addEventListener('resize', function () {
-      if (window.innerWidth >= 768) {
-        closeMenu();
-      }
-    }, { passive: true });
+      // Close when resizing to desktop
+      window.addEventListener('resize', function () {
+        if (window.innerWidth >= 768) {
+          closeMenu();
+        }
+      }, { passive: true });
+    }
 
     // --- Back to top button ---
 
     const backToTopBtn = document.getElementById('back-to-top');
 
-    window.addEventListener('scroll', function () {
-      if (window.scrollY > window.innerHeight) {
-        backToTopBtn.classList.add('back-to-top--visible');
-      } else {
-        backToTopBtn.classList.remove('back-to-top--visible');
-      }
-    }, { passive: true });
+    if (backToTopBtn) {
+      window.addEventListener('scroll', function () {
+        if (window.scrollY > window.innerHeight) {
+          backToTopBtn.classList.add('back-to-top--visible');
+        } else {
+          backToTopBtn.classList.remove('back-to-top--visible');
+        }
+      }, { passive: true });
 
-    backToTopBtn.addEventListener('click', function () {
-      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      window.scrollTo({ top: 0, behavior: prefersReducedMotion ? 'instant' : 'smooth' });
-    });
+      backToTopBtn.addEventListener('click', function () {
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        window.scrollTo({ top: 0, behavior: prefersReducedMotion ? 'instant' : 'smooth' });
+      });
+    }
 
     // --- Scroll animations ---
 
