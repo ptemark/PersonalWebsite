@@ -116,6 +116,10 @@ Tasks are ordered by dependency. Complete them top to bottom.
 
 - [x] **46** — "Open to opportunities" badge: add a `<div class="hero__status">` element between `.hero__tagline` and `.hero__cta` in the hero section. Contains a green dot `<span aria-hidden="true">` and the text "Open to opportunities". Style as a small inline-flex pill with surface background, border, border-radius 999px, and a `--color-status-green: #22c55e` dot. Left-aligned on desktop, centered on mobile (matching existing hero alignment). Adjust `.hero__tagline` margin-bottom to `0.75rem`; give `.hero__status` `margin-bottom: 1.75rem`. Also fix the DynamoDB duplicate in the skills section — remove it from Cloud & Infrastructure tags (it already appears in Databases), keeping only: AWS, S3, EC2, ECS, Lambda, Docker, Kubernetes, Terraform.
 
+### Phase 20 — Accessibility
+
+- [x] **47** — Skip-to-content link: add `<a class="skip-link" href="#main-content">Skip to main content</a>` as the first element in `<body>` in `index.html`. Add `id="main-content"` to `<main>`. CSS: `.skip-link` positioned absolutely, `top: -100%` (off-screen by default), slides to `top: 0` on `:focus`. Accent background, dark text, `border-radius` on bottom-right corner, `z-index: 200`. Hidden in print styles. Implements WCAG 2.4.1 bypass-block pattern for keyboard and screen reader users.
+
 ### Phase 18 — Branded Error Page & PWA Metadata
 
 - [x] **44** — Custom 404 page: rewrite `404.html` to match the site's design. Link `css/style.css` and the Inter font. Show the accent-colored "404" numeral, a plain-language heading, a short message, and a "Go Back Home" button (reuse `.hero__btn--primary`). Add a `.body--no-nav` class to the 404 body to zero out the nav padding-top; add that rule to `css/style.css`. No inline styles — CSP stays clean. Use same CSP as `index.html` (drop `script-src` since there is no JS on 404).
@@ -150,4 +154,5 @@ Tasks are ordered by dependency. Complete them top to bottom.
 | 44 | 2026-03-03 | Custom 404 page | 404.html, css/style.css | Rewrote boilerplate 404 to match site design: Inter font, dark theme, accent 404 numeral, Go Back Home button reusing .hero__btn--primary; .body--no-nav utility class zeros out nav padding-top; no inline styles |
 | 45 | 2026-03-03 | Update site.webmanifest | site.webmanifest | Set short_name "Peter Mark", name "Peter Mark — Senior Software Engineer", theme_color "#0f0f0f", background_color "#0f0f0f"; build passes |
 | 46 | 2026-03-03 | Open to opportunities badge + skills fix | index.html, css/style.css | Hero status badge with green dot between tagline and CTA; --color-status-green token; desktop left-aligned/mobile centered; removed DynamoDB duplicate from Cloud & Infrastructure tags |
+| 47 | 2026-03-03 | Skip-to-content link | index.html, css/style.css | .skip-link visually hidden (top:-100%), slides to top:0 on focus; id="main-content" on <main>; accent bg, dark text; hidden in print; implements WCAG 2.4.1 bypass-block |
 
