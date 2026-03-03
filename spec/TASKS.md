@@ -159,7 +159,7 @@ Tasks are ordered by dependency. Complete them top to bottom.
 
 ### Phase 28 — Hero CTA Cleanup
 
-- [ ] **62** — Remove the "View My Work" CTA button from the hero section in `index.html`. Keep only the "Get In Touch" button. Remove the `.hero__btn--primary` element entirely. Verify the CTA row still looks correct on mobile and desktop with a single button. If the single-button layout looks unbalanced, adjust `.hero__cta` spacing accordingly in `css/style.css`. Build passes, commit.
+- [x] **62** — Remove the "View My Work" CTA button from the hero section in `index.html`. Keep only the "Get In Touch" button. Remove the `.hero__btn--primary` element entirely. Verify the CTA row still looks correct on mobile and desktop with a single button. If the single-button layout looks unbalanced, adjust `.hero__cta` spacing accordingly in `css/style.css`. Build passes, commit.
 
 ### Phase 29 — Project Metadata & Code Quality
 
@@ -198,5 +198,6 @@ Tasks are ordered by dependency. Complete them top to bottom.
 | 59 | 2026-03-03 | Hobbies chip interaction + copy fix | index.html, css/style.css | "Brandon Sanderson Books" → "Brandon Sanderson Novels"; chips restructured to show only emoji by default; .hobbies__chip-label reveals on hover via max-width/opacity transition; transition wrapped in prefers-reduced-motion guard; build passes |
 | 55 | 2026-03-03 | aria-current on active nav link | js/app.js | updateActiveLink() now sets aria-current="location" on the active nav link and removes it from all others; screen readers can now announce the current section; no HTML or CSS changes needed |
 | 60 | 2026-03-03 | Redesign Projects as RALPH loop showcase | index.html, css/style.css | Replaced card grid with two-column feature layout; left: petermark.dev name, 2-para description, 5 tech tags, "View Source on GitHub" accent button, "Learn about RALPH loop" link, Geoffrey Huntley attribution; right: hand-crafted inline SVG 8-node flowchart (1 Design Task → 2 Initialize Loop → 3 Fresh Context → 4 Read State → 5 Do Work → 6 Exit Criteria? [diamond] → No loops to 3 / Yes → 7 Update State → 8 Completed); SVG styled with CSS custom properties (rl-node/rl-diamond/rl-done/rl-line/rl-arr/rl-text classes); removed old .projects__grid/.projects__card* styles; updated print styles; build passes |
+| 62 | 2026-03-03 | Remove "View My Work" hero CTA button | index.html | Removed hero__btn--primary "View My Work" anchor; kept only "Get In Touch" (hero__btn--secondary); CSS styles retained (404.html still uses hero__btn--primary); single-button layout balanced; build passes |
 | 61 | 2026-03-03 | Update site content to match revised resume | index.html | FIS bullet 1 updated with SHAP/SageMaker explainability framework text; IntelliJ and Eclipse added to Tools skills; removed third leadership bullet ("Communicated complex technical topics…"); build passes |
 
