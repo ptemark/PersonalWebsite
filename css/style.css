@@ -902,12 +902,32 @@ button {
 }
 
 .hobbies__chip {
+  display: inline-flex;
+  align-items: center;
   font-size: 0.9375rem;
   color: var(--color-text-muted);
   background-color: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: 999px;
   padding: 0.5rem 1rem;
+}
+
+.hobbies__chip-label {
+  max-width: 0;
+  opacity: 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hobbies__chip-label {
+    transition: max-width 200ms ease, opacity 200ms ease;
+  }
+}
+
+.hobbies__chip:hover .hobbies__chip-label {
+  max-width: 200px;
+  opacity: 1;
 }
 
 /* ==========================================================================
