@@ -83,6 +83,12 @@ Tasks are ordered by dependency. Complete them top to bottom.
 - [x] **31** — Education section: add `<section id="education">` between Experience and Projects with the B.Eng from Carleton University (May 2017), capstone project, and scholarship. Add "Education" anchor link to the navbar. Style consistent with Experience section but simpler (no timeline, just card or entry).
 - [x] **32** — Open Graph image: create a `img/og-image.png` social preview (1200×630) using a Python script that renders name + title text on a dark background matching the site palette. Add `<meta property="og:image" content="https://petermark.dev/img/og-image.png">` to `index.html`. Add `img/og-image.png` to webpack CopyPlugin.
 
+### Phase 12 — SEO & Metadata
+
+- [x] **33** — JSON-LD structured data: add a `<script type="application/ld+json">` block to `<head>` in `index.html` with a Person schema — `name`, `jobTitle`, `url`, `email`, `sameAs` (GitHub + LinkedIn URLs). Helps search engines understand who Peter Mark is and may enable rich results.
+- [ ] **34** — Twitter Card meta tags: add `<meta name="twitter:card" content="summary_large_image">`, `twitter:title`, `twitter:description`, and `twitter:image` to `index.html`. These ensure correct previews when the site is shared on X/Twitter (which no longer reliably falls back to OG tags for all card types).
+- [ ] **35** — Sitemap.xml: create `sitemap.xml` in the project root with a single `<url>` entry for `https://petermark.dev/`. Add `sitemap.xml` to the webpack CopyPlugin patterns so it is included in `dist/`.
+
 ---
 
 ## Completed Tasks
@@ -121,4 +127,5 @@ Tasks are ordered by dependency. Complete them top to bottom.
 | 30 | 2026-03-03 | Image performance pass | index.html | loading="eager" fetchpriority="high" on hero photo (LCP); loading="lazy" on project thumbnail; width/height on both images for CLS prevention |
 | 31 | 2026-03-03 | Education section | index.html, css/style.css | Added <section id="education"> between Experience and Projects; B.Eng Carleton University, capstone + scholarship bullets; "Education" nav link; card-style entry (no timeline); scroll spy works automatically |
 | 32 | 2026-03-03 | Open Graph image | img/og-image.png, index.html, scripts/generate-og-image.py | 1200×630 PNG generated via Pillow script; dark bg + accent text + dot decoration; og:image/width/height meta tags added; img/ already copied by webpack |
+| 33 | 2026-03-03 | JSON-LD structured data | index.html | Person schema with name, jobTitle, url, email, address, sameAs (GitHub + LinkedIn); <script type="application/ld+json"> in <head>; not blocked by existing CSP |
 
