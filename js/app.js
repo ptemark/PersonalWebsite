@@ -115,10 +115,13 @@
 
     const hamburgerBtn = document.getElementById('nav-hamburger');
 
-    function closeMenu() {
+    function closeMenu(returnFocus) {
       nav.classList.remove('nav--open');
       hamburgerBtn.setAttribute('aria-expanded', 'false');
       hamburgerBtn.setAttribute('aria-label', 'Open navigation menu');
+      if (returnFocus) {
+        hamburgerBtn.focus();
+      }
     }
 
     hamburgerBtn.addEventListener('click', function (e) {
@@ -137,6 +140,13 @@
     document.addEventListener('click', function (e) {
       if (!nav.contains(e.target)) {
         closeMenu();
+      }
+    });
+
+    // Close on Escape key — return focus to hamburger (WAI-ARIA Disclosure pattern)
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && nav.classList.contains('nav--open')) {
+        closeMenu(true);
       }
     });
 

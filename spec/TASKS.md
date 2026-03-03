@@ -131,6 +131,10 @@ Tasks are ordered by dependency. Complete them top to bottom.
 - [x] **51** — Theme-color meta for dark/light OS preference: replace the single `<meta name="theme-color" content="#0f0f0f">` with two `<meta name="theme-color">` tags using `media` attributes — one for `(prefers-color-scheme: dark)` with `#0f0f0f` and one for `(prefers-color-scheme: light)` with `#fafafa`. Makes the browser chrome/status bar on mobile match the user's OS color scheme.
 - [x] **52** — Scroll spy robustness: wrap the `IntersectionObserver` scroll-spy in a `requestAnimationFrame` debounce so that when multiple sections enter/leave simultaneously (e.g. fast scroll), only the topmost visible section gets the active class. Currently the last entry processed wins, which can mis-highlight the wrong nav link on fast scrolls.
 
+### Phase 23 — Keyboard UX & Image Performance
+
+- [x] **53** — Keyboard UX + image decode: (a) Add Escape key listener in `js/app.js` — when mobile menu is open, pressing Escape calls `closeMenu()` and returns focus to the hamburger button (WAI-ARIA Disclosure Button pattern). Update `closeMenu()` to accept an optional `returnFocus` flag. (b) Add `decoding="async"` attribute to the project card `<img>` in `index.html` — moves image decoding off the main thread for below-fold images, reducing potential jank. Hero image intentionally stays without this attr (it's LCP/above-fold).
+
 ### Phase 18 — Branded Error Page & PWA Metadata
 
 - [x] **44** — Custom 404 page: rewrite `404.html` to match the site's design. Link `css/style.css` and the Inter font. Show the accent-colored "404" numeral, a plain-language heading, a short message, and a "Go Back Home" button (reuse `.hero__btn--primary`). Add a `.body--no-nav` class to the 404 body to zero out the nav padding-top; add that rule to `css/style.css`. No inline styles — CSP stays clean. Use same CSP as `index.html` (drop `script-src` since there is no JS on 404).
@@ -169,4 +173,5 @@ Tasks are ordered by dependency. Complete them top to bottom.
 | 50 | 2026-03-03 | LCP image preload | index.html | Added <link rel="preload" as="image" href="img/peter.jpg" fetchpriority="high"> before stylesheet in <head>; gives browser early fetch signal for hero photo (LCP element); build passes |
 | 51 | 2026-03-03 | Dual theme-color meta tags | index.html | Replaced single theme-color meta with two media-conditional tags: dark (#0f0f0f) and light (#fafafa); mobile browser chrome matches OS color scheme |
 | 52 | 2026-03-03 | Scroll spy rAF debounce | js/app.js | Maintain Set of intersecting sections; rAF debounce batches simultaneous entries; updateActiveLink picks topmost section (smallest getBoundingClientRect().top); eliminates fast-scroll mis-highlight |
+| 53 | 2026-03-03 | Keyboard UX + image decode | js/app.js, index.html | Escape key closes mobile menu and returns focus to hamburger (WAI-ARIA Disclosure pattern); closeMenu() accepts returnFocus flag; decoding="async" on project card img |
 
