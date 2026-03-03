@@ -1,13 +1,11 @@
 {
-  "name": " ",
+  "name": "petermark-dev",
   "version": "0.0.1",
-  "description": "",
+  "description": "Personal portfolio website for Peter Mark — petermark.dev",
   "private": true,
-  "keywords": [
-    ""
-  ],
-  "license": "",
-  "author": "",
+  "keywords": [],
+  "license": "MIT",
+  "author": "Peter Mark <peter.sw.mark@gmail.com>",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack serve --open --config webpack.config.dev.js",
