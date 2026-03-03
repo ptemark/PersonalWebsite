@@ -77,6 +77,12 @@ Tasks are ordered by dependency. Complete them top to bottom.
 - [x] **27** — Accessibility pass: verify all images have `alt`, all icon buttons have `aria-label`, all sections have logical heading hierarchy (`h1` in hero, `h2` for section headings, `h3` for job titles/project names), confirm keyboard navigation works for all interactive elements
 - [x] **28** — Final build verification: run `npm run build`, confirm `dist/` contains `index.html`, `css/style.css`, `js/app.js`, `img/`, `CNAME`, `favicon.ico`, `robots.txt`, `site.webmanifest`, `404.html`. Confirm no build errors or warnings
 
+### Phase 11 — Performance & SEO
+
+- [x] **30** — Image performance pass: add `loading="eager"` and `fetchpriority="high"` to the hero photo (above the fold, critical); add `loading="lazy"` to the project card thumbnail (below the fold). Add explicit `width` and `height` attributes to all `<img>` elements to help the browser reserve space and prevent layout shift.
+- [ ] **31** — Education section: add `<section id="education">` between Experience and Projects with the B.Eng from Carleton University (May 2017), capstone project, and scholarship. Add "Education" anchor link to the navbar. Style consistent with Experience section but simpler (no timeline, just card or entry).
+- [ ] **32** — Open Graph image: create a `img/og-image.png` social preview (1200×630) using a Python script that renders name + title text on a dark background matching the site palette. Add `<meta property="og:image" content="https://petermark.dev/img/og-image.png">` to `index.html`. Add `img/og-image.png` to webpack CopyPlugin.
+
 ---
 
 ## Completed Tasks
@@ -112,4 +118,5 @@ Tasks are ordered by dependency. Complete them top to bottom.
 | 27 | 2026-03-03 | Accessibility pass | index.html, css/style.css | Added :focus-visible outline styles for keyboard nav; aria-labelledby on hero section; prefers-reduced-motion disables scroll animations and smooth scroll |
 | 28 | 2026-03-03 | Final build verification | — | npm run build passes; dist/ contains all 9 required files; 2 non-blocking warnings (peter.jpg size expected; code-split not applicable for static site) |
 | 29 | 2026-03-03 | Periodic codebase review (iteration 29) | css/style.css | Removed dead CSS: fieldset+textarea rules (no forms on site), .visually-hidden+.visually-hidden.focusable (unused in HTML); build still passes |
+| 30 | 2026-03-03 | Image performance pass | index.html | loading="eager" fetchpriority="high" on hero photo (LCP); loading="lazy" on project thumbnail; width/height on both images for CLS prevention |
 
