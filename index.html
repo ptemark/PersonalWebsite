@@ -300,41 +300,85 @@
     <section id="projects" class="section projects" aria-labelledby="projects-heading">
       <div class="container">
         <h2 id="projects-heading" class="section__heading">Projects</h2>
-        <ul class="projects__grid">
+        <div class="projects__feature">
 
-          <li class="projects__card">
-            <div class="projects__card-thumb">
-              <img src="img/projects/personal-website.png" alt="Screenshot of petermark.dev personal portfolio website" class="projects__card-img" width="640" height="360" loading="lazy" decoding="async">
+          <div class="projects__feature-content">
+            <h3 class="projects__feature-name">petermark.dev</h3>
+            <p class="projects__feature-desc">This site was built entirely using RALPH — a spec-driven autonomous development loop where an AI agent works through a prioritised task list, one iteration at a time, committing verified code at each step.</p>
+            <p class="projects__feature-desc">Each section of the site, from the navigation to the print styles, was implemented by RALPH reading the design spec, picking the next task, building it, verifying the build, and pushing — without manual intervention.</p>
+            <ul class="projects__feature-tags">
+              <li class="projects__feature-tag">HTML</li>
+              <li class="projects__feature-tag">CSS</li>
+              <li class="projects__feature-tag">JavaScript</li>
+              <li class="projects__feature-tag">Webpack</li>
+              <li class="projects__feature-tag">GitHub Actions</li>
+            </ul>
+            <div class="projects__feature-links">
+              <a href="https://github.com/ptemark/PersonalWebsite" class="projects__feature-btn" rel="noopener noreferrer" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+                </svg>
+                View Source on GitHub
+              </a>
+              <a href="https://ghuntley.com/ralph/" class="projects__feature-link" rel="noopener noreferrer" target="_blank">Learn about the RALPH loop</a>
             </div>
-            <div class="projects__card-body">
-              <h3 class="projects__card-name">Personal Website</h3>
-              <p class="projects__card-desc">This portfolio site. Built with HTML5 Boilerplate and Webpack — no frameworks, just semantic HTML, vanilla JS, and CSS custom properties.</p>
-              <ul class="projects__card-tags">
-                <li class="projects__card-tag">HTML</li>
-                <li class="projects__card-tag">CSS</li>
-                <li class="projects__card-tag">JavaScript</li>
-                <li class="projects__card-tag">Webpack</li>
-              </ul>
-              <div class="projects__card-links">
-                <a href="https://github.com/ptemark/PersonalWebsite" class="projects__card-link" rel="noopener noreferrer" target="_blank" aria-label="View Personal Website source on GitHub">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                    <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
-                  </svg>
-                  GitHub
-                </a>
-                <a href="https://petermark.dev" class="projects__card-link" rel="noopener noreferrer" target="_blank" aria-label="View Personal Website live site">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                    <polyline points="15 3 21 3 21 9"></polyline>
-                    <line x1="10" y1="14" x2="21" y2="3"></line>
-                  </svg>
-                  Live Site
-                </a>
-              </div>
-            </div>
-          </li>
+            <p class="projects__feature-attribution">RALPH loop concept by <a href="https://ghuntley.com/ralph/" rel="noopener noreferrer" target="_blank">Geoffrey Huntley</a></p>
+          </div>
 
-        </ul>
+          <div class="projects__feature-diagram">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 474" width="100%" aria-label="The RALPH loop: 8-step autonomous development cycle. Steps 1 through 5 run sequentially: Design Task, Initialize Loop, Fresh Context, Read State, Do Work. Step 6 checks exit criteria — if No, loops back to Fresh Context; if Yes, proceeds to Update State then Completed." role="img">
+              <defs>
+                <marker id="rl-arr" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+                  <path d="M0,0 L8,4 L0,8 Z" class="rl-arr" />
+                </marker>
+              </defs>
+
+              <!-- Connector lines (rendered behind nodes) -->
+              <line x1="130" y1="46" x2="130" y2="63" class="rl-line" marker-end="url(#rl-arr)" />
+              <line x1="130" y1="102" x2="130" y2="119" class="rl-line" marker-end="url(#rl-arr)" />
+              <line x1="130" y1="158" x2="130" y2="175" class="rl-line" marker-end="url(#rl-arr)" />
+              <line x1="130" y1="214" x2="130" y2="231" class="rl-line" marker-end="url(#rl-arr)" />
+              <line x1="130" y1="270" x2="130" y2="283" class="rl-line" marker-end="url(#rl-arr)" />
+              <line x1="130" y1="338" x2="130" y2="355" class="rl-line" marker-end="url(#rl-arr)" />
+              <line x1="130" y1="394" x2="130" y2="425" class="rl-line" marker-end="url(#rl-arr)" />
+              <!-- No: F left → left margin → up to C → right into C -->
+              <polyline points="65,312 20,312 20,140 49,140" class="rl-line" marker-end="url(#rl-arr)" />
+
+              <!-- Branch labels -->
+              <text x="42" y="305" class="rl-text-muted" text-anchor="middle" dominant-baseline="middle">No</text>
+              <text x="138" y="348" class="rl-text-muted" dominant-baseline="middle">Yes</text>
+
+              <!-- Step nodes (rendered on top of connector lines) -->
+              <rect x="50" y="10" width="160" height="36" rx="5" class="rl-node" />
+              <text x="130" y="28" class="rl-text" text-anchor="middle" dominant-baseline="middle">1. Design Task</text>
+
+              <rect x="50" y="66" width="160" height="36" rx="5" class="rl-node" />
+              <text x="130" y="84" class="rl-text" text-anchor="middle" dominant-baseline="middle">2. Initialize Loop</text>
+
+              <rect x="50" y="122" width="160" height="36" rx="5" class="rl-node" />
+              <text x="130" y="140" class="rl-text" text-anchor="middle" dominant-baseline="middle">3. Fresh Context</text>
+
+              <rect x="50" y="178" width="160" height="36" rx="5" class="rl-node" />
+              <text x="130" y="196" class="rl-text" text-anchor="middle" dominant-baseline="middle">4. Read State</text>
+
+              <rect x="50" y="234" width="160" height="36" rx="5" class="rl-node" />
+              <text x="130" y="252" class="rl-text" text-anchor="middle" dominant-baseline="middle">5. Do Work</text>
+
+              <!-- Decision diamond: center (130, 312) -->
+              <polygon points="130,286 195,312 130,338 65,312" class="rl-diamond" />
+              <text x="130" y="306" class="rl-text-inv" text-anchor="middle" dominant-baseline="middle">6. Exit</text>
+              <text x="130" y="320" class="rl-text-inv" text-anchor="middle" dominant-baseline="middle">Criteria?</text>
+
+              <rect x="50" y="358" width="160" height="36" rx="5" class="rl-node" />
+              <text x="130" y="376" class="rl-text" text-anchor="middle" dominant-baseline="middle">7. Update State</text>
+
+              <!-- Completed node: accent fill -->
+              <rect x="50" y="428" width="160" height="36" rx="5" class="rl-done" />
+              <text x="130" y="446" class="rl-text-inv" text-anchor="middle" dominant-baseline="middle">8. Completed</text>
+            </svg>
+          </div>
+
+        </div>
       </div>
     </section>
 
