@@ -96,6 +96,10 @@ Tasks are ordered by dependency. Complete them top to bottom.
 - [x] **38** — Leadership section: add `<section id="leadership">` between Hobbies and Footer with the three bullets from the "Leadership & Collaboration" section of the resume. Style as a simple bullet list with a section heading (no timeline, no card). Add "Leadership" anchor link to the navbar.
 - [x] **39** — Periodic codebase review (iteration 39): full review of `index.html`, `css/style.css`, and `js/app.js` — check for stale BEM inconsistencies, dead CSS, redundant rules, hardcoded values, and any security/accessibility regressions. Refactor and clean up; confirm `npm run build` passes.
 
+### Phase 14 — Technical Skills
+
+- [x] **40** — Technical Skills section: add `<section id="skills">` between Education and Projects with the six skill categories from `spec/Peter_Mark_Resume.md` (Languages, Cloud & Infrastructure, Messaging & Streaming, Databases, Tools, Methodologies). Use a `<dl>` (category name as `<dt>`, tag pills as `<dd>`) layout. On desktop, category name is left-aligned with min-width, tags wrap to the right. Style tags as neutral surface chips (not accent-tinted) to differentiate from project tech tags. No nav link needed (nav already has 4 links; Skills is discoverable by scroll like Hobbies).
+
 ---
 
 ## Completed Tasks
@@ -141,4 +145,5 @@ Tasks are ordered by dependency. Complete them top to bottom.
 | 37 | 2026-03-03 | Project screenshot placeholder | img/projects/personal-website.png, scripts/generate-project-screenshot.py | 640×360 PNG via Pillow: navbar, hero text, CTA buttons, Experience section peek; replaces solid-color placeholder |
 | 38 | 2026-03-03 | Leadership section | index.html, css/style.css | Added <section id="leadership"> between Hobbies and Footer; three resume bullets as disc list; "Leadership" nav link added; no timeline/card styling |
 | 39 | 2026-03-03 | Periodic codebase review (iteration 39) | css/style.css | Replaced 4× hardcoded line-height: 1.6 with var(--line-height-base); removed 3 redundant hover rules (.nav__link:hover, .hero__social-link:hover, .footer__social-link:hover) that duplicated global a:hover |
+| 40 | 2026-03-03 | Technical Skills section | index.html, css/style.css | Added <section id="skills"> between Education and Projects; dl/dt/dd layout with six categories; neutral surface-chip tags; desktop: category label left-aligned with min-width, tags flex-wrap right |
 
