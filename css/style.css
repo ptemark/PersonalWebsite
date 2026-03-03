@@ -29,6 +29,10 @@
   --spacing-page-horizontal: 24px;
   --spacing-container-max: 860px;
 
+  /* Accent tints (for tag pills) */
+  --color-accent-tint: rgba(167, 139, 250, 0.12);
+  --color-accent-tint-border: rgba(167, 139, 250, 0.25);
+
   /* Status */
   --color-status-green: #22c55e;
 
@@ -49,6 +53,8 @@
   --color-accent: #7c3aed;
   --color-border: #e5e5e5;
   --color-nav-bg: rgba(255, 255, 255, 0.85);
+  --color-accent-tint: rgba(124, 58, 237, 0.1);
+  --color-accent-tint-border: rgba(124, 58, 237, 0.2);
 }
 
 /* ==========================================================================
@@ -827,15 +833,10 @@ button {
   font-size: 0.75rem;
   font-weight: 500;
   color: var(--color-accent);
-  background-color: rgba(167, 139, 250, 0.12);
-  border: 1px solid rgba(167, 139, 250, 0.25);
+  background-color: var(--color-accent-tint);
+  border: 1px solid var(--color-accent-tint-border);
   border-radius: 999px;
   padding: 0.1875rem 0.625rem;
-}
-
-[data-theme="light"] .projects__feature-tag {
-  background-color: rgba(124, 58, 237, 0.1);
-  border-color: rgba(124, 58, 237, 0.2);
 }
 
 .projects__feature-links {
