@@ -112,6 +112,10 @@ Tasks are ordered by dependency. Complete them top to bottom.
 
 - [x] **43** — Mobile hamburger menu: the nav now has 4 links which overflow on narrow screens. Restructure nav HTML: wrap links in `div.nav__links#nav-links`, move theme toggle out as a sibling, add `button.nav__hamburger#nav-hamburger` with a three-line / X SVG toggle. CSS: links hidden on mobile by default; `.nav--open .nav__links` shows as absolute full-width dropdown below the nav bar with vertical link layout; hamburger hidden on desktop (`≥ 768px`), links inline. JS: toggle `.nav--open` + `aria-expanded` on hamburger click; close on link click, outside click, or resize to desktop.
 
+### Phase 19 — Hero Polish & Content Fixes
+
+- [x] **46** — "Open to opportunities" badge: add a `<div class="hero__status">` element between `.hero__tagline` and `.hero__cta` in the hero section. Contains a green dot `<span aria-hidden="true">` and the text "Open to opportunities". Style as a small inline-flex pill with surface background, border, border-radius 999px, and a `--color-status-green: #22c55e` dot. Left-aligned on desktop, centered on mobile (matching existing hero alignment). Adjust `.hero__tagline` margin-bottom to `0.75rem`; give `.hero__status` `margin-bottom: 1.75rem`. Also fix the DynamoDB duplicate in the skills section — remove it from Cloud & Infrastructure tags (it already appears in Databases), keeping only: AWS, S3, EC2, ECS, Lambda, Docker, Kubernetes, Terraform.
+
 ### Phase 18 — Branded Error Page & PWA Metadata
 
 - [x] **44** — Custom 404 page: rewrite `404.html` to match the site's design. Link `css/style.css` and the Inter font. Show the accent-colored "404" numeral, a plain-language heading, a short message, and a "Go Back Home" button (reuse `.hero__btn--primary`). Add a `.body--no-nav` class to the 404 body to zero out the nav padding-top; add that rule to `css/style.css`. No inline styles — CSP stays clean. Use same CSP as `index.html` (drop `script-src` since there is no JS on 404).
@@ -123,7 +127,6 @@ Tasks are ordered by dependency. Complete them top to bottom.
 
 | # | Date | Task | Files Changed | Notes |
 |---|------|------|---------------|-------|
-| 23 | 2026-03-02 | Style footer | css/style.css | Centered flex column, border-top divider, muted text throughout, social icon row matching hero, 2.5rem vertical padding, subtle built-link hover to accent |
 | 24 | 2026-03-03 | Implement scroll animations | js/app.js, css/style.css | IntersectionObserver adds .is-visible to sections on scroll; hero starts visible; CSS opacity+translateY fade-in transition |
 | 25 | 2026-03-03 | Responsive pass | css/style.css | scroll-padding-top on html for fixed nav; nav__links gap 1rem mobile/1.5rem 768px+; hero opacity:1 override (always visible); overflow-wrap:break-word on body |
 | 26 | 2026-03-03 | Hero font scale at 1024px+ | css/style.css | @media (min-width: 1024px) overrides --font-size-hero-name to 4rem and .hero__tagline to 1.125rem |
@@ -146,4 +149,5 @@ Tasks are ordered by dependency. Complete them top to bottom.
 | 43 | 2026-03-03 | Mobile hamburger menu | index.html, css/style.css, js/app.js | Nav had 4 links overflowing on mobile; added hamburger button with menu/X icons; links dropdown on mobile via .nav--open; JS closes on link click/outside click/resize; desktop unchanged |
 | 44 | 2026-03-03 | Custom 404 page | 404.html, css/style.css | Rewrote boilerplate 404 to match site design: Inter font, dark theme, accent 404 numeral, Go Back Home button reusing .hero__btn--primary; .body--no-nav utility class zeros out nav padding-top; no inline styles |
 | 45 | 2026-03-03 | Update site.webmanifest | site.webmanifest | Set short_name "Peter Mark", name "Peter Mark — Senior Software Engineer", theme_color "#0f0f0f", background_color "#0f0f0f"; build passes |
+| 46 | 2026-03-03 | Open to opportunities badge + skills fix | index.html, css/style.css | Hero status badge with green dot between tagline and CTA; --color-status-green token; desktop left-aligned/mobile centered; removed DynamoDB duplicate from Cloud & Infrastructure tags |
 
