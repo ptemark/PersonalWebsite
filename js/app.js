@@ -81,10 +81,16 @@
         }
       });
 
-      navLinks.forEach(function (l) { l.classList.remove('nav__link--active'); });
+      navLinks.forEach(function (l) {
+        l.classList.remove('nav__link--active');
+        l.removeAttribute('aria-current');
+      });
       if (topmost) {
         const link = sectionLinkMap[topmost.id];
-        if (link) link.classList.add('nav__link--active');
+        if (link) {
+          link.classList.add('nav__link--active');
+          link.setAttribute('aria-current', 'location');
+        }
       }
     }
 

@@ -139,6 +139,10 @@ Tasks are ordered by dependency. Complete them top to bottom.
 
 - [x] **54** — `<noscript>` CSS fallback: `.section` elements default to `opacity: 0; transform: translateY(20px)` for scroll animations. Without JS, the page is blank below the nav since `is-visible` is never added. Create `css/noscript.css` with `.section { opacity: 1; transform: none; }`. Add `<noscript><link rel="stylesheet" href="css/noscript.css"></noscript>` to `index.html` after the main stylesheet. The `css/` CopyPlugin pattern already covers the new file — no webpack config change needed.
 
+### Phase 25 — Accessibility Refinements
+
+- [x] **55** — `aria-current` on active nav link: the scroll spy adds/removes `.nav__link--active` visually but never sets the WAI-ARIA `aria-current` attribute, so screen readers have no way to announce which section is active. In `updateActiveLink()` in `js/app.js`, remove `aria-current` from all nav links when clearing active state, and set `aria-current="location"` on the newly active link. No HTML or CSS changes needed.
+
 ### Phase 18 — Branded Error Page & PWA Metadata
 
 - [x] **44** — Custom 404 page: rewrite `404.html` to match the site's design. Link `css/style.css` and the Inter font. Show the accent-colored "404" numeral, a plain-language heading, a short message, and a "Go Back Home" button (reuse `.hero__btn--primary`). Add a `.body--no-nav` class to the 404 body to zero out the nav padding-top; add that rule to `css/style.css`. No inline styles — CSP stays clean. Use same CSP as `index.html` (drop `script-src` since there is no JS on 404).
@@ -171,4 +175,5 @@ Tasks are ordered by dependency. Complete them top to bottom.
 | 52 | 2026-03-03 | Scroll spy rAF debounce | js/app.js | Maintain Set of intersecting sections; rAF debounce batches simultaneous entries; updateActiveLink picks topmost section (smallest getBoundingClientRect().top); eliminates fast-scroll mis-highlight |
 | 53 | 2026-03-03 | Keyboard UX + image decode | js/app.js, index.html | Escape key closes mobile menu and returns focus to hamburger (WAI-ARIA Disclosure pattern); closeMenu() accepts returnFocus flag; decoding="async" on project card img |
 | 54 | 2026-03-03 | noscript CSS fallback | css/noscript.css, index.html | Created css/noscript.css to reveal .section elements (opacity:1, transform:none) when JS is disabled; linked via <noscript> tag after main stylesheet; css/ CopyPlugin covers it automatically |
+| 55 | 2026-03-03 | aria-current on active nav link | js/app.js | updateActiveLink() now sets aria-current="location" on the active nav link and removes it from all others; screen readers can now announce the current section; no HTML or CSS changes needed |
 
