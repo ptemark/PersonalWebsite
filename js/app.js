@@ -82,6 +82,42 @@
       sectionObserver.observe(section);
     });
 
+    // --- Mobile hamburger menu ---
+
+    const hamburgerBtn = document.getElementById('nav-hamburger');
+
+    function closeMenu() {
+      nav.classList.remove('nav--open');
+      hamburgerBtn.setAttribute('aria-expanded', 'false');
+      hamburgerBtn.setAttribute('aria-label', 'Open navigation menu');
+    }
+
+    hamburgerBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      const isOpen = nav.classList.toggle('nav--open');
+      hamburgerBtn.setAttribute('aria-expanded', String(isOpen));
+      hamburgerBtn.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+    });
+
+    // Close when a nav link is clicked
+    navLinks.forEach(function (link) {
+      link.addEventListener('click', closeMenu);
+    });
+
+    // Close when clicking outside the nav
+    document.addEventListener('click', function (e) {
+      if (!nav.contains(e.target)) {
+        closeMenu();
+      }
+    });
+
+    // Close when resizing to desktop
+    window.addEventListener('resize', function () {
+      if (window.innerWidth >= 768) {
+        closeMenu();
+      }
+    }, { passive: true });
+
     // --- Back to top button ---
 
     const backToTopBtn = document.getElementById('back-to-top');

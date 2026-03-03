@@ -108,6 +108,10 @@ Tasks are ordered by dependency. Complete them top to bottom.
 
 - [x] **42** — CSS print styles: enhance the existing `@media print` block in `css/style.css` with portfolio-specific rules. Hide nav, back-to-top button, hero CTA/social/photo, footer social icons, and footer meta. Remove body top padding (nav is hidden). Force all `.section` elements to `opacity: 1; transform: none` (scroll animations default them to invisible). Compact hero layout. Add `page-break-inside: avoid` to `.timeline__entry`, `.education__entry`, and `.projects__card`. Collapse project grid to single column. Keep name/location footer text visible.
 
+### Phase 17 — Mobile UX
+
+- [x] **43** — Mobile hamburger menu: the nav now has 4 links which overflow on narrow screens. Restructure nav HTML: wrap links in `div.nav__links#nav-links`, move theme toggle out as a sibling, add `button.nav__hamburger#nav-hamburger` with a three-line / X SVG toggle. CSS: links hidden on mobile by default; `.nav--open .nav__links` shows as absolute full-width dropdown below the nav bar with vertical link layout; hamburger hidden on desktop (`≥ 768px`), links inline. JS: toggle `.nav--open` + `aria-expanded` on hamburger click; close on link click, outside click, or resize to desktop.
+
 ---
 
 ## Completed Tasks
@@ -134,4 +138,5 @@ Tasks are ordered by dependency. Complete them top to bottom.
 | 40 | 2026-03-03 | Technical Skills section | index.html, css/style.css | Added <section id="skills"> between Education and Projects; dl/dt/dd layout with six categories; neutral surface-chip tags; desktop: category label left-aligned with min-width, tags flex-wrap right |
 | 41 | 2026-03-03 | Back to top button | index.html, css/style.css, js/app.js | Fixed bottom-right button with up-arrow SVG; shows after scrolling past one viewport height; smooth scroll to top; respects prefers-reduced-motion; BEM classes; build passes |
 | 42 | 2026-03-03 | CSS print styles | css/style.css | Portfolio-specific @media print rules: hide nav/back-to-top/hero CTAs+social+photo/footer social+meta; force .section opacity:1 (scroll animations); compact hero; break-inside: avoid on timeline/education/project entries; single-column projects grid; remove body top padding |
+| 43 | 2026-03-03 | Mobile hamburger menu | index.html, css/style.css, js/app.js | Nav had 4 links overflowing on mobile; added hamburger button with menu/X icons; links dropdown on mobile via .nav--open; JS closes on link click/outside click/resize; desktop unchanged |
 

@@ -62,11 +62,13 @@
   <nav class="nav" id="nav" aria-label="Primary navigation">
     <div class="nav__inner">
       <a href="#hero" class="nav__wordmark">Peter Mark</a>
-      <div class="nav__links">
-        <a href="#experience" class="nav__link">Experience</a>
-        <a href="#education" class="nav__link">Education</a>
-        <a href="#projects" class="nav__link">Projects</a>
-        <a href="#leadership" class="nav__link">Leadership</a>
+      <div class="nav__right">
+        <div class="nav__links" id="nav-links">
+          <a href="#experience" class="nav__link">Experience</a>
+          <a href="#education" class="nav__link">Education</a>
+          <a href="#projects" class="nav__link">Projects</a>
+          <a href="#leadership" class="nav__link">Leadership</a>
+        </div>
         <button class="nav__theme-toggle" id="theme-toggle" aria-label="Switch to light theme">
           <!-- Sun icon — visible in dark mode (click to go light) -->
           <svg class="nav__icon nav__icon--sun" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -83,6 +85,19 @@
           <!-- Moon icon — visible in light mode (click to go dark) -->
           <svg class="nav__icon nav__icon--moon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+        <button class="nav__hamburger" id="nav-hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-links">
+          <!-- Menu icon (shown when closed) -->
+          <svg class="nav__hamburger-icon nav__hamburger-icon--menu" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+          <!-- Close icon (shown when open) -->
+          <svg class="nav__hamburger-icon nav__hamburger-icon--close" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
           </svg>
         </button>
       </div>
