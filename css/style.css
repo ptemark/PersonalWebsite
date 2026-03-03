@@ -954,6 +954,47 @@ button {
   display: none;
 }
 
+/* Pages without a fixed nav (e.g. 404) don't need the nav offset */
+.body--no-nav {
+  padding-top: 0;
+}
+
+/* ==========================================================================
+   404 Error Page
+   ========================================================================== */
+
+.not-found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  text-align: center;
+  padding: 48px 24px;
+}
+
+.not-found__code {
+  font-size: clamp(5rem, 20vw, 9rem);
+  font-weight: 700;
+  color: var(--color-accent);
+  line-height: 1;
+  margin: 0 0 1rem;
+  letter-spacing: -0.04em;
+}
+
+.not-found__heading {
+  font-size: var(--font-size-heading-section);
+  font-weight: var(--font-weight-heading-section);
+  letter-spacing: var(--letter-spacing-heading);
+  color: var(--color-text);
+  margin: 0 0 0.75rem;
+}
+
+.not-found__message {
+  color: var(--color-text-muted);
+  margin: 0 0 2rem;
+}
+
 /* ==========================================================================
    Reduced Motion
    ========================================================================== */
