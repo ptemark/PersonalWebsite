@@ -22,6 +22,7 @@ module.exports = merge(common, {
         { from: '404.html', to: '404.html' },
         { from: 'site.webmanifest', to: 'site.webmanifest' },
         { from: 'CNAME', to: 'CNAME', toType: 'file' },
+        { from: 'sitemap.xml', to: 'sitemap.xml', toType: 'file' },
       ],
     }),
   ],

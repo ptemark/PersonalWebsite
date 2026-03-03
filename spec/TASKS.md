@@ -87,7 +87,7 @@ Tasks are ordered by dependency. Complete them top to bottom.
 
 - [x] **33** — JSON-LD structured data: add a `<script type="application/ld+json">` block to `<head>` in `index.html` with a Person schema — `name`, `jobTitle`, `url`, `email`, `sameAs` (GitHub + LinkedIn URLs). Helps search engines understand who Peter Mark is and may enable rich results.
 - [x] **34** — Twitter Card meta tags: add `<meta name="twitter:card" content="summary_large_image">`, `twitter:title`, `twitter:description`, and `twitter:image` to `index.html`. These ensure correct previews when the site is shared on X/Twitter (which no longer reliably falls back to OG tags for all card types).
-- [ ] **35** — Sitemap.xml: create `sitemap.xml` in the project root with a single `<url>` entry for `https://petermark.dev/`. Add `sitemap.xml` to the webpack CopyPlugin patterns so it is included in `dist/`.
+- [x] **35** — Sitemap.xml: create `sitemap.xml` in the project root with a single `<url>` entry for `https://petermark.dev/`. Add `sitemap.xml` to the webpack CopyPlugin patterns so it is included in `dist/`.
 
 ---
 
@@ -129,4 +129,5 @@ Tasks are ordered by dependency. Complete them top to bottom.
 | 32 | 2026-03-03 | Open Graph image | img/og-image.png, index.html, scripts/generate-og-image.py | 1200×630 PNG generated via Pillow script; dark bg + accent text + dot decoration; og:image/width/height meta tags added; img/ already copied by webpack |
 | 33 | 2026-03-03 | JSON-LD structured data | index.html | Person schema with name, jobTitle, url, email, address, sameAs (GitHub + LinkedIn); <script type="application/ld+json"> in <head>; not blocked by existing CSP |
 | 34 | 2026-03-03 | Twitter Card meta tags | index.html | summary_large_image card; twitter:title, twitter:description, twitter:image added after OG block; reuses og-image.png |
+| 35 | 2026-03-03 | Sitemap.xml | sitemap.xml, webpack.config.prod.js | Single-URL sitemap for https://petermark.dev/; added to CopyPlugin so dist/sitemap.xml is included in deploy |
 
