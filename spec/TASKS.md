@@ -120,6 +120,11 @@ Tasks are ordered by dependency. Complete them top to bottom.
 
 - [x] **47** — Skip-to-content link: add `<a class="skip-link" href="#main-content">Skip to main content</a>` as the first element in `<body>` in `index.html`. Add `id="main-content"` to `<main>`. CSS: `.skip-link` positioned absolutely, `top: -100%` (off-screen by default), slides to `top: 0` on `:focus`. Accent background, dark text, `border-radius` on bottom-right corner, `z-index: 200`. Hidden in print styles. Implements WCAG 2.4.1 bypass-block pattern for keyboard and screen reader users.
 
+### Phase 21 — Final Polish
+
+- [x] **48** — Pulsing status dot: add a `@keyframes status-pulse` animation (box-shadow ring expansion) to `.hero__status-dot` in `css/style.css`. Wraps in `@media (prefers-reduced-motion: no-preference)` so it only runs when the user hasn't requested reduced motion. 2s infinite ease cycle — soft glow ring expands out from the green dot and fades. No JS changes needed.
+- [ ] **49** — Periodic codebase review (iteration 49): full review of `index.html`, `css/style.css`, and `js/app.js` — check for BEM inconsistencies, dead CSS, redundant rules, hardcoded values, and security/accessibility regressions. Refactor and clean up; confirm `npm run build` passes. Commit as `refactor: periodic codebase review and cleanup`.
+
 ### Phase 18 — Branded Error Page & PWA Metadata
 
 - [x] **44** — Custom 404 page: rewrite `404.html` to match the site's design. Link `css/style.css` and the Inter font. Show the accent-colored "404" numeral, a plain-language heading, a short message, and a "Go Back Home" button (reuse `.hero__btn--primary`). Add a `.body--no-nav` class to the 404 body to zero out the nav padding-top; add that rule to `css/style.css`. No inline styles — CSP stays clean. Use same CSP as `index.html` (drop `script-src` since there is no JS on 404).
@@ -131,7 +136,6 @@ Tasks are ordered by dependency. Complete them top to bottom.
 
 | # | Date | Task | Files Changed | Notes |
 |---|------|------|---------------|-------|
-| 24 | 2026-03-03 | Implement scroll animations | js/app.js, css/style.css | IntersectionObserver adds .is-visible to sections on scroll; hero starts visible; CSS opacity+translateY fade-in transition |
 | 25 | 2026-03-03 | Responsive pass | css/style.css | scroll-padding-top on html for fixed nav; nav__links gap 1rem mobile/1.5rem 768px+; hero opacity:1 override (always visible); overflow-wrap:break-word on body |
 | 26 | 2026-03-03 | Hero font scale at 1024px+ | css/style.css | @media (min-width: 1024px) overrides --font-size-hero-name to 4rem and .hero__tagline to 1.125rem |
 | 27 | 2026-03-03 | Accessibility pass | index.html, css/style.css | Added :focus-visible outline styles for keyboard nav; aria-labelledby on hero section; prefers-reduced-motion disables scroll animations and smooth scroll |
@@ -155,4 +159,5 @@ Tasks are ordered by dependency. Complete them top to bottom.
 | 45 | 2026-03-03 | Update site.webmanifest | site.webmanifest | Set short_name "Peter Mark", name "Peter Mark — Senior Software Engineer", theme_color "#0f0f0f", background_color "#0f0f0f"; build passes |
 | 46 | 2026-03-03 | Open to opportunities badge + skills fix | index.html, css/style.css | Hero status badge with green dot between tagline and CTA; --color-status-green token; desktop left-aligned/mobile centered; removed DynamoDB duplicate from Cloud & Infrastructure tags |
 | 47 | 2026-03-03 | Skip-to-content link | index.html, css/style.css | .skip-link visually hidden (top:-100%), slides to top:0 on focus; id="main-content" on <main>; accent bg, dark text; hidden in print; implements WCAG 2.4.1 bypass-block |
+| 48 | 2026-03-03 | Pulsing status dot animation | css/style.css | @keyframes status-pulse box-shadow ring on .hero__status-dot; 2s infinite ease; wrapped in prefers-reduced-motion: no-preference guard; build passes |
 
