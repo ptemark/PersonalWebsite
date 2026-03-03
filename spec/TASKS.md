@@ -10,9 +10,6 @@ See `RALPH.md` for the full loop process. See `DESIGN.md` for all design decisio
 _None in progress._
 
 
-
-
-
 ---
 
 ## Next Up
@@ -112,6 +109,11 @@ Tasks are ordered by dependency. Complete them top to bottom.
 
 - [x] **43** — Mobile hamburger menu: the nav now has 4 links which overflow on narrow screens. Restructure nav HTML: wrap links in `div.nav__links#nav-links`, move theme toggle out as a sibling, add `button.nav__hamburger#nav-hamburger` with a three-line / X SVG toggle. CSS: links hidden on mobile by default; `.nav--open .nav__links` shows as absolute full-width dropdown below the nav bar with vertical link layout; hamburger hidden on desktop (`≥ 768px`), links inline. JS: toggle `.nav--open` + `aria-expanded` on hamburger click; close on link click, outside click, or resize to desktop.
 
+### Phase 18 — Branded Error Page & PWA Metadata
+
+- [x] **44** — Custom 404 page: rewrite `404.html` to match the site's design. Link `css/style.css` and the Inter font. Show the accent-colored "404" numeral, a plain-language heading, a short message, and a "Go Back Home" button (reuse `.hero__btn--primary`). Add a `.body--no-nav` class to the 404 body to zero out the nav padding-top; add that rule to `css/style.css`. No inline styles — CSP stays clean. Use same CSP as `index.html` (drop `script-src` since there is no JS on 404).
+- [x] **45** — Update `site.webmanifest`: set `short_name` to `"Peter Mark"`, `name` to `"Peter Mark — Senior Software Engineer"`, `theme_color` to `"#0f0f0f"` (dark bg, matches `<meta name="theme-color">` in index.html), `background_color` to `"#0f0f0f"`.
+
 ### Phase 19 — Hero Polish & Content Fixes
 
 - [x] **46** — "Open to opportunities" badge: add a `<div class="hero__status">` element between `.hero__tagline` and `.hero__cta` in the hero section. Contains a green dot `<span aria-hidden="true">` and the text "Open to opportunities". Style as a small inline-flex pill with surface background, border, border-radius 999px, and a `--color-status-green: #22c55e` dot. Left-aligned on desktop, centered on mobile (matching existing hero alignment). Adjust `.hero__tagline` margin-bottom to `0.75rem`; give `.hero__status` `margin-bottom: 1.75rem`. Also fix the DynamoDB duplicate in the skills section — remove it from Cloud & Infrastructure tags (it already appears in Databases), keeping only: AWS, S3, EC2, ECS, Lambda, Docker, Kubernetes, Terraform.
@@ -147,10 +149,24 @@ Tasks are ordered by dependency. Complete them top to bottom.
 
 - [x] **56** — Custom SVG favicon: replace the HTML5 Boilerplate default `icon.svg` (orange star) with a branded "PM" monogram SVG. Design: 32×32 viewBox, accent-purple rounded-rect background (`#7C3AED`, `rx="7"`), bold white "PM" text centered. This is the SVG favicon served to all modern browsers. The existing `favicon.ico` remains as the legacy fallback. No webpack config changes needed — `icon.svg` is already in the CopyPlugin patterns.
 
-### Phase 18 — Branded Error Page & PWA Metadata
+### Phase 27 — Photo & Resume Content Update
 
-- [x] **44** — Custom 404 page: rewrite `404.html` to match the site's design. Link `css/style.css` and the Inter font. Show the accent-colored "404" numeral, a plain-language heading, a short message, and a "Go Back Home" button (reuse `.hero__btn--primary`). Add a `.body--no-nav` class to the 404 body to zero out the nav padding-top; add that rule to `css/style.css`. No inline styles — CSP stays clean. Use same CSP as `index.html` (drop `script-src` since there is no JS on 404).
-- [x] **45** — Update `site.webmanifest`: set `short_name` to `"Peter Mark"`, `name` to `"Peter Mark — Senior Software Engineer"`, `theme_color` to `"#0f0f0f"` (dark bg, matches `<meta name="theme-color">` in index.html), `background_color` to `"#0f0f0f"`.
+- [x] **57** — Hero photo fix: the `img/peter.jpg` file has been physically rotated to the correct orientation (hands up, sky at top). Remove any `transform: rotate()` applied to `.hero__photo` in `css/style.css` that was added as a temporary workaround in task 12 — it is no longer needed and would double-rotate the image. Commit the updated `img/peter.jpg` and `spec/peter.jpg` along with any CSS change. Verify the photo displays correctly in both dark and light themes.
+- [ ] **58** — Experience section summary blurb: add a `<p class="experience__summary">` paragraph directly below the "Experience" `<h2>` heading and above the timeline `<ul>` in `index.html`. Text: "Senior Software Engineer with 7+ years of experience designing and building scalable, reliable distributed systems. Expert in Java, Python, and AWS, with deep experience in microservices, cloud infrastructure, and system optimization. Proven ability to lead design discussions, mentor peers, and deliver impactful, high-performance software solutions." Add `.experience__summary` to `css/style.css`: `font-size: 0.9375rem`, `color: var(--color-text-muted)`, `line-height: var(--line-height-base)`, `margin-bottom: 2rem`. Verify build passes and commit.
+- [ ] **59** — Hobbies chip interaction + copy fix: (1) Change "Brandon Sanderson Books" to "Brandon Sanderson Novels" in `index.html`. (2) Rework each `.hobbies__chip` so only the emoji is visible by default and the text label reveals on hover. Wrap each label in `<span class="hobbies__chip-label">`. CSS: `.hobbies__chip-label { max-width: 0; opacity: 0; overflow: hidden; white-space: nowrap; transition: max-width 200ms ease, opacity 200ms ease; }` and `.hobbies__chip:hover .hobbies__chip-label { max-width: 200px; opacity: 1; }`. Also add a small `gap` between emoji and label inside the chip. No JS needed. Verify build passes and commit.
+- [ ] **60** — Redesign Projects section as a RALPH loop showcase. Replace the current card grid in `index.html` with a two-column feature layout (stacked on mobile, side-by-side on desktop at `≥ 768px`). Left column: `<h3>petermark.dev</h3>`, two-paragraph description of how RALPH built the site, tech tag pills (HTML, CSS, JavaScript, Webpack, GitHub Actions), a prominent filled-accent "View Source on GitHub" button linking to `https://github.com/ptemark/PersonalWebsite`, a secondary "Learn about the RALPH loop" text link to `https://ghuntley.com/ralph/`, and an attribution line "RALPH loop concept by Geoffrey Huntley" linked to `https://ghuntley.com/ralph/` — all external links with `rel="noopener noreferrer" target="_blank"`. Right column: hand-crafted inline SVG flowchart based on `spec/The Ralph Loop` showing the 6-step loop (Design → Initialize → Fresh Context → Read State → Do Work → Exit Check decision diamond with No loop back and Yes path to Update State → Completed). Style SVG nodes using CSS custom properties (`var(--color-surface)`, `var(--color-accent)`, `var(--color-border)`, `var(--color-text)`, `var(--font-family-base)`) so it responds to dark/light theme. SVG: `width="100%"` `max-width: 420px`. Update `css/style.css` with `.projects__feature` BEM layout classes. Remove old `.projects__grid` / `.projects__card` styles if no longer used. Verify build passes and commit.
+- [ ] **61** — Update site content to match the revised resume (`spec/Peter_Mark_Resume.md`). Three changes: (1) **FIS bullet 1** in `#experience`: replace old text with "Built explainability and compliance framework with SHAP, bias detection, and drift monitoring in Amazon SageMaker, meeting model risk standards that facilitated a multi-million-dollar fintech deal around fraud detection." (2) **Tools** in `#skills`: add `IntelliJ` and `Eclipse` as skill tags to the Tools category. (3) **Leadership** in `#leadership`: remove the third bullet "Communicated complex technical topics effectively through demos and documentation." Verify `npm run build` passes, commit.
+
+### Phase 28 — Hero CTA Cleanup
+
+- [ ] **62** — Remove the "View My Work" CTA button from the hero section in `index.html`. Keep only the "Get In Touch" button. Remove the `.hero__btn--primary` element entirely. Verify the CTA row still looks correct on mobile and desktop with a single button. If the single-button layout looks unbalanced, adjust `.hero__cta` spacing accordingly in `css/style.css`. Build passes, commit.
+
+### Phase 29 — Project Metadata & Code Quality
+
+- [ ] **63** — Fill in `package.json` metadata: set `name` to `"petermark-dev"`, `description` to `"Personal portfolio website for Peter Mark — petermark.dev"`, `author` to `"Peter Mark <peter.sw.mark@gmail.com>"`, `license` to `"MIT"`, and clear the empty `keywords` array. Build passes, commit.
+- [ ] **64** — `js/app.js` null safety: before using `toggleBtn`, `nav`, `hamburgerBtn`, and `backToTopBtn`, add a null check for each element before attaching event listeners or calling methods on them. This prevents uncaught TypeErrors if any element is ever absent (e.g. on future pages). Use an early `if (!toggleBtn) return;` guard pattern at the top of the relevant blocks. Build passes, commit.
+- [ ] **65** — Hobbies chips accessibility: change the chips container from `<div class="hobbies__chips">` to `<ul class="hobbies__chips">` and each `<span class="hobbies__chip">` to `<li class="hobbies__chip">` in `index.html`. Update `css/style.css` BEM selectors if needed (they should still work since class names stay the same). Also wrap the hobbies chip label hover transition (added in Task 59) in `@media (prefers-reduced-motion: no-preference)` so users who prefer reduced motion see the label immediately without animation. Build passes, commit.
+- [ ] **66** — CSS custom properties for accent tints: the project card tag styles use hardcoded `rgba(167, 139, 250, 0.12)` and `rgba(167, 139, 250, 0.25)` (dark) and `rgba(124, 58, 237, 0.1)` / `rgba(124, 58, 237, 0.2)` (light) values in `css/style.css`. Add `--color-accent-tint: rgba(167, 139, 250, 0.12)` and `--color-accent-tint-border: rgba(167, 139, 250, 0.25)` to `:root` and their light equivalents to `[data-theme="light"]`, then replace all hardcoded rgba values with the new custom properties. Build passes, commit.
 
 ---
 
@@ -158,9 +174,8 @@ Tasks are ordered by dependency. Complete them top to bottom.
 
 | # | Date | Task | Files Changed | Notes |
 |---|------|------|---------------|-------|
+| 57 | 2026-03-03 | Hero photo fix | img/peter.jpg, spec/peter.jpg | Physically rotated photos committed; no CSS transform to remove (rotate workaround was absent from style.css); build passes |
 | 56 | 2026-03-03 | Custom SVG favicon | icon.svg | Replaced boilerplate orange-star icon.svg with branded "PM" monogram: purple rounded-rect background (#7C3AED) + bold white PM text; legacy favicon.ico unchanged |
-| 36 | 2026-03-03 | SEO meta improvements | index.html, robots.txt | Added canonical URL + meta author to <head>; Sitemap directive added to robots.txt pointing to /sitemap.xml |
-| 37 | 2026-03-03 | Project screenshot placeholder | img/projects/personal-website.png, scripts/generate-project-screenshot.py | 640×360 PNG via Pillow: navbar, hero text, CTA buttons, Experience section peek; replaces solid-color placeholder |
 | 38 | 2026-03-03 | Leadership section | index.html, css/style.css | Added <section id="leadership"> between Hobbies and Footer; three resume bullets as disc list; "Leadership" nav link added; no timeline/card styling |
 | 39 | 2026-03-03 | Periodic codebase review (iteration 39) | css/style.css | Replaced 4× hardcoded line-height: 1.6 with var(--line-height-base); removed 3 redundant hover rules (.nav__link:hover, .hero__social-link:hover, .footer__social-link:hover) that duplicated global a:hover |
 | 40 | 2026-03-03 | Technical Skills section | index.html, css/style.css | Added <section id="skills"> between Education and Projects; dl/dt/dd layout with six categories; neutral surface-chip tags; desktop: category label left-aligned with min-width, tags flex-wrap right |
