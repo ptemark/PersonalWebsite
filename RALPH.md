@@ -169,6 +169,27 @@ git push
 
 ---
 
+## Periodic Codebase Review
+
+Every 10 iterations, before picking the next task, perform a full codebase review pass:
+
+1. **Read all source files** — `index.html`, `css/style.css`, `js/app.js`, and any others added during implementation
+2. **Check for:**
+   - Inconsistent BEM naming or CSS that should use existing custom properties
+   - Duplicate or redundant CSS rules
+   - JS functions that could be simplified or are doing more than one thing
+   - Dead code — unused variables, classes, functions, or CSS selectors
+   - Hardcoded values that should be CSS custom properties
+   - Any security standards from the Code Quality section above that have slipped
+3. **Refactor** — make the improvements directly. Keep changes focused on clarity and maintainability, not feature changes
+4. **Verify** — run `npm run build` and confirm it still passes after refactoring
+5. **Commit** the cleanup as a single dedicated commit: `refactor: periodic codebase review and cleanup`
+6. **Document** in `spec/TASKS.md` completed table with what was cleaned up
+
+This review counts as one iteration and does not replace the next task — resume normal task order on the following iteration.
+
+---
+
 ## When You're Stuck
 
 If you encounter a blocker:

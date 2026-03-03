@@ -68,7 +68,7 @@ Tasks are ordered by dependency. Complete them top to bottom.
 
 ### Phase 9 — Scroll Animations
 
-- [ ] **24** — Implement scroll animations in `js/app.js`: `IntersectionObserver` watches all `<section>` elements, adds `.is-visible` class when they enter the viewport. CSS defines `.section { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }` and `.section.is-visible { opacity: 1; transform: none; }`. Hero section starts visible (no animation delay on load)
+- [x] **24** — Implement scroll animations in `js/app.js`: `IntersectionObserver` watches all `<section>` elements, adds `.is-visible` class when they enter the viewport. CSS defines `.section { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }` and `.section.is-visible { opacity: 1; transform: none; }`. Hero section starts visible (no animation delay on load)
 
 ### Phase 10 — Polish & Accessibility
 
@@ -106,4 +106,5 @@ Tasks are ordered by dependency. Complete them top to bottom.
 | 21 | 2026-03-02 | Style hobbies section | css/style.css | flex+flex-wrap+gap chips row; surface bg, border, 999px border-radius, muted text; no accent — intentionally low-key |
 | 22 | 2026-03-02 | Implement footer HTML | index.html | footer__inner with name/location, social icons (GitHub/LinkedIn/Email), How this was built link, Built by Peter Mark line |
 | 23 | 2026-03-02 | Style footer | css/style.css | Centered flex column, border-top divider, muted text throughout, social icon row matching hero, 2.5rem vertical padding, subtle built-link hover to accent |
+| 24 | 2026-03-03 | Implement scroll animations | js/app.js, css/style.css | IntersectionObserver adds .is-visible to sections on scroll; hero starts visible; CSS opacity+translateY fade-in transition |
 

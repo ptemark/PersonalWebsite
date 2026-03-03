@@ -81,5 +81,25 @@
     sections.forEach(function (section) {
       sectionObserver.observe(section);
     });
+
+    // --- Scroll animations ---
+
+    const animObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          animObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    sections.forEach(function (section) {
+      if (section.id === 'hero') {
+        // Hero is immediately visible — no fade-in on load
+        section.classList.add('is-visible');
+      } else {
+        animObserver.observe(section);
+      }
+    });
   });
 }());

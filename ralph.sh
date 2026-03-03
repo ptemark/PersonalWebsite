@@ -18,7 +18,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 RALPH_PROMPT="$SCRIPT_DIR/RALPH.md"
 
 # Configuration
-MAX_ITERATIONS=50
+MAX_ITERATIONS=20
 ITERATION_DELAY=5
 LOG_DIR="$SCRIPT_DIR/logs"
 TIMESTAMP=$(date +%Y%m%d_%H%M%S)
