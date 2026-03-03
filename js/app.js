@@ -82,6 +82,23 @@
       sectionObserver.observe(section);
     });
 
+    // --- Back to top button ---
+
+    const backToTopBtn = document.getElementById('back-to-top');
+
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > window.innerHeight) {
+        backToTopBtn.classList.add('back-to-top--visible');
+      } else {
+        backToTopBtn.classList.remove('back-to-top--visible');
+      }
+    }, { passive: true });
+
+    backToTopBtn.addEventListener('click', function () {
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.scrollTo({ top: 0, behavior: prefersReducedMotion ? 'instant' : 'smooth' });
+    });
+
     // --- Scroll animations ---
 
     const animObserver = new IntersectionObserver(function (entries) {
