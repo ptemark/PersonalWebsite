@@ -75,7 +75,7 @@ Tasks are ordered by dependency. Complete them top to bottom.
 - [x] **25** — Responsive pass: verify navbar, hero two-column layout, project grid, and section padding all behave correctly at mobile (`< 768px`), tablet (`768px`), and desktop (`1024px+`). Fix any layout issues
 - [x] **26** — Hero font scale: at `1024px+` increase hero name to `4rem`, tagline to `1.125rem`
 - [x] **27** — Accessibility pass: verify all images have `alt`, all icon buttons have `aria-label`, all sections have logical heading hierarchy (`h1` in hero, `h2` for section headings, `h3` for job titles/project names), confirm keyboard navigation works for all interactive elements
-- [ ] **28** — Final build verification: run `npm run build`, confirm `dist/` contains `index.html`, `css/style.css`, `js/app.js`, `img/`, `CNAME`, `favicon.ico`, `robots.txt`, `site.webmanifest`, `404.html`. Confirm no build errors or warnings
+- [x] **28** — Final build verification: run `npm run build`, confirm `dist/` contains `index.html`, `css/style.css`, `js/app.js`, `img/`, `CNAME`, `favicon.ico`, `robots.txt`, `site.webmanifest`, `404.html`. Confirm no build errors or warnings
 
 ---
 
@@ -110,4 +110,5 @@ Tasks are ordered by dependency. Complete them top to bottom.
 | 25 | 2026-03-03 | Responsive pass | css/style.css | scroll-padding-top on html for fixed nav; nav__links gap 1rem mobile/1.5rem 768px+; hero opacity:1 override (always visible); overflow-wrap:break-word on body |
 | 26 | 2026-03-03 | Hero font scale at 1024px+ | css/style.css | @media (min-width: 1024px) overrides --font-size-hero-name to 4rem and .hero__tagline to 1.125rem |
 | 27 | 2026-03-03 | Accessibility pass | index.html, css/style.css | Added :focus-visible outline styles for keyboard nav; aria-labelledby on hero section; prefers-reduced-motion disables scroll animations and smooth scroll |
+| 28 | 2026-03-03 | Final build verification | — | npm run build passes; dist/ contains all 9 required files; 2 non-blocking warnings (peter.jpg size expected; code-split not applicable for static site) |
 
