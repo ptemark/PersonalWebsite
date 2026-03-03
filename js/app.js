@@ -62,17 +62,46 @@
       }
     });
 
-    // Activate the nav link for the section entering the upper-middle viewport zone
+    // Track sections currently in the scroll-spy zone
+    const spySections = new Set();
+    let spyRafId = null;
+
+    function updateActiveLink() {
+      spyRafId = null;
+      if (spySections.size === 0) return;
+
+      // Among intersecting sections, activate the topmost one (smallest getBoundingClientRect().top)
+      let topmost = null;
+      let topmostTop = Infinity;
+      spySections.forEach(function (section) {
+        const top = section.getBoundingClientRect().top;
+        if (top < topmostTop) {
+          topmostTop = top;
+          topmost = section;
+        }
+      });
+
+      navLinks.forEach(function (l) { l.classList.remove('nav__link--active'); });
+      if (topmost) {
+        const link = sectionLinkMap[topmost.id];
+        if (link) link.classList.add('nav__link--active');
+      }
+    }
+
+    // Activate the nav link for the topmost section in the upper-middle viewport zone.
+    // rAF debounce ensures that when multiple entries fire simultaneously (fast scroll),
+    // all intersection updates are batched before the topmost section is selected.
     const sectionObserver = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
-          navLinks.forEach(function (l) { l.classList.remove('nav__link--active'); });
-          const link = sectionLinkMap[entry.target.id];
-          if (link) {
-            link.classList.add('nav__link--active');
-          }
+          spySections.add(entry.target);
+        } else {
+          spySections.delete(entry.target);
         }
       });
+      if (spyRafId === null) {
+        spyRafId = requestAnimationFrame(updateActiveLink);
+      }
     }, {
       rootMargin: '-10% 0px -60% 0px',
       threshold: 0
