@@ -123,7 +123,7 @@ Tasks are ordered by dependency. Complete them top to bottom.
 ### Phase 21 — Final Polish
 
 - [x] **48** — Pulsing status dot: add a `@keyframes status-pulse` animation (box-shadow ring expansion) to `.hero__status-dot` in `css/style.css`. Wraps in `@media (prefers-reduced-motion: no-preference)` so it only runs when the user hasn't requested reduced motion. 2s infinite ease cycle — soft glow ring expands out from the green dot and fades. No JS changes needed.
-- [ ] **49** — Periodic codebase review (iteration 49): full review of `index.html`, `css/style.css`, and `js/app.js` — check for BEM inconsistencies, dead CSS, redundant rules, hardcoded values, and security/accessibility regressions. Refactor and clean up; confirm `npm run build` passes. Commit as `refactor: periodic codebase review and cleanup`.
+- [x] **49** — Periodic codebase review (iteration 49): full review of `index.html`, `css/style.css`, and `js/app.js` — check for BEM inconsistencies, dead CSS, redundant rules, hardcoded values, and security/accessibility regressions. Refactor and clean up; confirm `npm run build` passes. Commit as `refactor: periodic codebase review and cleanup`.
 
 ### Phase 18 — Branded Error Page & PWA Metadata
 
@@ -160,4 +160,5 @@ Tasks are ordered by dependency. Complete them top to bottom.
 | 46 | 2026-03-03 | Open to opportunities badge + skills fix | index.html, css/style.css | Hero status badge with green dot between tagline and CTA; --color-status-green token; desktop left-aligned/mobile centered; removed DynamoDB duplicate from Cloud & Infrastructure tags |
 | 47 | 2026-03-03 | Skip-to-content link | index.html, css/style.css | .skip-link visually hidden (top:-100%), slides to top:0 on focus; id="main-content" on <main>; accent bg, dark text; hidden in print; implements WCAG 2.4.1 bypass-block |
 | 48 | 2026-03-03 | Pulsing status dot animation | css/style.css | @keyframes status-pulse box-shadow ring on .hero__status-dot; 2s infinite ease; wrapped in prefers-reduced-motion: no-preference guard; build passes |
+| 49 | 2026-03-03 | Periodic codebase review (iteration 49) | css/style.css | Bug fix: added .nav__link--active:hover to prevent global a:hover overriding active nav accent color; removed redundant text-decoration:none and transition:color from .nav__link, .nav__wordmark, .footer__social-link, .footer__built-link, .projects__card-link, .skip-link (all covered by global a rule); removed redundant color declaration from .nav__wordmark:hover |
 
