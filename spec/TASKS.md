@@ -143,6 +143,10 @@ Tasks are ordered by dependency. Complete them top to bottom.
 
 - [x] **55** — `aria-current` on active nav link: the scroll spy adds/removes `.nav__link--active` visually but never sets the WAI-ARIA `aria-current` attribute, so screen readers have no way to announce which section is active. In `updateActiveLink()` in `js/app.js`, remove `aria-current` from all nav links when clearing active state, and set `aria-current="location"` on the newly active link. No HTML or CSS changes needed.
 
+### Phase 26 — Favicon Branding
+
+- [x] **56** — Custom SVG favicon: replace the HTML5 Boilerplate default `icon.svg` (orange star) with a branded "PM" monogram SVG. Design: 32×32 viewBox, accent-purple rounded-rect background (`#7C3AED`, `rx="7"`), bold white "PM" text centered. This is the SVG favicon served to all modern browsers. The existing `favicon.ico` remains as the legacy fallback. No webpack config changes needed — `icon.svg` is already in the CopyPlugin patterns.
+
 ### Phase 18 — Branded Error Page & PWA Metadata
 
 - [x] **44** — Custom 404 page: rewrite `404.html` to match the site's design. Link `css/style.css` and the Inter font. Show the accent-colored "404" numeral, a plain-language heading, a short message, and a "Go Back Home" button (reuse `.hero__btn--primary`). Add a `.body--no-nav` class to the 404 body to zero out the nav padding-top; add that rule to `css/style.css`. No inline styles — CSP stays clean. Use same CSP as `index.html` (drop `script-src` since there is no JS on 404).
@@ -154,8 +158,7 @@ Tasks are ordered by dependency. Complete them top to bottom.
 
 | # | Date | Task | Files Changed | Notes |
 |---|------|------|---------------|-------|
-| 35 | 2026-03-03 | Sitemap.xml | sitemap.xml, webpack.config.prod.js | Single-URL sitemap for https://petermark.dev/; added to CopyPlugin so dist/sitemap.xml is included in deploy |
-| 35 | 2026-03-03 | Sitemap.xml | sitemap.xml, webpack.config.prod.js | Single-URL sitemap for https://petermark.dev/; added to CopyPlugin so dist/sitemap.xml is included in deploy |
+| 56 | 2026-03-03 | Custom SVG favicon | icon.svg | Replaced boilerplate orange-star icon.svg with branded "PM" monogram: purple rounded-rect background (#7C3AED) + bold white PM text; legacy favicon.ico unchanged |
 | 36 | 2026-03-03 | SEO meta improvements | index.html, robots.txt | Added canonical URL + meta author to <head>; Sitemap directive added to robots.txt pointing to /sitemap.xml |
 | 37 | 2026-03-03 | Project screenshot placeholder | img/projects/personal-website.png, scripts/generate-project-screenshot.py | 640×360 PNG via Pillow: navbar, hero text, CTA buttons, Experience section peek; replaces solid-color placeholder |
 | 38 | 2026-03-03 | Leadership section | index.html, css/style.css | Added <section id="leadership"> between Hobbies and Footer; three resume bullets as disc list; "Leadership" nav link added; no timeline/card styling |
