@@ -605,6 +605,13 @@ button {
    Experience Section
    ========================================================================== */
 
+.experience__summary {
+  font-size: 0.9375rem;
+  color: var(--color-text-muted);
+  line-height: var(--line-height-base);
+  margin-bottom: 2rem;
+}
+
 .timeline {
   display: flex;
   flex-direction: column;
