@@ -81,7 +81,7 @@ Tasks are ordered by dependency. Complete them top to bottom.
 
 - [x] **30** — Image performance pass: add `loading="eager"` and `fetchpriority="high"` to the hero photo (above the fold, critical); add `loading="lazy"` to the project card thumbnail (below the fold). Add explicit `width` and `height` attributes to all `<img>` elements to help the browser reserve space and prevent layout shift.
 - [x] **31** — Education section: add `<section id="education">` between Experience and Projects with the B.Eng from Carleton University (May 2017), capstone project, and scholarship. Add "Education" anchor link to the navbar. Style consistent with Experience section but simpler (no timeline, just card or entry).
-- [ ] **32** — Open Graph image: create a `img/og-image.png` social preview (1200×630) using a Python script that renders name + title text on a dark background matching the site palette. Add `<meta property="og:image" content="https://petermark.dev/img/og-image.png">` to `index.html`. Add `img/og-image.png` to webpack CopyPlugin.
+- [x] **32** — Open Graph image: create a `img/og-image.png` social preview (1200×630) using a Python script that renders name + title text on a dark background matching the site palette. Add `<meta property="og:image" content="https://petermark.dev/img/og-image.png">` to `index.html`. Add `img/og-image.png` to webpack CopyPlugin.
 
 ---
 
@@ -120,4 +120,5 @@ Tasks are ordered by dependency. Complete them top to bottom.
 | 29 | 2026-03-03 | Periodic codebase review (iteration 29) | css/style.css | Removed dead CSS: fieldset+textarea rules (no forms on site), .visually-hidden+.visually-hidden.focusable (unused in HTML); build still passes |
 | 30 | 2026-03-03 | Image performance pass | index.html | loading="eager" fetchpriority="high" on hero photo (LCP); loading="lazy" on project thumbnail; width/height on both images for CLS prevention |
 | 31 | 2026-03-03 | Education section | index.html, css/style.css | Added <section id="education"> between Experience and Projects; B.Eng Carleton University, capstone + scholarship bullets; "Education" nav link; card-style entry (no timeline); scroll spy works automatically |
+| 32 | 2026-03-03 | Open Graph image | img/og-image.png, index.html, scripts/generate-og-image.py | 1200×630 PNG generated via Pillow script; dark bg + accent text + dot decoration; og:image/width/height meta tags added; img/ already copied by webpack |
 
