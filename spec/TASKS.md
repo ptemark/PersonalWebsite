@@ -104,34 +104,16 @@ Tasks are ordered by dependency. Complete them top to bottom.
 
 - [x] **41** — Back to top button: add a fixed bottom-right `<button class="back-to-top">` with an up-arrow SVG and `aria-label="Back to top"`. Hidden by default (opacity 0, pointer-events none). JS scroll listener shows it (adds `.back-to-top--visible`) when `scrollY > window.innerHeight`, hides otherwise. Click scrolls to `window.scrollTo({ top: 0, behavior: 'smooth' })`. Respect `prefers-reduced-motion` (use `behavior: 'instant'` when reduced motion is preferred). BEM classes, accent color, surface background, transition.
 
+### Phase 16 — Print Styles
+
+- [x] **42** — CSS print styles: enhance the existing `@media print` block in `css/style.css` with portfolio-specific rules. Hide nav, back-to-top button, hero CTA/social/photo, footer social icons, and footer meta. Remove body top padding (nav is hidden). Force all `.section` elements to `opacity: 1; transform: none` (scroll animations default them to invisible). Compact hero layout. Add `page-break-inside: avoid` to `.timeline__entry`, `.education__entry`, and `.projects__card`. Collapse project grid to single column. Keep name/location footer text visible.
+
 ---
 
 ## Completed Tasks
 
 | # | Date | Task | Files Changed | Notes |
 |---|------|------|---------------|-------|
-| 1 | 2026-03-02 | Create CNAME file | CNAME | Contains petermark.dev for GitHub Pages custom domain |
-| 2 | 2026-03-02 | Update webpack CopyPlugin to include CNAME | webpack.config.prod.js | Added toType: 'file' to ensure CNAME copies as a file, not directory |
-| 3 | 2026-03-02 | Create GitHub Actions deploy workflow | .github/workflows/deploy.yml | Builds on push to main, deploys dist/ to GitHub Pages |
-| 4 | 2026-03-02 | Create README.md | README.md | Project description, live site link, spec table with GitHub links |
-| 5 | 2026-03-02 | Rewrite index.html with semantic shell | index.html, webpack.config.prod.js | Inter font, CSP, nav/main/sections/footer structure; fixed HtmlWebpackPlugin duplicate script via inject:false |
-| 6 | 2026-03-02 | Set up css/style.css with design tokens and base styles | css/style.css | Dark/light CSS custom properties, :root dark defaults, [data-theme="light"] overrides, smooth scroll, base reset |
-| 7 | 2026-03-02 | Add layout utilities to css/style.css | css/style.css | .container (860px centered), .section (80px padding), .section__heading, desktop padding override at 768px |
-| 8 | 2026-03-02 | Implement navbar HTML | index.html | nav__inner, nav__wordmark, nav__links with Experience/Projects anchors, nav__theme-toggle with inline sun+moon SVGs |
-| 9 | 2026-03-02 | Style navbar in CSS | css/style.css | Fixed + blurred nav, --nav-height/--color-nav-bg tokens, BEM hover/active states, scrolled border, sun/moon icon toggling |
-| 10 | 2026-03-02 | Implement theme toggle in js/app.js | js/app.js | prefers-color-scheme detection, localStorage persistence, data-theme toggle on html, aria-label update on button |
-| 11 | 2026-03-02 | Implement scroll spy | js/app.js | IntersectionObserver with -10%/0px/-60% rootMargin for section active state; scroll event for nav--scrolled class |
-| 12 | 2026-03-02 | Copy and rotation-correct peter.jpg | img/peter.jpg | Used sips -r 270 to fix 90° clockwise rotation directly in file; portrait 3024×4032 |
-| 13 | 2026-03-02 | Implement hero section HTML | index.html | Greeting, h1, title, tagline, two CTA buttons, social icon links (GitHub/LinkedIn/Email), photo img; all ext links with rel="noopener noreferrer" and aria-label |
-| 14 | 2026-03-02 | Style hero section | css/style.css | min-height calc(100vh - nav-height), flex centered, two-column desktop layout, circular photo 220/300px, accent name, muted title/tagline, filled/outlined CTA buttons, social icon row |
-| 15 | 2026-03-02 | Implement experience section HTML | index.html | ul.timeline with four li entries (FIS, Amazon SWE II, Amazon SWE I, Ciena); h3 role+company, date span, ul bullets from resume |
-| 16 | 2026-03-02 | Style experience section | css/style.css | Vertical timeline with accent border-left, left-padded entries, role bold, date muted+right-aligned on desktop, disc bullet list |
-| 17 | 2026-03-02 | Create img/projects/ placeholder image | img/projects/personal-website.png | Solid-color 640×360 PNG (#1a1a1a) generated via Python; copied to dist/ by webpack CopyPlugin |
-| 18 | 2026-03-02 | Implement projects section HTML | index.html | projects__grid ul with one card: thumbnail img, h3 name, desc, tag pills, GitHub + live site icon links with rel="noopener noreferrer" |
-| 19 | 2026-03-02 | Style projects section | css/style.css | CSS Grid 1→2 col at 768px, card surface+border+border-radius, 16/9 thumbnail, accent-tinted tag pills, hover box-shadow+translateY(-4px) |
-| 20 | 2026-03-02 | Implement hobbies section HTML | index.html | hobbies__chips div with six hobbies__chip span elements (Hockey, Poker, Hiking, Skiing, Gaming, Brandon Sanderson Books) |
-| 21 | 2026-03-02 | Style hobbies section | css/style.css | flex+flex-wrap+gap chips row; surface bg, border, 999px border-radius, muted text; no accent — intentionally low-key |
-| 22 | 2026-03-02 | Implement footer HTML | index.html | footer__inner with name/location, social icons (GitHub/LinkedIn/Email), How this was built link, Built by Peter Mark line |
 | 23 | 2026-03-02 | Style footer | css/style.css | Centered flex column, border-top divider, muted text throughout, social icon row matching hero, 2.5rem vertical padding, subtle built-link hover to accent |
 | 24 | 2026-03-03 | Implement scroll animations | js/app.js, css/style.css | IntersectionObserver adds .is-visible to sections on scroll; hero starts visible; CSS opacity+translateY fade-in transition |
 | 25 | 2026-03-03 | Responsive pass | css/style.css | scroll-padding-top on html for fixed nav; nav__links gap 1rem mobile/1.5rem 768px+; hero opacity:1 override (always visible); overflow-wrap:break-word on body |
@@ -151,4 +133,5 @@ Tasks are ordered by dependency. Complete them top to bottom.
 | 39 | 2026-03-03 | Periodic codebase review (iteration 39) | css/style.css | Replaced 4× hardcoded line-height: 1.6 with var(--line-height-base); removed 3 redundant hover rules (.nav__link:hover, .hero__social-link:hover, .footer__social-link:hover) that duplicated global a:hover |
 | 40 | 2026-03-03 | Technical Skills section | index.html, css/style.css | Added <section id="skills"> between Education and Projects; dl/dt/dd layout with six categories; neutral surface-chip tags; desktop: category label left-aligned with min-width, tags flex-wrap right |
 | 41 | 2026-03-03 | Back to top button | index.html, css/style.css, js/app.js | Fixed bottom-right button with up-arrow SVG; shows after scrolling past one viewport height; smooth scroll to top; respects prefers-reduced-motion; BEM classes; build passes |
+| 42 | 2026-03-03 | CSS print styles | css/style.css | Portfolio-specific @media print rules: hide nav/back-to-top/hero CTAs+social+photo/footer social+meta; force .section opacity:1 (scroll animations); compact hero; break-inside: avoid on timeline/education/project entries; single-column projects grid; remove body top padding |
 

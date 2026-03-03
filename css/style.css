@@ -961,4 +961,66 @@ button {
   h3 {
     page-break-after: avoid;
   }
+
+  /* Portfolio-specific print rules */
+
+  /* Nav is hidden so body no longer needs top padding */
+  body {
+    padding-top: 0;
+  }
+
+  /* Sections start at opacity: 0 via scroll animation — force visible for print */
+  .section {
+    opacity: 1;
+    transform: none;
+    padding-block: 1.5rem;
+  }
+
+  /* Hide non-content chrome */
+  .nav,
+  .back-to-top {
+    display: none;
+  }
+
+  /* Compact hero — no interaction elements needed in print */
+  .hero {
+    min-height: auto;
+  }
+
+  .hero__cta,
+  .hero__social,
+  .hero__photo-wrap {
+    display: none;
+  }
+
+  .hero__inner {
+    flex-direction: column;
+  }
+
+  /* Avoid breaking inside content blocks */
+  .timeline__entry,
+  .education__entry,
+  .projects__card {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /* Avoid splitting immediately after key headings */
+  .section__heading,
+  .timeline__role,
+  .education__degree {
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+
+  /* Print projects in a single column */
+  .projects__grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Hide footer chrome; keep name/location text */
+  .footer__social,
+  .footer__meta {
+    display: none;
+  }
 }
