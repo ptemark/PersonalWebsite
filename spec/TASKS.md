@@ -233,12 +233,17 @@ Tasks are ordered by dependency. Complete them top to bottom.
 
 - [x] **87** — Scroll spy sticky active state: when scrolling through a section that has no nav link (e.g., `#skills`, `#hobbies`), all nav links go dark because the topmost visible section has no corresponding link. Fix: in `updateActiveLink()` in `js/app.js`, when the topmost visible section has no nav link, walk backwards through the sections array to find the nearest preceding section that does have a nav link, and highlight that instead. Convert the `sections` NodeList to a reusable array (`const sectionsArray`) in the outer IIFE scope. No HTML or CSS changes. Build passes, commit.
 
+### Phase 44 — Branding Polish
+
+- [x] **88** — Branded apple touch icon: replace the HTML5 Boilerplate default `icon.png` (180×180) with a branded "PM" monogram PNG that matches the `icon.svg` design — purple `#7C3AED` rounded-rect background with bold white "PM" text at ~72px using Arial Bold. Generated with Python/Pillow. No HTML or webpack changes needed — `icon.png` is already referenced in `index.html` and included in the CopyPlugin. Build passes, commit.
+
 ---
 
 ## Completed Tasks
 
 | # | Date | Task | Files Changed | Notes |
 |---|------|------|---------------|-------|
+| 88 | 2026-03-04 | Branded apple touch icon | icon.png | Generated 180×180 PNG with Python/Pillow: #7C3AED purple rounded-rect background, bold white "PM" (Arial Bold 72px); replaces HTML5 Boilerplate default; no HTML/webpack changes; build passes |
 | 87 | 2026-03-04 | Scroll spy sticky active state for nav-less sections | js/app.js | Added sectionsArray (Array.from sections NodeList); when topmost visible section has no nav link, walk backwards to nearest preceding section that does; nav stays lit while scrolling through #skills and #hobbies; build passes |
 | 86 | 2026-03-04 | Move hobbies section to bottom (after leadership, before footer) | index.html | Relocated <section id="hobbies"> to appear after <section id="leadership"> and immediately before </main>; no nav link for hobbies existed; scroll spy unaffected (IntersectionObserver watches by class); build passes |
 | 85 | 2026-03-04 | Periodic codebase review (iteration 85) | css/style.css, index.html | CSS ordering bug: nav desktop overrides were in a 768px block before the base rules, causing links hidden and hamburger shown on desktop; moved desktop overrides to a 768px block after base nav rules. Removed role="status" from static hero badge (live region misuse). Added color: var(--color-accent) to .nav__wordmark:hover to prevent global a:hover color bleed. Build passes. |
