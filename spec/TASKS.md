@@ -204,9 +204,17 @@ Tasks are ordered by dependency. Complete them top to bottom.
 
 - [x] **80** — Resume PDF download: copy `spec/Peter_Mark_Resume.pdf` to `Peter_Mark_Resume.pdf` in the project root. Add `{ from: 'Peter_Mark_Resume.pdf', ... }` to the webpack CopyPlugin in `webpack.config.prod.js`. Add a "Download Résumé" `<a href="Peter_Mark_Resume.pdf" download>` button alongside the "Get In Touch" button in `.hero__cta` in `index.html`. Reuse `.hero__btn--secondary` styling; add a download arrow SVG icon inside the button (add `gap: 0.5rem` to `.hero__btn` in `css/style.css` to space icon from text). Build passes, commit.
 
+### Phase 40 — Hero CTA Visual Hierarchy
+
+- [x] **81** — Promote "Download Résumé" to primary CTA: change `class="hero__btn hero__btn--secondary"` to `class="hero__btn hero__btn--primary"` on the Download Résumé button in `index.html`. The `.hero__btn--primary` CSS (accent fill background, dark text) already exists in `css/style.css`. The "Get In Touch" button keeps `--secondary` (outlined). This makes the résumé download the visually prominent CTA, appropriate for a job-seeking portfolio. Also update `width="300" height="300"` on the hero `<img>` to `width="220" height="220"` to match the mobile-first CSS dimensions and give the browser the correct aspect-ratio hint for CLS prevention. No CSS changes needed — both improvements are HTML-only. Build passes, commit.
+
 ### Phase 38 — Semantic HTML
 
 - [x] **79** — Semantic `<time>` elements for dates: wrap all date range strings in the Experience and Education sections with `<time>` elements and proper ISO 8601 `datetime` attributes for machine readability (search engines, screen readers, calendar tooling). In each `.timeline__date` span: wrap the start and end months individually — e.g. `<time datetime="2025-06">June 2025</time> – <time datetime="2025-07">July 2025</time>`. For the Education date: `<time datetime="2017-05">May 2017</time>`. No CSS or JS changes needed. Build passes, commit.
+
+### Phase 41 — Self-Hosted Fonts
+
+- [x] **82** — Self-host Inter font: download `inter-latin-wght-normal.woff2` (47KB variable font, weight range 100–900) from `@fontsource-variable/inter` into `fonts/` directory. Add `@font-face` declaration to the top of `css/style.css` using `font-family: 'Inter'` so all existing CSS references continue to work unchanged. Add `{ from: 'fonts', to: 'fonts' }` to webpack CopyPlugin in `webpack.config.prod.js`. Remove Google Fonts `preconnect` and `stylesheet` links from `index.html` and `404.html`. Add `<link rel="preload" href="fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>` to both HTML files. Tighten CSP in both: remove `https://fonts.googleapis.com` from `style-src` and `https://fonts.gstatic.com` from `font-src` (now just `'self'` for both). Build passes, commit.
 
 ### Phase 32 — Periodic Review & Bug Fixes
 
@@ -218,6 +226,7 @@ Tasks are ordered by dependency. Complete them top to bottom.
 
 | # | Date | Task | Files Changed | Notes |
 |---|------|------|---------------|-------|
+| 82 | 2026-03-04 | Self-host Inter font | fonts/inter-latin-wght-normal.woff2, css/style.css, index.html, 404.html, webpack.config.prod.js | Added @font-face for variable Inter (47KB, wght 100–900); removed Google Fonts preconnect+stylesheet links; preload local woff2; tightened CSP to self-only for style-src and font-src; build passes |
 | 80 | 2026-03-04 | Resume PDF download button in hero | webpack.config.prod.js, index.html, css/style.css, Peter_Mark_Resume.pdf | Copied spec/Peter_Mark_Resume.pdf to project root; added to CopyPlugin; added "Download Résumé" .hero__btn--secondary button with download arrow SVG alongside "Get In Touch" in hero CTA; added gap: 0.5rem to .hero__btn for icon spacing; build passes. |
 | 79 | 2026-03-04 | Semantic <time> elements for dates | index.html | Wrapped all 4 experience date ranges and 1 education date in <time datetime="YYYY-MM"> elements with ISO 8601 datetime attributes; improves machine readability for search engines and screen readers; no CSS/JS changes; build passes. |
 | 78 | 2026-03-04 | Responsive hero image srcset | index.html, img/peter-600.jpg | Generated peter-600.jpg (600w, 88KB) with sips; added srcset/sizes to <img> and imagesrcset/imagesizes to preload link; browser now fetches 600w on mobile (220px) and may use 1800w on hi-DPI desktop; build passes. |
