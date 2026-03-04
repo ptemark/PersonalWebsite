@@ -653,6 +653,29 @@ button {
   }
 }
 
+/* Hero entrance stagger animation — only when motion is OK */
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes heroFadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  .hero__greeting   { animation: heroFadeUp 0.45s ease-out both; animation-delay: 0.05s; }
+  .hero__name       { animation: heroFadeUp 0.45s ease-out both; animation-delay: 0.15s; }
+  .hero__title      { animation: heroFadeUp 0.45s ease-out both; animation-delay: 0.25s; }
+  .hero__tagline    { animation: heroFadeUp 0.45s ease-out both; animation-delay: 0.35s; }
+  .hero__status     { animation: heroFadeUp 0.45s ease-out both; animation-delay: 0.45s; }
+  .hero__cta        { animation: heroFadeUp 0.45s ease-out both; animation-delay: 0.55s; }
+  .hero__social     { animation: heroFadeUp 0.45s ease-out both; animation-delay: 0.65s; }
+  .hero__photo-wrap { animation: heroFadeUp 0.55s ease-out both; animation-delay: 0.25s; }
+}
+
 /* ==========================================================================
    Experience Section
    ========================================================================== */
@@ -1233,17 +1256,6 @@ button {
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
-  }
-
-  .section {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
-
-  .hero {
-    opacity: 1;
-    transform: none;
   }
 }
 
