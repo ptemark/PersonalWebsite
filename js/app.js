@@ -143,9 +143,9 @@
         hamburgerBtn.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
       });
 
-      // Close when a nav link is clicked
+      // Close when a nav link is clicked (pass no returnFocus so focus follows the anchor)
       navLinks.forEach(function (link) {
-        link.addEventListener('click', closeMenu);
+        link.addEventListener('click', function () { closeMenu(); });
       });
 
       // Close when clicking outside the nav

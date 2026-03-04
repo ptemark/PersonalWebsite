@@ -449,7 +449,7 @@ button {
 .hero__tagline {
   font-size: 1rem;
   color: var(--color-text-muted);
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
 }
 
 .hero__status {
