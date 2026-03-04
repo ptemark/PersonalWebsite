@@ -21,9 +21,11 @@
     function applyTheme(theme) {
       if (theme === 'light') {
         html.setAttribute('data-theme', 'light');
+        html.style.colorScheme = 'light';
         if (toggleBtn) toggleBtn.setAttribute('aria-label', 'Switch to dark theme');
       } else {
         html.removeAttribute('data-theme');
+        html.style.colorScheme = 'dark';
         if (toggleBtn) toggleBtn.setAttribute('aria-label', 'Switch to light theme');
       }
     }

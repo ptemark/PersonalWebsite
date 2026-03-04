@@ -188,6 +188,10 @@ Tasks are ordered by dependency. Complete them top to bottom.
 
 - [x] **75** — Visible email address in footer: add `<a href="mailto:peter.sw.mark@gmail.com" class="footer__email">peter.sw.mark@gmail.com</a>` between `.footer__name` and `.footer__social` in `index.html`. Add `.footer__email` CSS: `font-size: 0.9375rem`, `color: var(--color-text-muted)`, accent on hover. Email is not hidden by print styles (unlike `.footer__social` / `.footer__meta`) so it remains visible when the page is printed. No JS changes. Build passes, commit.
 
+### Phase 35 — Browser UX Polish
+
+- [x] **76** — `color-scheme` CSS + JS integration: add `color-scheme: dark light` to `:root` in `css/style.css` so the browser renders native UI (scrollbar, text-selection handles) using the dark palette by default. In `js/app.js`, update `applyTheme()` to set `html.style.colorScheme = theme` so that the native UI follows manual theme toggles (without this, a dark-OS user who switches to light mode keeps a dark scrollbar). No HTML changes needed. Build passes, commit.
+
 ### Phase 32 — Periodic Review & Bug Fixes
 
 - [x] **73** — Periodic codebase review (iteration 73): full review of `index.html`, `css/style.css`, and `js/app.js` — check for BEM inconsistencies, dead CSS, redundant rules, hardcoded values, and security/accessibility regressions. Identified fixes: (1) **JS bug** — `navLinks.forEach(link => link.addEventListener('click', closeMenu))` passes the MouseEvent as the `returnFocus` argument, causing `hamburgerBtn.focus()` to fire on every nav link click on mobile; fix by wrapping: `link.addEventListener('click', function () { closeMenu(); })`. (2) **CSS** — `.hero__tagline` has `margin-bottom: 1rem` but task 46 specified `0.75rem`; tighten to match spec. Verify `npm run build` passes, commit as `refactor: periodic codebase review and cleanup`.
@@ -198,6 +202,7 @@ Tasks are ordered by dependency. Complete them top to bottom.
 
 | # | Date | Task | Files Changed | Notes |
 |---|------|------|---------------|-------|
+| 76 | 2026-03-04 | color-scheme CSS + JS integration | css/style.css, js/app.js | Added color-scheme: dark light to :root; applyTheme() now sets html.style.colorScheme to keep scrollbar/native UI in sync with manual theme toggle; build passes. |
 | 75 | 2026-03-04 | Visible email address in footer | index.html, css/style.css | Added footer__email text link (peter.sw.mark@gmail.com) between footer__name and footer__social; muted color, accent on hover; visible in print (not in hidden list); no JS changes; build passes. |
 | 74 | 2026-03-04 | Hobbies chips: show labels on touch devices | css/style.css | Added @media (hover: none) rule showing .hobbies__chip-label with max-width: 200px; opacity: 1 so labels are always visible on touch/no-hover devices (phones, tablets). No HTML or JS changes. Build passes. |
 | 73 | 2026-03-04 | Periodic codebase review (iteration 73) | js/app.js, css/style.css | JS bug fix: nav link click handlers passed MouseEvent as returnFocus arg to closeMenu(), causing hamburgerBtn.focus() on every mobile nav click; wrapped in anonymous fn. CSS: .hero__tagline margin-bottom 1rem → 0.75rem per task 46 spec. Security, BEM, dead code, a11y all clean. Build passes. |
@@ -206,7 +211,6 @@ Tasks are ordered by dependency. Complete them top to bottom.
 | 70 | 2026-03-04 | Larger PM in favicon | icon.svg | Increased font-size from 13 to 19px; adjusted y from 21.5 to 23 to keep text vertically centered in 32×32 canvas; build passes |
 | 69 | 2026-03-04 | Dark mode muted text readability | css/style.css | Updated --color-text-muted in :root from #888888 to #a0a0a0; light mode #555555 unchanged; #a0a0a0 on #0f0f0f achieves ~6.6:1 contrast ratio, well above WCAG AA 4.5:1; build passes |
 | 68 | 2026-03-04 | Fix hero photo framing | img/peter.jpg, spec/peter.jpg, css/style.css | Cropped both files from landscape 4032×3024 to portrait 1800×2500 (top-center, sips -c 2500 1800 --cropOffset 0 1116); changed object-position from center 20% to center top; portrait crop creates Y overflow so position now works; shows sky + raised arms + upper body; build passes |
-| 45 | 2026-03-03 | Update site.webmanifest | site.webmanifest | Set short_name "Peter Mark", name "Peter Mark — Senior Software Engineer", theme_color "#0f0f0f", background_color "#0f0f0f"; build passes |
 | 46 | 2026-03-03 | Open to opportunities badge + skills fix | index.html, css/style.css | Hero status badge with green dot between tagline and CTA; --color-status-green token; desktop left-aligned/mobile centered; removed DynamoDB duplicate from Cloud & Infrastructure tags |
 | 47 | 2026-03-03 | Skip-to-content link | index.html, css/style.css | .skip-link visually hidden (top:-100%), slides to top:0 on focus; id="main-content" on <main>; accent bg, dark text; hidden in print; implements WCAG 2.4.1 bypass-block |
 | 48 | 2026-03-03 | Pulsing status dot animation | css/style.css | @keyframes status-pulse box-shadow ring on .hero__status-dot; 2s infinite ease; wrapped in prefers-reduced-motion: no-preference guard; build passes |

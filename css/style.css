@@ -4,6 +4,8 @@
 
 /* Dark theme (default) */
 :root {
+  color-scheme: dark light;
+
   /* Colors */
   --color-bg: #0f0f0f;
   --color-surface: #1a1a1a;
