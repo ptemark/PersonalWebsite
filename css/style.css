@@ -1004,6 +1004,14 @@ button {
   opacity: 1;
 }
 
+/* Touch/no-hover devices: labels are always visible (hover never fires) */
+@media (hover: none) {
+  .hobbies__chip-label {
+    max-width: 200px;
+    opacity: 1;
+  }
+}
+
 /* ==========================================================================
    Leadership Section
    ========================================================================== */
