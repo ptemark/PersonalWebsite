@@ -249,14 +249,19 @@ button {
 
 .section {
   padding-block: var(--spacing-section-vertical);
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-.section.is-visible {
-  opacity: 1;
-  transform: none;
+@media (prefers-reduced-motion: no-preference) {
+  .section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  .section.is-visible {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 .section__heading {
