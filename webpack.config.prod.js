@@ -23,6 +23,7 @@ module.exports = merge(common, {
         { from: 'site.webmanifest', to: 'site.webmanifest' },
         { from: 'CNAME', to: 'CNAME', toType: 'file' },
         { from: 'sitemap.xml', to: 'sitemap.xml', toType: 'file' },
+        { from: 'Peter_Mark_Resume.pdf', to: 'Peter_Mark_Resume.pdf', toType: 'file' },
       ],
     }),
   ],

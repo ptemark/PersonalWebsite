@@ -200,6 +200,10 @@ Tasks are ordered by dependency. Complete them top to bottom.
 
 - [x] **78** — Responsive hero image with `srcset`: the hero photo `img/peter.jpg` (1800×2500, 741KB) is displayed at 220px (mobile) / 300px (desktop). Generate `img/peter-600.jpg` at 600px-wide (88KB) using `sips --resampleWidth 600`. Add `srcset="img/peter-600.jpg 600w, img/peter.jpg 1800w"` and `sizes="(min-width: 768px) 300px, 220px"` to the `<img>` tag. Update the `<link rel="preload">` to include `imagesrcset` and `imagesizes` so the browser preloads the correct source. The CopyPlugin `img/` pattern already covers `peter-600.jpg`. Build passes, commit.
 
+### Phase 39 — Resume Download
+
+- [x] **80** — Resume PDF download: copy `spec/Peter_Mark_Resume.pdf` to `Peter_Mark_Resume.pdf` in the project root. Add `{ from: 'Peter_Mark_Resume.pdf', ... }` to the webpack CopyPlugin in `webpack.config.prod.js`. Add a "Download Résumé" `<a href="Peter_Mark_Resume.pdf" download>` button alongside the "Get In Touch" button in `.hero__cta` in `index.html`. Reuse `.hero__btn--secondary` styling; add a download arrow SVG icon inside the button (add `gap: 0.5rem` to `.hero__btn` in `css/style.css` to space icon from text). Build passes, commit.
+
 ### Phase 38 — Semantic HTML
 
 - [x] **79** — Semantic `<time>` elements for dates: wrap all date range strings in the Experience and Education sections with `<time>` elements and proper ISO 8601 `datetime` attributes for machine readability (search engines, screen readers, calendar tooling). In each `.timeline__date` span: wrap the start and end months individually — e.g. `<time datetime="2025-06">June 2025</time> – <time datetime="2025-07">July 2025</time>`. For the Education date: `<time datetime="2017-05">May 2017</time>`. No CSS or JS changes needed. Build passes, commit.
@@ -214,6 +218,7 @@ Tasks are ordered by dependency. Complete them top to bottom.
 
 | # | Date | Task | Files Changed | Notes |
 |---|------|------|---------------|-------|
+| 80 | 2026-03-04 | Resume PDF download button in hero | webpack.config.prod.js, index.html, css/style.css, Peter_Mark_Resume.pdf | Copied spec/Peter_Mark_Resume.pdf to project root; added to CopyPlugin; added "Download Résumé" .hero__btn--secondary button with download arrow SVG alongside "Get In Touch" in hero CTA; added gap: 0.5rem to .hero__btn for icon spacing; build passes. |
 | 79 | 2026-03-04 | Semantic <time> elements for dates | index.html | Wrapped all 4 experience date ranges and 1 education date in <time datetime="YYYY-MM"> elements with ISO 8601 datetime attributes; improves machine readability for search engines and screen readers; no CSS/JS changes; build passes. |
 | 78 | 2026-03-04 | Responsive hero image srcset | index.html, img/peter-600.jpg | Generated peter-600.jpg (600w, 88KB) with sips; added srcset/sizes to <img> and imagesrcset/imagesizes to preload link; browser now fetches 600w on mobile (220px) and may use 1800w on hi-DPI desktop; build passes. |
 | 77 | 2026-03-04 | Scroll progress bar | index.html, css/style.css, js/app.js | Added .scroll-progress fixed 3px accent bar at top of viewport; JS rAF-debounced scroll listener computes scrollY/(scrollHeight-innerHeight)*100 and sets width; prefers-reduced-motion disables transition; hidden in print; build passes. |
@@ -234,5 +239,4 @@ Tasks are ordered by dependency. Complete them top to bottom.
 | 62 | 2026-03-04 | Remove "View My Work" CTA from hero | index.html | Removed .hero__btn--primary element; single "Get In Touch" button remains; .hero__cta flex layout unchanged (still wraps correctly with one button); build passes |
 | 61 | 2026-03-04 | Update site content per revised resume | index.html | FIS bullet 1 replaced with SHAP/SageMaker framework text; added IntelliJ + Eclipse to Tools skills; removed third leadership bullet; build passes |
 | 60 | 2026-03-03 | Redesign Projects section as RALPH showcase | index.html, css/style.css | Two-column feature layout; left: project name/description/tags/buttons/attribution; right: inline SVG RALPH flowchart (8 steps, themed with CSS custom props); removed old card grid styles; build passes |
-| 59 | 2026-03-03 | Hobbies chip interaction + copy fix | index.html, css/style.css | "Brandon Sanderson Books" → "Brandon Sanderson Novels"; chips restructured to show only emoji by default; .hobbies__chip-label reveals on hover via max-width/opacity transition; transition wrapped in prefers-reduced-motion guard; build passes |
 
