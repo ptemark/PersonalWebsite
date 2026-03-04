@@ -271,24 +271,6 @@ button {
   :root {
     --spacing-page-horizontal: 48px;
   }
-
-  /* Desktop: links always visible inline; hamburger hidden */
-  .nav__links {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 1.5rem;
-    position: static;
-    background-color: transparent;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-    border-bottom: none;
-    padding: 0;
-  }
-
-  .nav__hamburger {
-    display: none;
-  }
 }
 
 /* ==========================================================================
@@ -334,6 +316,7 @@ button {
 }
 
 .nav__wordmark:hover {
+  color: var(--color-accent);
   opacity: 0.75;
 }
 
@@ -405,6 +388,26 @@ button {
 
 .nav__link--active:hover {
   color: var(--color-accent);
+}
+
+/* Desktop: links always visible inline; hamburger hidden */
+@media (min-width: 768px) {
+  .nav__links {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.5rem;
+    position: static;
+    background-color: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border-bottom: none;
+    padding: 0;
+  }
+
+  .nav__hamburger {
+    display: none;
+  }
 }
 
 .nav__theme-toggle {
