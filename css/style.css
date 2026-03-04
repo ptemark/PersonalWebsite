@@ -1052,6 +1052,15 @@ button {
   color: var(--color-text-muted);
 }
 
+.footer__email {
+  font-size: 0.9375rem;
+  color: var(--color-text-muted);
+}
+
+.footer__email:hover {
+  color: var(--color-accent);
+}
+
 .footer__social {
   display: flex;
   gap: 1.25rem;
