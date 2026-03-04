@@ -79,6 +79,7 @@
 
     const navLinks = document.querySelectorAll('.nav__link');
     const sections = document.querySelectorAll('section[id]');
+    const sectionsArray = Array.from(sections);
 
     // Map section id → nav link
     const sectionLinkMap = {};
@@ -108,16 +109,27 @@
         }
       });
 
+      // Resolve nav link: if topmost section has no nav link, walk backwards to the
+      // nearest preceding section that does (keeps nav active through nav-less sections)
+      let link = topmost ? sectionLinkMap[topmost.id] : null;
+      if (!link && topmost) {
+        const idx = sectionsArray.indexOf(topmost);
+        for (let i = idx - 1; i >= 0; i--) {
+          const candidate = sectionLinkMap[sectionsArray[i].id];
+          if (candidate) {
+            link = candidate;
+            break;
+          }
+        }
+      }
+
       navLinks.forEach(function (l) {
         l.classList.remove('nav__link--active');
         l.removeAttribute('aria-current');
       });
-      if (topmost) {
-        const link = sectionLinkMap[topmost.id];
-        if (link) {
-          link.classList.add('nav__link--active');
-          link.setAttribute('aria-current', 'location');
-        }
+      if (link) {
+        link.classList.add('nav__link--active');
+        link.setAttribute('aria-current', 'location');
       }
     }
 

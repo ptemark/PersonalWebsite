@@ -229,12 +229,17 @@ Tasks are ordered by dependency. Complete them top to bottom.
 - [x] **85** — Periodic codebase review (iteration 85): full review of `index.html`, `css/style.css`, and `js/app.js` — check for BEM inconsistencies, dead CSS, redundant rules, hardcoded values, and security/accessibility regressions. Refactor and clean up; confirm `npm run build` passes. Commit as `refactor: periodic codebase review and cleanup`.
 - [x] **86** — Move the "When I'm Not Coding" (hobbies) section to the bottom of the page, just above `<footer>`. In `index.html`, relocate `<section id="hobbies">` so it appears after `<section id="leadership">` and immediately before `<footer>`. If a hobbies nav link exists in `<nav>`, move it to be the last nav link to match the new page order. Verify scroll spy, all `<a href="#hobbies">` anchor links, and the back-to-top button still work correctly after the DOM reorder. No CSS changes needed. Build passes, commit.
 
+### Phase 43 — Scroll Spy Robustness
+
+- [x] **87** — Scroll spy sticky active state: when scrolling through a section that has no nav link (e.g., `#skills`, `#hobbies`), all nav links go dark because the topmost visible section has no corresponding link. Fix: in `updateActiveLink()` in `js/app.js`, when the topmost visible section has no nav link, walk backwards through the sections array to find the nearest preceding section that does have a nav link, and highlight that instead. Convert the `sections` NodeList to a reusable array (`const sectionsArray`) in the outer IIFE scope. No HTML or CSS changes. Build passes, commit.
+
 ---
 
 ## Completed Tasks
 
 | # | Date | Task | Files Changed | Notes |
 |---|------|------|---------------|-------|
+| 87 | 2026-03-04 | Scroll spy sticky active state for nav-less sections | js/app.js | Added sectionsArray (Array.from sections NodeList); when topmost visible section has no nav link, walk backwards to nearest preceding section that does; nav stays lit while scrolling through #skills and #hobbies; build passes |
 | 86 | 2026-03-04 | Move hobbies section to bottom (after leadership, before footer) | index.html | Relocated <section id="hobbies"> to appear after <section id="leadership"> and immediately before </main>; no nav link for hobbies existed; scroll spy unaffected (IntersectionObserver watches by class); build passes |
 | 85 | 2026-03-04 | Periodic codebase review (iteration 85) | css/style.css, index.html | CSS ordering bug: nav desktop overrides were in a 768px block before the base rules, causing links hidden and hamburger shown on desktop; moved desktop overrides to a 768px block after base nav rules. Removed role="status" from static hero badge (live region misuse). Added color: var(--color-accent) to .nav__wordmark:hover to prevent global a:hover color bleed. Build passes. |
 | 84 | 2026-03-04 | WebP hero image | index.html, img/peter.webp, img/peter-600.webp | Generated WebP variants with Pillow (321KB full, 42KB 600w); wrapped hero <img> in <picture> with WebP <source>; JPEG preload unchanged; img/ CopyPlugin covers .webp files; build passes |
@@ -255,9 +260,4 @@ Tasks are ordered by dependency. Complete them top to bottom.
 | 68 | 2026-03-04 | Fix hero photo framing | img/peter.jpg, spec/peter.jpg, css/style.css | Cropped both files from landscape 4032×3024 to portrait 1800×2500 (top-center, sips -c 2500 1800 --cropOffset 0 1116); changed object-position from center 20% to center top; portrait crop creates Y overflow so position now works; shows sky + raised arms + upper body; build passes |
 | 67 | 2026-03-04 | Fix hero photo rotation | img/peter.jpg, spec/peter.jpg | Rotated both files 270° with sips (equivalent to 90° CCW); hands now point up, sky at top; no CSS transform on .hero__photo; build passes |
 | 66 | 2026-03-04 | CSS custom properties for accent tints | css/style.css | Added --color-accent-tint and --color-accent-tint-border to :root and [data-theme="light"]; replaced all hardcoded rgba accent values in project tag styles; build passes |
-| 65 | 2026-03-04 | Hobbies chips accessibility | index.html, css/style.css | Converted .hobbies__chips from <div> to <ul> and chips from <span> to <li>; wrapped hover transition in prefers-reduced-motion guard; BEM class names unchanged; build passes |
-| 64 | 2026-03-04 | js/app.js null safety | js/app.js | Added null guards for toggleBtn, nav, hamburgerBtn, backToTopBtn before attaching event listeners; early return pattern prevents TypeErrors on future pages missing elements; build passes |
-| 63 | 2026-03-04 | Fill in package.json metadata | package.json | Set name, description, author, license, cleared keywords; build passes |
-| 62 | 2026-03-04 | Remove "View My Work" CTA from hero | index.html | Removed .hero__btn--primary element; single "Get In Touch" button remains; .hero__cta flex layout unchanged (still wraps correctly with one button); build passes |
-| 61 | 2026-03-04 | Update site content per revised resume | index.html | FIS bullet 1 replaced with SHAP/SageMaker framework text; added IntelliJ + Eclipse to Tools skills; removed third leadership bullet; build passes |
 
