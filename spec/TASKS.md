@@ -243,6 +243,7 @@ Tasks are ordered by dependency. Complete them top to bottom.
 
 | # | Date | Task | Files Changed | Notes |
 |---|------|------|---------------|-------|
+| 89 | 2026-03-04 | RALPH loop improvements: interrupted run recovery + graceful Ctrl+C | RALPH.md, ralph.sh | Added "Interrupted Runs" section to RALPH.md with 5-step recovery checklist; ralph.sh: added STOP_REQUESTED flag, handle_interrupt() trap allows current iteration to finish on first Ctrl+C, force-quits on second; improved completion message |
 | 88 | 2026-03-04 | Branded apple touch icon | icon.png | Generated 180×180 PNG with Python/Pillow: #7C3AED purple rounded-rect background, bold white "PM" (Arial Bold 72px); replaces HTML5 Boilerplate default; no HTML/webpack changes; build passes |
 | 87 | 2026-03-04 | Scroll spy sticky active state for nav-less sections | js/app.js | Added sectionsArray (Array.from sections NodeList); when topmost visible section has no nav link, walk backwards to nearest preceding section that does; nav stays lit while scrolling through #skills and #hobbies; build passes |
 | 86 | 2026-03-04 | Move hobbies section to bottom (after leadership, before footer) | index.html | Relocated <section id="hobbies"> to appear after <section id="leadership"> and immediately before </main>; no nav link for hobbies existed; scroll spy unaffected (IntersectionObserver watches by class); build passes |
@@ -262,7 +263,4 @@ Tasks are ordered by dependency. Complete them top to bottom.
 | 71 | 2026-03-04 | Update RALPH loop diagram | index.html | Fixed "No" branch: was pointing back to Fresh Context (step 3), now correctly points to Read State (step 4) per Mermaid spec (F -- No --> D); added "Start Next Task" right-side connector from Completed back to Initialize Loop per spec (G --> Start Next Task --> B); updated viewBox from 260 to 275 wide; updated aria-label; build passes |
 | 70 | 2026-03-04 | Larger PM in favicon | icon.svg | Increased font-size from 13 to 19px; adjusted y from 21.5 to 23 to keep text vertically centered in 32×32 canvas; build passes |
 | 69 | 2026-03-04 | Dark mode muted text readability | css/style.css | Updated --color-text-muted in :root from #888888 to #a0a0a0; light mode #555555 unchanged; #a0a0a0 on #0f0f0f achieves ~6.6:1 contrast ratio, well above WCAG AA 4.5:1; build passes |
-| 68 | 2026-03-04 | Fix hero photo framing | img/peter.jpg, spec/peter.jpg, css/style.css | Cropped both files from landscape 4032×3024 to portrait 1800×2500 (top-center, sips -c 2500 1800 --cropOffset 0 1116); changed object-position from center 20% to center top; portrait crop creates Y overflow so position now works; shows sky + raised arms + upper body; build passes |
-| 67 | 2026-03-04 | Fix hero photo rotation | img/peter.jpg, spec/peter.jpg | Rotated both files 270° with sips (equivalent to 90° CCW); hands now point up, sky at top; no CSS transform on .hero__photo; build passes |
-| 66 | 2026-03-04 | CSS custom properties for accent tints | css/style.css | Added --color-accent-tint and --color-accent-tint-border to :root and [data-theme="light"]; replaced all hardcoded rgba accent values in project tag styles; build passes |
 

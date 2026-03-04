@@ -190,6 +190,25 @@ This review counts as one iteration and does not replace the next task — resum
 
 ---
 
+## Interrupted Runs
+
+The loop script handles Ctrl+C gracefully — first press lets the current iteration finish; second press force-quits. However, if a previous run was killed mid-task (e.g. force-quit, crash, or session timeout), you may find:
+
+- A task marked `[~]` (in progress) in `spec/TASKS.md`
+- Uncommitted changes in the working tree (`git status` shows modified files)
+- A partial build in `dist/`
+
+**How to recover at the start of a new run:**
+1. Run `git status` — check for uncommitted changes
+2. If changes exist, run `npm run build` to see if the partial work is valid
+3. If the build passes and the work is substantially complete, finish the task, update `spec/TASKS.md`, and commit
+4. If the build fails or the changes are clearly incomplete, run `git checkout -- .` to discard and restart the task from scratch
+5. Reset any `[~]` markers back to `[ ]` for tasks that were not committed
+
+Never start a new task while uncommitted changes from a previous interrupted task exist.
+
+---
+
 ## When You're Stuck
 
 If you encounter a blocker:

@@ -34,6 +34,7 @@ NC='\033[0m'
 SINGLE_RUN=false
 DRY_RUN=false
 VERBOSE=false
+STOP_REQUESTED=false
 
 while [[ $# -gt 0 ]]; do
     case $1 in
@@ -234,15 +235,39 @@ main() {
             warn "Iteration $i had issues, continuing..."
         fi
 
+        if [[ "$STOP_REQUESTED" == "true" ]]; then
+            echo ""
+            warn "Stop requested — exiting cleanly after iteration $i"
+            break
+        fi
+
         if [[ $i -lt $MAX_ITERATIONS ]]; then
-            log "Waiting $ITERATION_DELAY seconds before next iteration..."
-            sleep $ITERATION_DELAY
+            log "Waiting $ITERATION_DELAY seconds before next iteration... (Ctrl+C to stop after this)"
+            sleep $ITERATION_DELAY || true
+        fi
+
+        if [[ "$STOP_REQUESTED" == "true" ]]; then
+            echo ""
+            warn "Stop requested — exiting cleanly after iteration $i"
+            break
         fi
     done
 
-    warn "Reached maximum iterations ($MAX_ITERATIONS)"
+    echo ""
+    success "RALPH loop finished — $((i < MAX_ITERATIONS ? i : MAX_ITERATIONS)) iteration(s) completed"
 }
 
-trap 'echo ""; warn "Interrupted by user"; exit 130' INT
+handle_interrupt() {
+    echo ""
+    if [[ "$STOP_REQUESTED" == "true" ]]; then
+        warn "Force quit — exiting immediately"
+        exit 130
+    fi
+    warn "Ctrl+C detected — current iteration will finish before stopping cleanly"
+    warn "Press Ctrl+C again to force quit immediately"
+    STOP_REQUESTED=true
+}
+
+trap 'handle_interrupt' INT
 
 main "$@"
