@@ -196,6 +196,10 @@ Tasks are ordered by dependency. Complete them top to bottom.
 
 - [x] **77** — Scroll progress bar: add a `<div class="scroll-progress" id="scroll-progress" aria-hidden="true">` as the first child of `<body>` (before the skip link). CSS: `position: fixed; top: 0; left: 0; height: 3px; width: 0%; background-color: var(--color-accent); z-index: 201; transition: width 60ms linear`. JS: scroll event listener in `js/app.js` computes `(scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100` and sets `scrollProgress.style.width`. Debounce with `requestAnimationFrame`. Respect `prefers-reduced-motion`: if the user prefers reduced motion, remove the CSS transition on the bar (still update width, just no smooth fill animation). Hide bar in print styles. Build passes, commit.
 
+### Phase 37 — Image Performance
+
+- [x] **78** — Responsive hero image with `srcset`: the hero photo `img/peter.jpg` (1800×2500, 741KB) is displayed at 220px (mobile) / 300px (desktop). Generate `img/peter-600.jpg` at 600px-wide (88KB) using `sips --resampleWidth 600`. Add `srcset="img/peter-600.jpg 600w, img/peter.jpg 1800w"` and `sizes="(min-width: 768px) 300px, 220px"` to the `<img>` tag. Update the `<link rel="preload">` to include `imagesrcset` and `imagesizes` so the browser preloads the correct source. The CopyPlugin `img/` pattern already covers `peter-600.jpg`. Build passes, commit.
+
 ### Phase 32 — Periodic Review & Bug Fixes
 
 - [x] **73** — Periodic codebase review (iteration 73): full review of `index.html`, `css/style.css`, and `js/app.js` — check for BEM inconsistencies, dead CSS, redundant rules, hardcoded values, and security/accessibility regressions. Identified fixes: (1) **JS bug** — `navLinks.forEach(link => link.addEventListener('click', closeMenu))` passes the MouseEvent as the `returnFocus` argument, causing `hamburgerBtn.focus()` to fire on every nav link click on mobile; fix by wrapping: `link.addEventListener('click', function () { closeMenu(); })`. (2) **CSS** — `.hero__tagline` has `margin-bottom: 1rem` but task 46 specified `0.75rem`; tighten to match spec. Verify `npm run build` passes, commit as `refactor: periodic codebase review and cleanup`.
@@ -206,6 +210,7 @@ Tasks are ordered by dependency. Complete them top to bottom.
 
 | # | Date | Task | Files Changed | Notes |
 |---|------|------|---------------|-------|
+| 78 | 2026-03-04 | Responsive hero image srcset | index.html, img/peter-600.jpg | Generated peter-600.jpg (600w, 88KB) with sips; added srcset/sizes to <img> and imagesrcset/imagesizes to preload link; browser now fetches 600w on mobile (220px) and may use 1800w on hi-DPI desktop; build passes. |
 | 77 | 2026-03-04 | Scroll progress bar | index.html, css/style.css, js/app.js | Added .scroll-progress fixed 3px accent bar at top of viewport; JS rAF-debounced scroll listener computes scrollY/(scrollHeight-innerHeight)*100 and sets width; prefers-reduced-motion disables transition; hidden in print; build passes. |
 | 76 | 2026-03-04 | color-scheme CSS + JS integration | css/style.css, js/app.js | Added color-scheme: dark light to :root; applyTheme() now sets html.style.colorScheme to keep scrollbar/native UI in sync with manual theme toggle; build passes. |
 | 75 | 2026-03-04 | Visible email address in footer | index.html, css/style.css | Added footer__email text link (peter.sw.mark@gmail.com) between footer__name and footer__social; muted color, accent on hover; visible in print (not in hidden list); no JS changes; build passes. |
@@ -225,5 +230,4 @@ Tasks are ordered by dependency. Complete them top to bottom.
 | 61 | 2026-03-04 | Update site content per revised resume | index.html | FIS bullet 1 replaced with SHAP/SageMaker framework text; added IntelliJ + Eclipse to Tools skills; removed third leadership bullet; build passes |
 | 60 | 2026-03-03 | Redesign Projects section as RALPH showcase | index.html, css/style.css | Two-column feature layout; left: project name/description/tags/buttons/attribution; right: inline SVG RALPH flowchart (8 steps, themed with CSS custom props); removed old card grid styles; build passes |
 | 59 | 2026-03-03 | Hobbies chip interaction + copy fix | index.html, css/style.css | "Brandon Sanderson Books" → "Brandon Sanderson Novels"; chips restructured to show only emoji by default; .hobbies__chip-label reveals on hover via max-width/opacity transition; transition wrapped in prefers-reduced-motion guard; build passes |
-| 58 | 2026-03-03 | Experience section summary blurb | index.html, css/style.css | Added .experience__summary paragraph below h2; muted text, 0.9375rem, 2rem margin-bottom; build passes |
 

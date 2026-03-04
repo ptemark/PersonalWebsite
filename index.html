@@ -34,7 +34,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 
-  <link rel="preload" href="img/peter.jpg" as="image" fetchpriority="high">
+  <link rel="preload" href="img/peter.jpg" as="image" fetchpriority="high" imagesrcset="img/peter-600.jpg 600w, img/peter.jpg 1800w" imagesizes="(min-width: 768px) 300px, 220px">
   <link rel="stylesheet" href="css/style.css">
   <noscript><link rel="stylesheet" href="css/noscript.css"></noscript>
 
@@ -148,7 +148,7 @@
             </div>
           </div>
           <div class="hero__photo-wrap">
-            <img src="img/peter.jpg" alt="Peter Mark on a mountain summit" class="hero__photo" width="300" height="300" loading="eager" fetchpriority="high">
+            <img src="img/peter.jpg" srcset="img/peter-600.jpg 600w, img/peter.jpg 1800w" sizes="(min-width: 768px) 300px, 220px" alt="Peter Mark on a mountain summit" class="hero__photo" width="300" height="300" loading="eager" fetchpriority="high">
           </div>
         </div>
       </div>
