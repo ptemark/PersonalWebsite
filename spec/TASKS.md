@@ -220,12 +220,21 @@ Tasks are ordered by dependency. Complete them top to bottom.
 
 - [x] **73** — Periodic codebase review (iteration 73): full review of `index.html`, `css/style.css`, and `js/app.js` — check for BEM inconsistencies, dead CSS, redundant rules, hardcoded values, and security/accessibility regressions. Identified fixes: (1) **JS bug** — `navLinks.forEach(link => link.addEventListener('click', closeMenu))` passes the MouseEvent as the `returnFocus` argument, causing `hamburgerBtn.focus()` to fire on every nav link click on mobile; fix by wrapping: `link.addEventListener('click', function () { closeMenu(); })`. (2) **CSS** — `.hero__tagline` has `margin-bottom: 1rem` but task 46 specified `0.75rem`; tighten to match spec. Verify `npm run build` passes, commit as `refactor: periodic codebase review and cleanup`.
 
+### Phase 42 — Content & Image Polish
+
+- [x] **83** — Fix "Download Resume" button text: the hero CTA button currently reads "Download Resume" in `index.html`. Tasks 80 and 81 specified "Download Résumé" (with accent on the final `e`). Change `Download Resume` to `Download Résumé` in `index.html`. One character change — no CSS or JS changes needed. Build passes, commit.
+
+- [ ] **84** — WebP hero image: generate WebP variants of the hero photo for smaller file sizes on modern browsers. Run `sips --setProperty format webp img/peter.jpg --out img/peter.webp` and `sips --setProperty format webp img/peter-600.jpg --out img/peter-600.webp`. Wrap the hero `<img>` in a `<picture>` element: add two `<source type="image/webp" srcset="img/peter-600.webp 600w, img/peter.webp 1800w" sizes="(min-width: 768px) 300px, 220px">` before the existing `<img>` (which becomes the JPEG fallback). The `<link rel="preload">` in `<head>` stays pointing to JPEG since WebP preload is less broadly supported. Existing `img/` CopyPlugin pattern already covers the new `.webp` files. Build passes, commit.
+
+- [ ] **85** — Periodic codebase review (iteration 85): full review of `index.html`, `css/style.css`, and `js/app.js` — check for BEM inconsistencies, dead CSS, redundant rules, hardcoded values, and security/accessibility regressions. Refactor and clean up; confirm `npm run build` passes. Commit as `refactor: periodic codebase review and cleanup`.
+
 ---
 
 ## Completed Tasks
 
 | # | Date | Task | Files Changed | Notes |
 |---|------|------|---------------|-------|
+| 83 | 2026-03-04 | Fix "Download Résumé" button text | index.html | Changed "Download Resume" to "Download Résumé" (accent on final e); matches task 80/81 spec; build passes |
 | 82 | 2026-03-04 | Self-host Inter font | fonts/inter-latin-wght-normal.woff2, css/style.css, index.html, 404.html, webpack.config.prod.js | Added @font-face for variable Inter (47KB, wght 100–900); removed Google Fonts preconnect+stylesheet links; preload local woff2; tightened CSP to self-only for style-src and font-src; build passes |
 | 80 | 2026-03-04 | Resume PDF download button in hero | webpack.config.prod.js, index.html, css/style.css, Peter_Mark_Resume.pdf | Copied spec/Peter_Mark_Resume.pdf to project root; added to CopyPlugin; added "Download Résumé" .hero__btn--secondary button with download arrow SVG alongside "Get In Touch" in hero CTA; added gap: 0.5rem to .hero__btn for icon spacing; build passes. |
 | 79 | 2026-03-04 | Semantic <time> elements for dates | index.html | Wrapped all 4 experience date ranges and 1 education date in <time datetime="YYYY-MM"> elements with ISO 8601 datetime attributes; improves machine readability for search engines and screen readers; no CSS/JS changes; build passes. |
@@ -247,5 +256,4 @@ Tasks are ordered by dependency. Complete them top to bottom.
 | 63 | 2026-03-04 | Fill in package.json metadata | package.json | Set name, description, author, license, cleared keywords; build passes |
 | 62 | 2026-03-04 | Remove "View My Work" CTA from hero | index.html | Removed .hero__btn--primary element; single "Get In Touch" button remains; .hero__cta flex layout unchanged (still wraps correctly with one button); build passes |
 | 61 | 2026-03-04 | Update site content per revised resume | index.html | FIS bullet 1 replaced with SHAP/SageMaker framework text; added IntelliJ + Eclipse to Tools skills; removed third leadership bullet; build passes |
-| 60 | 2026-03-03 | Redesign Projects section as RALPH showcase | index.html, css/style.css | Two-column feature layout; left: project name/description/tags/buttons/attribution; right: inline SVG RALPH flowchart (8 steps, themed with CSS custom props); removed old card grid styles; build passes |
 
