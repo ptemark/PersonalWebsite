@@ -180,6 +180,28 @@ button {
 }
 
 /* ==========================================================================
+   Scroll Progress Bar
+   ========================================================================== */
+
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background-color: var(--color-accent);
+  z-index: 201;
+  transition: width 60ms linear;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-progress {
+    transition: none;
+  }
+}
+
+/* ==========================================================================
    Skip Link (keyboard accessibility)
    ========================================================================== */
 
@@ -1271,7 +1293,8 @@ button {
   /* Hide non-content chrome */
   .nav,
   .back-to-top,
-  .skip-link {
+  .skip-link,
+  .scroll-progress {
     display: none;
   }
 

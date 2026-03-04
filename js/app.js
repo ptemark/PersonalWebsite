@@ -54,6 +54,27 @@
       }, { passive: true });
     }
 
+    // --- Scroll progress bar ---
+
+    const scrollProgress = document.getElementById('scroll-progress');
+
+    if (scrollProgress) {
+      let progressRafId = null;
+
+      function updateScrollProgress() {
+        progressRafId = null;
+        const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+        const pct = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
+        scrollProgress.style.width = pct + '%';
+      }
+
+      window.addEventListener('scroll', function () {
+        if (progressRafId === null) {
+          progressRafId = requestAnimationFrame(updateScrollProgress);
+        }
+      }, { passive: true });
+    }
+
     // --- Scroll spy ---
 
     const navLinks = document.querySelectorAll('.nav__link');
