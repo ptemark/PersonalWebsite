@@ -153,7 +153,10 @@
             </div>
           </div>
           <div class="hero__photo-wrap">
-            <img src="img/peter.jpg" srcset="img/peter-600.jpg 600w, img/peter.jpg 1800w" sizes="(min-width: 768px) 300px, 220px" alt="Peter Mark on a mountain summit" class="hero__photo" width="220" height="220" loading="eager" fetchpriority="high">
+            <picture>
+              <source type="image/webp" srcset="img/peter-600.webp 600w, img/peter.webp 1800w" sizes="(min-width: 768px) 300px, 220px">
+              <img src="img/peter.jpg" srcset="img/peter-600.jpg 600w, img/peter.jpg 1800w" sizes="(min-width: 768px) 300px, 220px" alt="Peter Mark on a mountain summit" class="hero__photo" width="220" height="220" loading="eager" fetchpriority="high">
+            </picture>
           </div>
         </div>
       </div>
