@@ -1,0 +1,21 @@
+The Ralph Loop
+
+flowchart TD
+    %% Step nodes
+    A[Step 1: Design Task / Goal]:::step --> B[Step 2: Initialize Loop - Prepare prompts & exit logic]:::step
+    B --> C[Step 3: Fresh Context - Reset model]:::step
+    C --> D[Step 4: Read State - Inspect existing code and tests]:::step
+    D --> E[Step 5: Do Work - AI agent writes code]:::step
+    E --> F[Step 6: Check Exit Criteria - All tests passing? TODOs cleared?]:::decision
+    G --> Start Next Task --> B
+
+    %% Decision branches
+    F -- No --> D
+    F -- Yes --> G[Step 8: Completed Output - Code updated & bugs fixed, verified via tests]:::done
+    F -- Yes --> H[Step 7: Update State - Save & commit]:::update --> G
+
+    %% Styling
+    classDef step fill:#f9f,stroke:#333,stroke-width:1px,color:#000;
+    classDef decision fill:#ffeb3b,stroke:#333,stroke-width:2px,color:#000,font-weight:bold;
+    classDef update fill:#4caf50,stroke:#333,stroke-width:1px,color:#fff;
+    classDef done fill:#2196f3,stroke:#333,stroke-width:2px,color:#fff,font-weight:bold;

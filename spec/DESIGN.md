@@ -87,11 +87,12 @@ All content is drawn from `spec/Peter_Mark_Resume.md`. The reference site is htt
   - Tagline (from resume summary, condensed): `"7+ years building scalable distributed systems. Java · AWS · Microservices."`
   - CTA buttons: `View My Work` (scrolls to `#projects`, filled accent) and `Get In Touch` (scrolls to footer, outlined).
 - Social icon links row below CTA: GitHub (`https://github.com/ptemark`), LinkedIn (`https://linkedin.com/in/peter-mark-55641094`), Email (`peter.sw.mark@gmail.com`).
-- **Photo:** `spec/peter.jpg` — outdoor/summit shot with arms outstretched, coastal backdrop. Copy to `img/peter.jpg` for use. **Note: source image is rotated 90° clockwise and must be corrected** (use CSS `transform: rotate(-90deg)` or fix the file itself before shipping). Display as a circular or rounded avatar alongside the hero text.
+- **Photo:** `spec/peter.jpg` — summit shot with arms raised, Cape Town coastline backdrop. File at `img/peter.jpg`. Rotation corrected. Display as a circular or rounded avatar alongside the hero text.
 
 ### Experience (`#experience`)
 
 - Section heading: `Experience`.
+- **Summary blurb:** a short paragraph directly below the section heading, before the timeline. Text sourced from the resume summary: *"Senior Software Engineer with 7+ years of experience designing and building scalable, reliable distributed systems. Expert in Java, Python, and AWS, with deep experience in microservices, cloud infrastructure, and system optimization. Proven ability to lead design discussions, mentor peers, and deliver impactful, high-performance software solutions."* Style as muted text, `0.9375rem`, `margin-bottom: 2rem`, same line-height as body.
 - Vertical timeline list. Each entry:
   - **Company** + **role** (bold), date range (muted, right-aligned on desktop).
   - Bullet points from resume.
@@ -105,16 +106,40 @@ All content is drawn from `spec/Peter_Mark_Resume.md`. The reference site is htt
 ### Projects (`#projects`)
 
 - Section heading: `Projects`.
-- Card grid: single column on mobile, two columns on desktop (`≥ 768px`).
-- Each card:
-  - Thumbnail image (top, full-width of card, `aspect-ratio: 16/9`, `object-fit: cover`).
-  - Card body: project name, short description, tech tags (pill-shaped, accent-tinted), and icon links (GitHub, live site).
-  - Hover: card lifts with `box-shadow` and subtle `translateY(-4px)` transition.
-- **Current project:**
-  - **Personal Website** — This portfolio site. Built with HTML5 Boilerplate and Webpack.
-    - Tags: `HTML`, `CSS`, `JavaScript`, `Webpack`
-    - GitHub: `https://github.com/ptemark/PersonalWebsite`
-    - Thumbnail: placeholder (`img/projects/personal-website.png`) — add screenshot later.
+- This section is a focused showcase of this website itself and the RALPH loop methodology used to build it. It is not a generic project card grid — it is a feature/case study layout.
+
+**Layout (two columns on desktop, stacked on mobile):**
+- **Left column:** written content — project name, description, tech tags, links
+- **Right column:** the RALPH loop flowchart diagram
+
+**Written content (left):**
+- Project name: `petermark.dev` as an `<h3>`
+- Short description: "This site was built entirely using RALPH — a spec-driven autonomous development loop where an AI agent works through a prioritised task list, one iteration at a time, committing verified code at each step."
+- Second paragraph: "Each section of the site, from the navigation to the print styles, was implemented by RALPH reading the design spec, picking the next task, building it, verifying the build, and pushing — without manual intervention."
+- Tech tags: `HTML`, `CSS`, `JavaScript`, `Webpack`, `GitHub Actions`
+- **Links row** (prominent, not just icon-only):
+  - Primary button (filled accent): `View Source on GitHub` → `https://github.com/ptemark/PersonalWebsite` (opens in new tab, `rel="noopener noreferrer"`)
+  - Secondary text link: `Learn about the RALPH loop` → `https://ghuntley.com/ralph/` (opens in new tab, `rel="noopener noreferrer"`)
+- Attribution line below links: `RALPH loop concept by Geoffrey Huntley` — linked to `https://ghuntley.com/ralph/`
+
+**Flowchart diagram (right):**
+- Render as an **inline SVG** — no external library, no Mermaid.js dependency. Hand-crafted SVG based on the flowchart in `spec/The Ralph Loop`.
+- Nodes and flow match the original diagram logic:
+  1. Design Task / Goal
+  2. Initialize Loop
+  3. Fresh Context
+  4. Read State
+  5. Do Work
+  6. Check Exit Criteria (decision diamond)
+     - No → back to Fresh Context
+     - Yes → Update State → Completed
+- **Styled to match the site palette** using CSS custom properties so it responds to dark/light theme toggle:
+  - Step nodes: `fill: var(--color-surface)`, `stroke: var(--color-accent)`
+  - Decision diamond: `fill: var(--color-accent)` with dark text
+  - "Completed" node: `fill: var(--color-accent)` at full opacity
+  - Arrow/connector lines: `stroke: var(--color-border)`
+  - Text: `fill: var(--color-text)`, `font-family: var(--font-family-base)`
+- SVG must be responsive: `width: 100%`, `max-width: 420px`, `height: auto`
 
 ---
 
@@ -122,13 +147,14 @@ All content is drawn from `spec/Peter_Mark_Resume.md`. The reference site is htt
 
 - Informal section between Projects and Footer, inspired by the reference site's emoji-based hobby display.
 - Section heading: `When I'm not coding...`
-- Display as a horizontal wrapping row of pill/chip elements, each with an emoji and label:
+- Display as a horizontal wrapping row of pill/chip elements, each with an emoji and text label:
   - 🏒 Hockey
   - 🃏 Poker
   - 🥾 Hiking
   - ⛷️ Skiing
   - 🎮 Gaming
-  - 📚 Brandon Sanderson Books
+  - 📚 Brandon Sanderson Novels
+- **Interaction:** by default each chip shows only the emoji. On hover, the text label fades/slides in beside the emoji. Implement by wrapping the label in a `<span class="hobbies__chip-label">` that is hidden by default (`max-width: 0; opacity: 0; overflow: hidden`) and expands on `.hobbies__chip:hover` (`max-width: 200px; opacity: 1`) with a `200ms ease` transition.
 - Chips styled with surface background, border, and muted text — no accent color, intentionally low-key.
 
 ---

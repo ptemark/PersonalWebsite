@@ -16,7 +16,7 @@ Senior Software Engineer with 7+ years of experience designing and building scal
 - **Cloud & Infrastructure:** AWS (S3, EC2, ECS, Lambda, DynamoDB), Docker, Kubernetes, Terraform
 - **Messaging & Streaming:** Kafka, SQS, Kinesis
 - **Databases:** MySQL, DynamoDB, Redis
-- **Tools:** Git, GitHub, JIRA, CI/CD Pipelines
+- **Tools:** Git, GitHub, JIRA, CI/CD Pipelines, IntelliJ, Eclipse
 - **Methodologies:** Agile, Scrum, Test-Driven Development, Distributed Systems
 
 ---
@@ -24,7 +24,7 @@ Senior Software Engineer with 7+ years of experience designing and building scal
 ## Professional Experience
 
 ### Senior Software Engineer — FIS | June 2025 – July 2025
-- Authored documentation to detect and mitigate model bias and improve explainability using Amazon SageMaker.
+- Built explainability and compliance framework with SHAP, bias detection, and drift monitoring in Amazon SageMaker, meeting model risk standards that facilitated a multi-million-dollar fintech deal around fraud detection.
 - Optimized alarm configurations to increase system reliability and interpretability in fraud detection pipelines.
 
 ### Software Engineer II — Amazon | July 2022 – April 2025
@@ -55,4 +55,3 @@ Senior Software Engineer with 7+ years of experience designing and building scal
 
 - Mentored interns and new hires; mentees received offers or promotions within one year.
 - Served as Scrum Master, leading sprint planning and driving Agile processes.
-- Communicated complex technical topics effectively through demos and documentation.

@@ -171,7 +171,7 @@ git push
 
 ## Periodic Codebase Review
 
-Every 10 iterations, before picking the next task, perform a full codebase review pass:
+Every 15 iterations, before picking the next task, perform a full codebase review pass:
 
 1. **Read all source files** — `index.html`, `css/style.css`, `js/app.js`, and any others added during implementation
 2. **Check for:**
