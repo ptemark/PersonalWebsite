@@ -200,6 +200,10 @@ Tasks are ordered by dependency. Complete them top to bottom.
 
 - [x] **78** — Responsive hero image with `srcset`: the hero photo `img/peter.jpg` (1800×2500, 741KB) is displayed at 220px (mobile) / 300px (desktop). Generate `img/peter-600.jpg` at 600px-wide (88KB) using `sips --resampleWidth 600`. Add `srcset="img/peter-600.jpg 600w, img/peter.jpg 1800w"` and `sizes="(min-width: 768px) 300px, 220px"` to the `<img>` tag. Update the `<link rel="preload">` to include `imagesrcset` and `imagesizes` so the browser preloads the correct source. The CopyPlugin `img/` pattern already covers `peter-600.jpg`. Build passes, commit.
 
+### Phase 38 — Semantic HTML
+
+- [x] **79** — Semantic `<time>` elements for dates: wrap all date range strings in the Experience and Education sections with `<time>` elements and proper ISO 8601 `datetime` attributes for machine readability (search engines, screen readers, calendar tooling). In each `.timeline__date` span: wrap the start and end months individually — e.g. `<time datetime="2025-06">June 2025</time> – <time datetime="2025-07">July 2025</time>`. For the Education date: `<time datetime="2017-05">May 2017</time>`. No CSS or JS changes needed. Build passes, commit.
+
 ### Phase 32 — Periodic Review & Bug Fixes
 
 - [x] **73** — Periodic codebase review (iteration 73): full review of `index.html`, `css/style.css`, and `js/app.js` — check for BEM inconsistencies, dead CSS, redundant rules, hardcoded values, and security/accessibility regressions. Identified fixes: (1) **JS bug** — `navLinks.forEach(link => link.addEventListener('click', closeMenu))` passes the MouseEvent as the `returnFocus` argument, causing `hamburgerBtn.focus()` to fire on every nav link click on mobile; fix by wrapping: `link.addEventListener('click', function () { closeMenu(); })`. (2) **CSS** — `.hero__tagline` has `margin-bottom: 1rem` but task 46 specified `0.75rem`; tighten to match spec. Verify `npm run build` passes, commit as `refactor: periodic codebase review and cleanup`.
@@ -210,6 +214,7 @@ Tasks are ordered by dependency. Complete them top to bottom.
 
 | # | Date | Task | Files Changed | Notes |
 |---|------|------|---------------|-------|
+| 79 | 2026-03-04 | Semantic <time> elements for dates | index.html | Wrapped all 4 experience date ranges and 1 education date in <time datetime="YYYY-MM"> elements with ISO 8601 datetime attributes; improves machine readability for search engines and screen readers; no CSS/JS changes; build passes. |
 | 78 | 2026-03-04 | Responsive hero image srcset | index.html, img/peter-600.jpg | Generated peter-600.jpg (600w, 88KB) with sips; added srcset/sizes to <img> and imagesrcset/imagesizes to preload link; browser now fetches 600w on mobile (220px) and may use 1800w on hi-DPI desktop; build passes. |
 | 77 | 2026-03-04 | Scroll progress bar | index.html, css/style.css, js/app.js | Added .scroll-progress fixed 3px accent bar at top of viewport; JS rAF-debounced scroll listener computes scrollY/(scrollHeight-innerHeight)*100 and sets width; prefers-reduced-motion disables transition; hidden in print; build passes. |
 | 76 | 2026-03-04 | color-scheme CSS + JS integration | css/style.css, js/app.js | Added color-scheme: dark light to :root; applyTheme() now sets html.style.colorScheme to keep scrollbar/native UI in sync with manual theme toggle; build passes. |
