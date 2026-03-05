@@ -48,7 +48,7 @@ The agent never carried state between iterations. Each loop started by re-readin
 
 ### By the numbers
 
-- **93+ RALPH iterations** completed to build this site
+- **96+ RALPH iterations** completed to build this site
 - **Tools:** Webpack 5, GitHub Actions, npm, `sips` (macOS image processing), Claude CLI
 - **Zero manual code edits** — all source changes made by the agent within RALPH iterations
 

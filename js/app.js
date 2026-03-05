@@ -18,6 +18,8 @@
       return 'dark';
     }
 
+    const themeAnnouncement = document.getElementById('theme-announcement');
+
     function applyTheme(theme) {
       if (theme === 'light') {
         html.setAttribute('data-theme', 'light');
@@ -27,6 +29,9 @@
         html.removeAttribute('data-theme');
         html.style.colorScheme = 'dark';
         if (toggleBtn) toggleBtn.setAttribute('aria-label', 'Switch to light theme');
+      }
+      if (themeAnnouncement) {
+        themeAnnouncement.textContent = 'Switched to ' + theme + ' theme';
       }
     }
 

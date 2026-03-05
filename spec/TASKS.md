@@ -7,7 +7,7 @@ See `RALPH.md` for the full loop process. See `DESIGN.md` for all design decisio
 
 ## Current Task
 
-_None in progress._
+_None in progress. Last completed: Task 97._
 
 
 ---
@@ -265,12 +265,17 @@ Tasks are ordered by dependency. Complete them top to bottom.
 
 - [x] **96** — Custom scrollbar styling: add themed scrollbar CSS to `css/style.css` so the browser scrollbar matches the site palette. Add `scrollbar-width: thin` and `scrollbar-color: #3a3a3a #1a1a1a` to `html` (standard properties, Firefox + Chrome 121+). Add `[data-theme="light"]` override: `scrollbar-color: #b0b0b0 #f0f0f0`. Also add vendor-prefixed `::-webkit-scrollbar { width: 8px }`, `::-webkit-scrollbar-track { background: var(--color-bg) }`, `::-webkit-scrollbar-thumb { background: #3a3a3a; border-radius: 4px; border: 2px solid var(--color-bg) }` and `::-webkit-scrollbar-thumb:hover { background: #5a5a5a }`. Add a `[data-theme="light"]` block with `::-webkit-scrollbar-thumb { background: #b0b0b0 }` / `hover: #888`. CSS-only, no JS or HTML changes. Build passes, commit.
 
+### Phase 52 — Accessibility: Theme Announcement
+
+- [x] **97** — Screen-reader theme change announcement: when the user presses the theme toggle, screen readers only hear the updated `aria-label` on the button — they do not receive an explicit announcement of the state change. Add a visually-hidden `<div class="sr-only" id="theme-announcement" aria-live="polite" aria-atomic="true"></div>` as the third child of `<body>` (after `#scroll-progress` and `.skip-link`) in `index.html`. Add a `.sr-only` utility class to `css/style.css` (position absolute, 1×1px, overflow hidden, clip rect — the standard visually-hidden pattern). In `js/app.js`, inside `applyTheme()`, after updating the button aria-label, set `const ann = document.getElementById('theme-announcement'); if (ann) ann.textContent = 'Switched to ' + theme + ' theme';`. Also update README.md: change "93+" to "96+" in the Built with RALPH section. Build passes, commit.
+
 ---
 
 ## Completed Tasks
 
 | # | Date | Task | Files Changed | Notes |
 |---|------|------|---------------|-------|
+| 97 | 2026-03-05 | Screen-reader theme change announcement | index.html, css/style.css, js/app.js, README.md | Added sr-only aria-live="polite" div #theme-announcement to index.html; .sr-only utility class to css/style.css; applyTheme() now sets textContent to announce theme change to screen readers; updated README "93+" to "96+"; build passes |
 | 96 | 2026-03-05 | Custom scrollbar styling | css/style.css | Added scrollbar-width:thin + scrollbar-color for Firefox/Chrome 121+ on html; [data-theme="light"] override; ::-webkit-scrollbar rules (8px width, border-pad thumb) for WebKit; light-theme ::-webkit-scrollbar-thumb overrides; CSS-only, no JS/HTML changes; build passes |
 | 95 | 2026-03-05 | role="list" on ul elements with list-style:none (VoiceOver a11y) | index.html | Added role="list" to .timeline, 4× .timeline__bullets, .education__details, .projects__feature-tags, .leadership__list, .hobbies__chips; restores list semantics in VoiceOver/Safari which strips them when list-style:none is set via CSS; no CSS or JS changes; build passes |
 | 94 | 2026-03-05 | Update README iteration count + RALPH.md hero photo rules | README.md, RALPH.md, spec/TASKS.md | Updated "71+" to "93+" in README Built with RALPH section; committed RALPH.md addition of Hero Photo ABSOLUTE RULES section (hero photo protection after task 93 photo replacement); build passes |
@@ -292,5 +297,5 @@ Tasks are ordered by dependency. Complete them top to bottom.
 | 77 | 2026-03-04 | Scroll progress bar | index.html, css/style.css, js/app.js | Added .scroll-progress fixed 3px accent bar at top of viewport; JS rAF-debounced scroll listener computes scrollY/(scrollHeight-innerHeight)*100 and sets width; prefers-reduced-motion disables transition; hidden in print; build passes. |
 | 76 | 2026-03-04 | color-scheme CSS + JS integration | css/style.css, js/app.js | Added color-scheme: dark light to :root; applyTheme() now sets html.style.colorScheme to keep scrollbar/native UI in sync with manual theme toggle; build passes. |
 | 75 | 2026-03-04 | Visible email address in footer | index.html, css/style.css | Added footer__email text link (peter.sw.mark@gmail.com) between footer__name and footer__social; muted color, accent on hover; visible in print (not in hidden list); no JS changes; build passes. |
-| 74 | 2026-03-04 | Hobbies chips: show labels on touch devices | css/style.css | Added @media (hover: none) rule showing .hobbies__chip-label with max-width: 200px; opacity: 1 so labels are always visible on touch/no-hover devices (phones, tablets). No HTML or JS changes. Build passes. |
+
 
