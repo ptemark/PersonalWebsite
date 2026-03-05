@@ -257,12 +257,17 @@ Tasks are ordered by dependency. Complete them top to bottom.
 
 - [x] **94** — Update README iteration count: change "71+ RALPH iterations" to "93+" in `README.md` Built with RALPH section to reflect actual iterations completed. Also commit the pending `RALPH.md` documentation improvement that adds "Hero Photo — ABSOLUTE RULES" section (hero photo protection rules added after task 93 replaced the source photo). Build passes, commit.
 
+### Phase 50 — Accessibility Refinement
+
+- [x] **95** — `role="list"` on `<ul>` elements with `list-style: none`: VoiceOver on Safari/iOS removes list semantics when `list-style: none` is set via CSS — a known browser quirk. Add `role="list"` to all affected `<ul>` elements in `index.html`: `.timeline`, all four `.timeline__bullets`, `.education__details`, `.projects__feature-tags`, `.leadership__list`, `.hobbies__chips`. No CSS or JS changes needed. Build passes, commit.
+
 ---
 
 ## Completed Tasks
 
 | # | Date | Task | Files Changed | Notes |
 |---|------|------|---------------|-------|
+| 95 | 2026-03-05 | role="list" on ul elements with list-style:none (VoiceOver a11y) | index.html | Added role="list" to .timeline, 4× .timeline__bullets, .education__details, .projects__feature-tags, .leadership__list, .hobbies__chips; restores list semantics in VoiceOver/Safari which strips them when list-style:none is set via CSS; no CSS or JS changes; build passes |
 | 94 | 2026-03-05 | Update README iteration count + RALPH.md hero photo rules | README.md, RALPH.md, spec/TASKS.md | Updated "71+" to "93+" in README Built with RALPH section; committed RALPH.md addition of Hero Photo ABSOLUTE RULES section (hero photo protection after task 93 photo replacement); build passes |
 | 93 | 2026-03-05 | Replace hero photo with new source image | img/peter.jpg, img/peter-600.jpg, img/peter.webp, img/peter-600.webp, spec/peter_website.png | New source 1799×2105 portrait (correct orientation: hands up, sky at top); converted to JPEG, generated 600px variant, generated WebP variants via Python/Pillow (sips WebP unsupported); all four img/ variants verified upright; build passes |
 | 92 | 2026-03-04 | Theme FOUC prevention | index.html, 404.html | Added tiny inline script that reads localStorage + prefers-color-scheme and synchronously applies data-theme="light"/colorScheme="light" before CSS renders; SHA-256 hash added to script-src CSP in both files; eliminates dark background flash for light-mode OS users; build passes |
@@ -283,5 +288,4 @@ Tasks are ordered by dependency. Complete them top to bottom.
 | 76 | 2026-03-04 | color-scheme CSS + JS integration | css/style.css, js/app.js | Added color-scheme: dark light to :root; applyTheme() now sets html.style.colorScheme to keep scrollbar/native UI in sync with manual theme toggle; build passes. |
 | 75 | 2026-03-04 | Visible email address in footer | index.html, css/style.css | Added footer__email text link (peter.sw.mark@gmail.com) between footer__name and footer__social; muted color, accent on hover; visible in print (not in hidden list); no JS changes; build passes. |
 | 74 | 2026-03-04 | Hobbies chips: show labels on touch devices | css/style.css | Added @media (hover: none) rule showing .hobbies__chip-label with max-width: 200px; opacity: 1 so labels are always visible on touch/no-hover devices (phones, tablets). No HTML or JS changes. Build passes. |
-| 73 | 2026-03-04 | Periodic codebase review (iteration 73) | js/app.js, css/style.css | JS bug fix: nav link click handlers passed MouseEvent as returnFocus arg to closeMenu(), causing hamburgerBtn.focus() on every mobile nav click; wrapped in anonymous fn. CSS: .hero__tagline margin-bottom 1rem → 0.75rem per task 46 spec. Security, BEM, dead code, a11y all clean. Build passes. |
 
