@@ -7,7 +7,7 @@ See `RALPH.md` for the full loop process. See `DESIGN.md` for all design decisio
 
 ## Current Task
 
-_None in progress. Last completed: Task 101._
+_None in progress. Last completed: Task 102._
 
 
 ---
@@ -278,6 +278,10 @@ Tasks are ordered by dependency. Complete them top to bottom.
 
 - [x] **100** — Periodic codebase review (iteration 100): full review of `index.html`, `css/style.css`, and `js/app.js`. Checked for BEM inconsistencies, dead CSS, redundant rules, hardcoded values, security/accessibility regressions. All files clean — no issues found. Build confirmed passing. Commit as `refactor: periodic codebase review and cleanup`.
 
+### Phase 56 — IndieWeb Identity
+
+- [x] **102** — `rel="me"` on profile links: add `rel="me noopener noreferrer"` to the GitHub (`https://github.com/ptemark`) and LinkedIn (`https://linkedin.com/in/peter-mark-55641094`) anchor links in both the hero social row and the footer social row in `index.html`. The `rel="me"` attribute establishes identity link verification with IndieWeb, Mastodon, and other decentralized social platforms that crawl profile pages for `rel="me"` back-links. Four link changes total; email `mailto:` links do not get this attribute. No CSS, JS, or webpack changes needed. Build passes, commit.
+
 ### Phase 55 — Social Meta & Structured Data
 
 - [x] **101** — Social meta improvements + JSON-LD enhancement: (1) Add `<meta property="og:image:alt" content="Peter Mark — Senior Software Engineer">` to `index.html` — improves accessibility for screen reader users encountering shared links. (2) Add `<meta property="og:locale" content="en_US">` — locale signal for Open Graph crawlers. (3) Add `<meta property="og:site_name" content="Peter Mark">` — identifies the site in social card renderers. (4) Enhance the JSON-LD Person schema with `"alumniOf": { "@type": "EducationalOrganization", "name": "Carleton University" }` — structured data for search engines. HTML-only changes to `index.html`. Build passes, commit.
@@ -288,6 +292,7 @@ Tasks are ordered by dependency. Complete them top to bottom.
 
 | # | Date | Task | Files Changed | Notes |
 |---|------|------|---------------|-------|
+| 102 | 2026-03-05 | rel="me" on profile links | index.html | Added rel="me noopener noreferrer" to GitHub and LinkedIn links in hero social row and footer (4 links total); establishes IndieWeb identity verification; no CSS/JS changes; build passes |
 | 101 | 2026-03-05 | Social meta improvements + JSON-LD alumniOf | index.html | Added og:site_name, og:locale, og:image:alt OG meta tags; added alumniOf Carleton University to JSON-LD Person schema; HTML-only changes; build passes |
 | 100 | 2026-03-05 | Periodic codebase review (iteration 100) | none | Full review of index.html, css/style.css, js/app.js — BEM consistent, all design tokens as custom properties, no dead CSS, no hardcoded values, no security/a11y regressions; build passes with no errors |
 | 99 | 2026-03-05 | Print mailto URL suppression + README iteration count | css/style.css, README.md | Added a[href^="mailto:"]::after{content:""} to print @media to suppress redundant (mailto:...) URL expansion next to visible email text; updated README "96+" to "98+"; build passes |
@@ -308,6 +313,4 @@ Tasks are ordered by dependency. Complete them top to bottom.
 | 84 | 2026-03-04 | WebP hero image | index.html, img/peter.webp, img/peter-600.webp | Generated WebP variants with Pillow (321KB full, 42KB 600w); wrapped hero <img> in <picture> with WebP <source>; JPEG preload unchanged; img/ CopyPlugin covers .webp files; build passes |
 | 83 | 2026-03-04 | Fix "Download Résumé" button text | index.html | Changed "Download Resume" to "Download Résumé" (accent on final e); matches task 80/81 spec; build passes |
 | 82 | 2026-03-04 | Self-host Inter font | fonts/inter-latin-wght-normal.woff2, css/style.css, index.html, 404.html, webpack.config.prod.js | Added @font-face for variable Inter (47KB, wght 100–900); removed Google Fonts preconnect+stylesheet links; preload local woff2; tightened CSP to self-only for style-src and font-src; build passes |
-| 80 | 2026-03-04 | Resume PDF download button in hero | webpack.config.prod.js, index.html, css/style.css, Peter_Mark_Resume.pdf | Copied spec/Peter_Mark_Resume.pdf to project root; added to CopyPlugin; added "Download Résumé" .hero__btn--secondary button with download arrow SVG alongside "Get In Touch" in hero CTA; added gap: 0.5rem to .hero__btn for icon spacing; build passes. |
-
 
