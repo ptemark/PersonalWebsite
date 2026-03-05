@@ -7,7 +7,7 @@ See `RALPH.md` for the full loop process. See `DESIGN.md` for all design decisio
 
 ## Current Task
 
-_None in progress. Last completed: Task 99._
+_None in progress. Last completed: Task 100._
 
 
 ---
@@ -274,12 +274,17 @@ Tasks are ordered by dependency. Complete them top to bottom.
 
 - [x] **99** — Print mailto URL suppression + README iteration count: (1) In `css/style.css` print media query, add `a[href^="mailto:"]::after { content: ""; }` alongside the existing `a[href^="#"]::after` suppressor — without this, the `a[href]::after` rule prints `(mailto:peter.sw.mark@gmail.com)` next to the already-visible email text, making it redundant and noisy. (2) Update `README.md`: change "96+" to "98+" in the "Built with RALPH" section to reflect actual completed iteration count. Build passes, commit.
 
+### Phase 54 — Periodic Review
+
+- [x] **100** — Periodic codebase review (iteration 100): full review of `index.html`, `css/style.css`, and `js/app.js`. Checked for BEM inconsistencies, dead CSS, redundant rules, hardcoded values, security/accessibility regressions. All files clean — no issues found. Build confirmed passing. Commit as `refactor: periodic codebase review and cleanup`.
+
 ---
 
 ## Completed Tasks
 
 | # | Date | Task | Files Changed | Notes |
 |---|------|------|---------------|-------|
+| 100 | 2026-03-05 | Periodic codebase review (iteration 100) | none | Full review of index.html, css/style.css, js/app.js — BEM consistent, all design tokens as custom properties, no dead CSS, no hardcoded values, no security/a11y regressions; build passes with no errors |
 | 99 | 2026-03-05 | Print mailto URL suppression + README iteration count | css/style.css, README.md | Added a[href^="mailto:"]::after{content:""} to print @media to suppress redundant (mailto:...) URL expansion next to visible email text; updated README "96+" to "98+"; build passes |
 | 98 | 2026-03-05 | Fix theme aria-live false-trigger on page load | js/app.js | Moved themeAnnouncement.textContent update out of applyTheme() into toggle click handler only; prevents screen readers from announcing "Switched to dark/light theme" on every page load; no HTML or CSS changes; build passes |
 | 97 | 2026-03-05 | Screen-reader theme change announcement | index.html, css/style.css, js/app.js, README.md | Added sr-only aria-live="polite" div #theme-announcement to index.html; .sr-only utility class to css/style.css; applyTheme() now sets textContent to announce theme change to screen readers; updated README "93+" to "96+"; build passes |
@@ -299,6 +304,5 @@ Tasks are ordered by dependency. Complete them top to bottom.
 | 83 | 2026-03-04 | Fix "Download Résumé" button text | index.html | Changed "Download Resume" to "Download Résumé" (accent on final e); matches task 80/81 spec; build passes |
 | 82 | 2026-03-04 | Self-host Inter font | fonts/inter-latin-wght-normal.woff2, css/style.css, index.html, 404.html, webpack.config.prod.js | Added @font-face for variable Inter (47KB, wght 100–900); removed Google Fonts preconnect+stylesheet links; preload local woff2; tightened CSP to self-only for style-src and font-src; build passes |
 | 80 | 2026-03-04 | Resume PDF download button in hero | webpack.config.prod.js, index.html, css/style.css, Peter_Mark_Resume.pdf | Copied spec/Peter_Mark_Resume.pdf to project root; added to CopyPlugin; added "Download Résumé" .hero__btn--secondary button with download arrow SVG alongside "Get In Touch" in hero CTA; added gap: 0.5rem to .hero__btn for icon spacing; build passes. |
-| 79 | 2026-03-04 | Semantic <time> elements for dates | index.html | Wrapped all 4 experience date ranges and 1 education date in <time datetime="YYYY-MM"> elements with ISO 8601 datetime attributes; improves machine readability for search engines and screen readers; no CSS/JS changes; build passes. |
 
 
