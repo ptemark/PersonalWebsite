@@ -1338,7 +1338,8 @@ button {
   }
 
   a[href^="#"]::after,
-  a[href^="javascript:"]::after {
+  a[href^="javascript:"]::after,
+  a[href^="mailto:"]::after {
     content: "";
   }
 

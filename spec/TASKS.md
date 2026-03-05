@@ -7,7 +7,7 @@ See `RALPH.md` for the full loop process. See `DESIGN.md` for all design decisio
 
 ## Current Task
 
-_None in progress. Last completed: Task 98._
+_None in progress. Last completed: Task 99._
 
 
 ---
@@ -270,12 +270,17 @@ Tasks are ordered by dependency. Complete them top to bottom.
 - [x] **98** — Fix theme `aria-live` false-trigger on page load: `applyTheme()` unconditionally updated `themeAnnouncement.textContent`, causing screen readers to announce "Switched to dark/light theme" on every page load (not just on explicit toggle). Move the announcement update out of `applyTheme()` and into the toggle button click handler only. No HTML or CSS changes. Build passes, commit.
 - [x] **97** — Screen-reader theme change announcement: when the user presses the theme toggle, screen readers only hear the updated `aria-label` on the button — they do not receive an explicit announcement of the state change. Add a visually-hidden `<div class="sr-only" id="theme-announcement" aria-live="polite" aria-atomic="true"></div>` as the third child of `<body>` (after `#scroll-progress` and `.skip-link`) in `index.html`. Add a `.sr-only` utility class to `css/style.css` (position absolute, 1×1px, overflow hidden, clip rect — the standard visually-hidden pattern). In `js/app.js`, inside `applyTheme()`, after updating the button aria-label, set `const ann = document.getElementById('theme-announcement'); if (ann) ann.textContent = 'Switched to ' + theme + ' theme';`. Also update README.md: change "93+" to "96+" in the Built with RALPH section. Build passes, commit.
 
+### Phase 53 — Print Style Fix
+
+- [x] **99** — Print mailto URL suppression + README iteration count: (1) In `css/style.css` print media query, add `a[href^="mailto:"]::after { content: ""; }` alongside the existing `a[href^="#"]::after` suppressor — without this, the `a[href]::after` rule prints `(mailto:peter.sw.mark@gmail.com)` next to the already-visible email text, making it redundant and noisy. (2) Update `README.md`: change "96+" to "98+" in the "Built with RALPH" section to reflect actual completed iteration count. Build passes, commit.
+
 ---
 
 ## Completed Tasks
 
 | # | Date | Task | Files Changed | Notes |
 |---|------|------|---------------|-------|
+| 99 | 2026-03-05 | Print mailto URL suppression + README iteration count | css/style.css, README.md | Added a[href^="mailto:"]::after{content:""} to print @media to suppress redundant (mailto:...) URL expansion next to visible email text; updated README "96+" to "98+"; build passes |
 | 98 | 2026-03-05 | Fix theme aria-live false-trigger on page load | js/app.js | Moved themeAnnouncement.textContent update out of applyTheme() into toggle click handler only; prevents screen readers from announcing "Switched to dark/light theme" on every page load; no HTML or CSS changes; build passes |
 | 97 | 2026-03-05 | Screen-reader theme change announcement | index.html, css/style.css, js/app.js, README.md | Added sr-only aria-live="polite" div #theme-announcement to index.html; .sr-only utility class to css/style.css; applyTheme() now sets textContent to announce theme change to screen readers; updated README "93+" to "96+"; build passes |
 | 96 | 2026-03-05 | Custom scrollbar styling | css/style.css | Added scrollbar-width:thin + scrollbar-color for Firefox/Chrome 121+ on html; [data-theme="light"] override; ::-webkit-scrollbar rules (8px width, border-pad thumb) for WebKit; light-theme ::-webkit-scrollbar-thumb overrides; CSS-only, no JS/HTML changes; build passes |
@@ -295,9 +300,5 @@ Tasks are ordered by dependency. Complete them top to bottom.
 | 82 | 2026-03-04 | Self-host Inter font | fonts/inter-latin-wght-normal.woff2, css/style.css, index.html, 404.html, webpack.config.prod.js | Added @font-face for variable Inter (47KB, wght 100–900); removed Google Fonts preconnect+stylesheet links; preload local woff2; tightened CSP to self-only for style-src and font-src; build passes |
 | 80 | 2026-03-04 | Resume PDF download button in hero | webpack.config.prod.js, index.html, css/style.css, Peter_Mark_Resume.pdf | Copied spec/Peter_Mark_Resume.pdf to project root; added to CopyPlugin; added "Download Résumé" .hero__btn--secondary button with download arrow SVG alongside "Get In Touch" in hero CTA; added gap: 0.5rem to .hero__btn for icon spacing; build passes. |
 | 79 | 2026-03-04 | Semantic <time> elements for dates | index.html | Wrapped all 4 experience date ranges and 1 education date in <time datetime="YYYY-MM"> elements with ISO 8601 datetime attributes; improves machine readability for search engines and screen readers; no CSS/JS changes; build passes. |
-| 78 | 2026-03-04 | Responsive hero image srcset | index.html, img/peter-600.jpg | Generated peter-600.jpg (600w, 88KB) with sips; added srcset/sizes to <img> and imagesrcset/imagesizes to preload link; browser now fetches 600w on mobile (220px) and may use 1800w on hi-DPI desktop; build passes. |
-| 77 | 2026-03-04 | Scroll progress bar | index.html, css/style.css, js/app.js | Added .scroll-progress fixed 3px accent bar at top of viewport; JS rAF-debounced scroll listener computes scrollY/(scrollHeight-innerHeight)*100 and sets width; prefers-reduced-motion disables transition; hidden in print; build passes. |
-| 76 | 2026-03-04 | color-scheme CSS + JS integration | css/style.css, js/app.js | Added color-scheme: dark light to :root; applyTheme() now sets html.style.colorScheme to keep scrollbar/native UI in sync with manual theme toggle; build passes. |
-| 75 | 2026-03-04 | Visible email address in footer | index.html, css/style.css | Added footer__email text link (peter.sw.mark@gmail.com) between footer__name and footer__social; muted color, accent on hover; visible in print (not in hidden list); no JS changes; build passes. |
 
 
