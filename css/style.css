@@ -120,6 +120,45 @@ body {
 }
 
 /* ==========================================================================
+   Scrollbar
+   ========================================================================== */
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #3a3a3a #1a1a1a;
+}
+
+[data-theme="light"] {
+  scrollbar-color: #b0b0b0 #f0f0f0;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3a3a3a;
+  border-radius: 4px;
+  border: 2px solid var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #5a5a5a;
+}
+
+[data-theme="light"] ::-webkit-scrollbar-thumb {
+  background: #b0b0b0;
+}
+
+[data-theme="light"] ::-webkit-scrollbar-thumb:hover {
+  background: #888888;
+}
+
+/* ==========================================================================
    Media Elements
    ========================================================================== */
 

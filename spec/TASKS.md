@@ -261,12 +261,17 @@ Tasks are ordered by dependency. Complete them top to bottom.
 
 - [x] **95** — `role="list"` on `<ul>` elements with `list-style: none`: VoiceOver on Safari/iOS removes list semantics when `list-style: none` is set via CSS — a known browser quirk. Add `role="list"` to all affected `<ul>` elements in `index.html`: `.timeline`, all four `.timeline__bullets`, `.education__details`, `.projects__feature-tags`, `.leadership__list`, `.hobbies__chips`. No CSS or JS changes needed. Build passes, commit.
 
+### Phase 51 — Scrollbar Polish
+
+- [x] **96** — Custom scrollbar styling: add themed scrollbar CSS to `css/style.css` so the browser scrollbar matches the site palette. Add `scrollbar-width: thin` and `scrollbar-color: #3a3a3a #1a1a1a` to `html` (standard properties, Firefox + Chrome 121+). Add `[data-theme="light"]` override: `scrollbar-color: #b0b0b0 #f0f0f0`. Also add vendor-prefixed `::-webkit-scrollbar { width: 8px }`, `::-webkit-scrollbar-track { background: var(--color-bg) }`, `::-webkit-scrollbar-thumb { background: #3a3a3a; border-radius: 4px; border: 2px solid var(--color-bg) }` and `::-webkit-scrollbar-thumb:hover { background: #5a5a5a }`. Add a `[data-theme="light"]` block with `::-webkit-scrollbar-thumb { background: #b0b0b0 }` / `hover: #888`. CSS-only, no JS or HTML changes. Build passes, commit.
+
 ---
 
 ## Completed Tasks
 
 | # | Date | Task | Files Changed | Notes |
 |---|------|------|---------------|-------|
+| 96 | 2026-03-05 | Custom scrollbar styling | css/style.css | Added scrollbar-width:thin + scrollbar-color for Firefox/Chrome 121+ on html; [data-theme="light"] override; ::-webkit-scrollbar rules (8px width, border-pad thumb) for WebKit; light-theme ::-webkit-scrollbar-thumb overrides; CSS-only, no JS/HTML changes; build passes |
 | 95 | 2026-03-05 | role="list" on ul elements with list-style:none (VoiceOver a11y) | index.html | Added role="list" to .timeline, 4× .timeline__bullets, .education__details, .projects__feature-tags, .leadership__list, .hobbies__chips; restores list semantics in VoiceOver/Safari which strips them when list-style:none is set via CSS; no CSS or JS changes; build passes |
 | 94 | 2026-03-05 | Update README iteration count + RALPH.md hero photo rules | README.md, RALPH.md, spec/TASKS.md | Updated "71+" to "93+" in README Built with RALPH section; committed RALPH.md addition of Hero Photo ABSOLUTE RULES section (hero photo protection after task 93 photo replacement); build passes |
 | 93 | 2026-03-05 | Replace hero photo with new source image | img/peter.jpg, img/peter-600.jpg, img/peter.webp, img/peter-600.webp, spec/peter_website.png | New source 1799×2105 portrait (correct orientation: hands up, sky at top); converted to JPEG, generated 600px variant, generated WebP variants via Python/Pillow (sips WebP unsupported); all four img/ variants verified upright; build passes |
