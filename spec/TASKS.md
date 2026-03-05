@@ -7,7 +7,7 @@ See `RALPH.md` for the full loop process. See `DESIGN.md` for all design decisio
 
 ## Current Task
 
-_None in progress. Last completed: Task 100._
+_None in progress. Last completed: Task 101._
 
 
 ---
@@ -278,12 +278,17 @@ Tasks are ordered by dependency. Complete them top to bottom.
 
 - [x] **100** — Periodic codebase review (iteration 100): full review of `index.html`, `css/style.css`, and `js/app.js`. Checked for BEM inconsistencies, dead CSS, redundant rules, hardcoded values, security/accessibility regressions. All files clean — no issues found. Build confirmed passing. Commit as `refactor: periodic codebase review and cleanup`.
 
+### Phase 55 — Social Meta & Structured Data
+
+- [x] **101** — Social meta improvements + JSON-LD enhancement: (1) Add `<meta property="og:image:alt" content="Peter Mark — Senior Software Engineer">` to `index.html` — improves accessibility for screen reader users encountering shared links. (2) Add `<meta property="og:locale" content="en_US">` — locale signal for Open Graph crawlers. (3) Add `<meta property="og:site_name" content="Peter Mark">` — identifies the site in social card renderers. (4) Enhance the JSON-LD Person schema with `"alumniOf": { "@type": "EducationalOrganization", "name": "Carleton University" }` — structured data for search engines. HTML-only changes to `index.html`. Build passes, commit.
+
 ---
 
 ## Completed Tasks
 
 | # | Date | Task | Files Changed | Notes |
 |---|------|------|---------------|-------|
+| 101 | 2026-03-05 | Social meta improvements + JSON-LD alumniOf | index.html | Added og:site_name, og:locale, og:image:alt OG meta tags; added alumniOf Carleton University to JSON-LD Person schema; HTML-only changes; build passes |
 | 100 | 2026-03-05 | Periodic codebase review (iteration 100) | none | Full review of index.html, css/style.css, js/app.js — BEM consistent, all design tokens as custom properties, no dead CSS, no hardcoded values, no security/a11y regressions; build passes with no errors |
 | 99 | 2026-03-05 | Print mailto URL suppression + README iteration count | css/style.css, README.md | Added a[href^="mailto:"]::after{content:""} to print @media to suppress redundant (mailto:...) URL expansion next to visible email text; updated README "96+" to "98+"; build passes |
 | 98 | 2026-03-05 | Fix theme aria-live false-trigger on page load | js/app.js | Moved themeAnnouncement.textContent update out of applyTheme() into toggle click handler only; prevents screen readers from announcing "Switched to dark/light theme" on every page load; no HTML or CSS changes; build passes |
