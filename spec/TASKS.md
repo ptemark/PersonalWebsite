@@ -253,12 +253,17 @@ Tasks are ordered by dependency. Complete them top to bottom.
 
 - [x] **93** — Replace hero photo with new source image. A new source photo has been provided at `spec/peter_website.png`. **Canonical orientation: portrait, Peter upright, hands pointing UP, sky at top — verify this before proceeding.** Steps: (1) Inspect `spec/peter_website.png` dimensions with `sips -g pixelHeight -g pixelWidth spec/peter_website.png`. (2) If the image is not already portrait/upright, apply the correct `sips -r` rotation before any other processing. (3) Convert to JPEG and write to `img/peter.jpg`: `sips --setProperty format jpeg spec/peter_website.png --out img/peter.jpg`. (4) Generate the 600px-wide variant: `sips --resampleWidth 600 img/peter.jpg --out img/peter-600.jpg`. (5) Generate WebP variants: `sips --setProperty format webp img/peter.jpg --out img/peter.webp` and `sips --setProperty format webp img/peter-600.jpg --out img/peter-600.webp`. (6) Verify all four output files look correct (upright, sky at top) before staging. (7) Commit all four image files: `img/peter.jpg`, `img/peter-600.jpg`, `img/peter.webp`, `img/peter-600.webp`. Do NOT commit `spec/peter_website.png` (spec/ is gitignored for images). Build passes.
 
+### Phase 49 — Documentation Accuracy
+
+- [x] **94** — Update README iteration count: change "71+ RALPH iterations" to "93+" in `README.md` Built with RALPH section to reflect actual iterations completed. Also commit the pending `RALPH.md` documentation improvement that adds "Hero Photo — ABSOLUTE RULES" section (hero photo protection rules added after task 93 replaced the source photo). Build passes, commit.
+
 ---
 
 ## Completed Tasks
 
 | # | Date | Task | Files Changed | Notes |
 |---|------|------|---------------|-------|
+| 94 | 2026-03-05 | Update README iteration count + RALPH.md hero photo rules | README.md, RALPH.md, spec/TASKS.md | Updated "71+" to "93+" in README Built with RALPH section; committed RALPH.md addition of Hero Photo ABSOLUTE RULES section (hero photo protection after task 93 photo replacement); build passes |
 | 93 | 2026-03-05 | Replace hero photo with new source image | img/peter.jpg, img/peter-600.jpg, img/peter.webp, img/peter-600.webp, spec/peter_website.png | New source 1799×2105 portrait (correct orientation: hands up, sky at top); converted to JPEG, generated 600px variant, generated WebP variants via Python/Pillow (sips WebP unsupported); all four img/ variants verified upright; build passes |
 | 92 | 2026-03-04 | Theme FOUC prevention | index.html, 404.html | Added tiny inline script that reads localStorage + prefers-color-scheme and synchronously applies data-theme="light"/colorScheme="light" before CSS renders; SHA-256 hash added to script-src CSP in both files; eliminates dark background flash for light-mode OS users; build passes |
 | 91 | 2026-03-04 | Hero entrance stagger animation | css/style.css | Added @keyframes heroFadeUp (opacity+translateY) in prefers-reduced-motion: no-preference block; staggered animation-delay on 8 hero child elements (0.05s–0.65s); animation-fill-mode: both keeps elements invisible before delay fires; removed redundant .section and .hero no-ops from reduce block; build passes |
@@ -279,5 +284,4 @@ Tasks are ordered by dependency. Complete them top to bottom.
 | 75 | 2026-03-04 | Visible email address in footer | index.html, css/style.css | Added footer__email text link (peter.sw.mark@gmail.com) between footer__name and footer__social; muted color, accent on hover; visible in print (not in hidden list); no JS changes; build passes. |
 | 74 | 2026-03-04 | Hobbies chips: show labels on touch devices | css/style.css | Added @media (hover: none) rule showing .hobbies__chip-label with max-width: 200px; opacity: 1 so labels are always visible on touch/no-hover devices (phones, tablets). No HTML or JS changes. Build passes. |
 | 73 | 2026-03-04 | Periodic codebase review (iteration 73) | js/app.js, css/style.css | JS bug fix: nav link click handlers passed MouseEvent as returnFocus arg to closeMenu(), causing hamburgerBtn.focus() on every mobile nav click; wrapped in anonymous fn. CSS: .hero__tagline margin-bottom 1rem → 0.75rem per task 46 spec. Security, BEM, dead code, a11y all clean. Build passes. |
-| 72 | 2026-03-04 | Expand README with RALPH loop section | README.md | Added "## Built with RALPH" section: what RALPH is + Geoffrey Huntley credit, how Claude CLI was used, 6-step iteration workflow, by-the-numbers (71+ iterations, Webpack 5/GitHub Actions/npm/sips/claude CLI, zero manual edits), link to RALPH.md; all existing sections preserved; build passes |
 

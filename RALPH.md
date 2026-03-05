@@ -66,7 +66,13 @@ Pick tasks in this order:
    - No `innerHTML` with any dynamic or user-facing content — use `textContent` or DOM methods
    - Include a Content Security Policy `<meta>` tag in `index.html`
 
-2. **HTML**
+2. **Hero Photo — ABSOLUTE RULES, NO EXCEPTIONS**
+   - **NEVER rotate, crop, resize, or otherwise transform `img/peter.jpg` or any of its variants (`img/peter-600.jpg`, `img/peter.webp`, `img/peter-600.webp`) unless the task explicitly instructs you to do so**
+   - The canonical orientation is: **portrait, Peter upright, hands pointing UP, sky at top**
+   - If you generate derived files (resized, WebP) from the source, always derive from a correctly-oriented source — do not re-apply transforms to already-transformed files
+   - Before committing any hero image file, visually confirm the orientation is correct using Quick Look or `sips -g`; if in doubt, do not commit
+
+3. **HTML**
    - Use semantic elements throughout: `<nav>`, `<main>`, `<section>`, `<article>`, `<footer>`
    - All images must have descriptive `alt` attributes
    - Icon-only buttons must have `aria-label`
