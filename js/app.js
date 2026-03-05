@@ -30,9 +30,6 @@
         html.style.colorScheme = 'dark';
         if (toggleBtn) toggleBtn.setAttribute('aria-label', 'Switch to light theme');
       }
-      if (themeAnnouncement) {
-        themeAnnouncement.textContent = 'Switched to ' + theme + ' theme';
-      }
     }
 
     applyTheme(getInitialTheme());
@@ -42,6 +39,9 @@
         const next = html.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
         applyTheme(next);
         localStorage.setItem('theme', next);
+        if (themeAnnouncement) {
+          themeAnnouncement.textContent = 'Switched to ' + next + ' theme';
+        }
       });
     }
 

@@ -7,7 +7,7 @@ See `RALPH.md` for the full loop process. See `DESIGN.md` for all design decisio
 
 ## Current Task
 
-_None in progress. Last completed: Task 97._
+_None in progress. Last completed: Task 98._
 
 
 ---
@@ -267,6 +267,7 @@ Tasks are ordered by dependency. Complete them top to bottom.
 
 ### Phase 52 — Accessibility: Theme Announcement
 
+- [x] **98** — Fix theme `aria-live` false-trigger on page load: `applyTheme()` unconditionally updated `themeAnnouncement.textContent`, causing screen readers to announce "Switched to dark/light theme" on every page load (not just on explicit toggle). Move the announcement update out of `applyTheme()` and into the toggle button click handler only. No HTML or CSS changes. Build passes, commit.
 - [x] **97** — Screen-reader theme change announcement: when the user presses the theme toggle, screen readers only hear the updated `aria-label` on the button — they do not receive an explicit announcement of the state change. Add a visually-hidden `<div class="sr-only" id="theme-announcement" aria-live="polite" aria-atomic="true"></div>` as the third child of `<body>` (after `#scroll-progress` and `.skip-link`) in `index.html`. Add a `.sr-only` utility class to `css/style.css` (position absolute, 1×1px, overflow hidden, clip rect — the standard visually-hidden pattern). In `js/app.js`, inside `applyTheme()`, after updating the button aria-label, set `const ann = document.getElementById('theme-announcement'); if (ann) ann.textContent = 'Switched to ' + theme + ' theme';`. Also update README.md: change "93+" to "96+" in the Built with RALPH section. Build passes, commit.
 
 ---
@@ -275,6 +276,7 @@ Tasks are ordered by dependency. Complete them top to bottom.
 
 | # | Date | Task | Files Changed | Notes |
 |---|------|------|---------------|-------|
+| 98 | 2026-03-05 | Fix theme aria-live false-trigger on page load | js/app.js | Moved themeAnnouncement.textContent update out of applyTheme() into toggle click handler only; prevents screen readers from announcing "Switched to dark/light theme" on every page load; no HTML or CSS changes; build passes |
 | 97 | 2026-03-05 | Screen-reader theme change announcement | index.html, css/style.css, js/app.js, README.md | Added sr-only aria-live="polite" div #theme-announcement to index.html; .sr-only utility class to css/style.css; applyTheme() now sets textContent to announce theme change to screen readers; updated README "93+" to "96+"; build passes |
 | 96 | 2026-03-05 | Custom scrollbar styling | css/style.css | Added scrollbar-width:thin + scrollbar-color for Firefox/Chrome 121+ on html; [data-theme="light"] override; ::-webkit-scrollbar rules (8px width, border-pad thumb) for WebKit; light-theme ::-webkit-scrollbar-thumb overrides; CSS-only, no JS/HTML changes; build passes |
 | 95 | 2026-03-05 | role="list" on ul elements with list-style:none (VoiceOver a11y) | index.html | Added role="list" to .timeline, 4× .timeline__bullets, .education__details, .projects__feature-tags, .leadership__list, .hobbies__chips; restores list semantics in VoiceOver/Safari which strips them when list-style:none is set via CSS; no CSS or JS changes; build passes |
