@@ -7,7 +7,7 @@ See `RALPH.md` for the full loop process. See `DESIGN.md` for all design decisio
 
 ## Current Task
 
-_None in progress. Last completed: Task 102._
+_None in progress. Last completed: Task 103._
 
 
 ---
@@ -278,6 +278,10 @@ Tasks are ordered by dependency. Complete them top to bottom.
 
 - [x] **100** — Periodic codebase review (iteration 100): full review of `index.html`, `css/style.css`, and `js/app.js`. Checked for BEM inconsistencies, dead CSS, redundant rules, hardcoded values, security/accessibility regressions. All files clean — no issues found. Build confirmed passing. Commit as `refactor: periodic codebase review and cleanup`.
 
+### Phase 57 — PWA Manifest & README
+
+- [x] **103** — PWA manifest improvements + README iteration count: (1) Add `"display": "browser"` to `site.webmanifest` — the `display` field is required by the PWA spec and flagged as missing by Chrome DevTools Lighthouse; `"browser"` is the correct value since the site doesn't need standalone app mode. (2) Add `"description": "Personal portfolio website for Peter Mark, Senior Software Engineer based in Seattle, WA."` to `site.webmanifest` for richer PWA metadata. (3) Update README "100+" to "102+" in the Built with RALPH section to reflect the actual completed iteration count. Build passes, commit.
+
 ### Phase 56 — IndieWeb Identity
 
 - [x] **102** — `rel="me"` on profile links: add `rel="me noopener noreferrer"` to the GitHub (`https://github.com/ptemark`) and LinkedIn (`https://linkedin.com/in/peter-mark-55641094`) anchor links in both the hero social row and the footer social row in `index.html`. The `rel="me"` attribute establishes identity link verification with IndieWeb, Mastodon, and other decentralized social platforms that crawl profile pages for `rel="me"` back-links. Four link changes total; email `mailto:` links do not get this attribute. No CSS, JS, or webpack changes needed. Build passes, commit.
@@ -292,6 +296,7 @@ Tasks are ordered by dependency. Complete them top to bottom.
 
 | # | Date | Task | Files Changed | Notes |
 |---|------|------|---------------|-------|
+| 103 | 2026-03-05 | PWA manifest improvements + README iteration count | site.webmanifest, README.md | Added display:"browser" and description fields to site.webmanifest; updated README "100+" to "102+"; build passes |
 | 102 | 2026-03-05 | rel="me" on profile links | index.html | Added rel="me noopener noreferrer" to GitHub and LinkedIn links in hero social row and footer (4 links total); establishes IndieWeb identity verification; no CSS/JS changes; build passes |
 | 101 | 2026-03-05 | Social meta improvements + JSON-LD alumniOf | index.html | Added og:site_name, og:locale, og:image:alt OG meta tags; added alumniOf Carleton University to JSON-LD Person schema; HTML-only changes; build passes |
 | 100 | 2026-03-05 | Periodic codebase review (iteration 100) | none | Full review of index.html, css/style.css, js/app.js — BEM consistent, all design tokens as custom properties, no dead CSS, no hardcoded values, no security/a11y regressions; build passes with no errors |
@@ -312,5 +317,4 @@ Tasks are ordered by dependency. Complete them top to bottom.
 | 85 | 2026-03-04 | Periodic codebase review (iteration 85) | css/style.css, index.html | CSS ordering bug: nav desktop overrides were in a 768px block before the base rules, causing links hidden and hamburger shown on desktop; moved desktop overrides to a 768px block after base nav rules. Removed role="status" from static hero badge (live region misuse). Added color: var(--color-accent) to .nav__wordmark:hover to prevent global a:hover color bleed. Build passes. |
 | 84 | 2026-03-04 | WebP hero image | index.html, img/peter.webp, img/peter-600.webp | Generated WebP variants with Pillow (321KB full, 42KB 600w); wrapped hero <img> in <picture> with WebP <source>; JPEG preload unchanged; img/ CopyPlugin covers .webp files; build passes |
 | 83 | 2026-03-04 | Fix "Download Résumé" button text | index.html | Changed "Download Resume" to "Download Résumé" (accent on final e); matches task 80/81 spec; build passes |
-| 82 | 2026-03-04 | Self-host Inter font | fonts/inter-latin-wght-normal.woff2, css/style.css, index.html, 404.html, webpack.config.prod.js | Added @font-face for variable Inter (47KB, wght 100–900); removed Google Fonts preconnect+stylesheet links; preload local woff2; tightened CSP to self-only for style-src and font-src; build passes |
 

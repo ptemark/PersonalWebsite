@@ -1,12 +1,14 @@
 {
   "short_name": "Peter Mark",
   "name": "Peter Mark — Senior Software Engineer",
+  "description": "Personal portfolio website for Peter Mark, Senior Software Engineer based in Seattle, WA.",
   "icons": [{
     "src": "icon.png",
     "type": "image/png",
     "sizes": "192x192"
   }],
   "start_url": "/?utm_source=homescreen",
+  "display": "browser",
   "background_color": "#0f0f0f",
   "theme_color": "#0f0f0f"
 }
