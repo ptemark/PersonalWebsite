@@ -7,11 +7,15 @@ See `RALPH.md` for the full loop process. See `DESIGN.md` for all design decisio
 
 ## Current Task
 
-_None in progress. Last completed: Task 109._
+_None in progress. Last completed: Task 110._
 
 ---
 
 ## Queued Tasks
+
+### Phase 63 — SEO & Structured Data
+
+- [x] **110** — `og:type` profile + JSON-LD `knowsAbout` + README iteration count: (1) Change `<meta property="og:type" content="website">` to `content="profile"` in `index.html` — the OG `profile` type is specifically designed for personal profile pages and enables profile-specific rendering in Facebook and compliant scrapers. (2) Add `<meta property="profile:first_name" content="Peter">`, `<meta property="profile:last_name" content="Mark">`, and `<meta property="profile:username" content="ptemark">` immediately after `og:type` — these profile namespace tags identify the subject when scrapers encounter type="profile". (3) Add `"knowsAbout": ["Distributed Systems", "Java", "Python", "AWS", "Microservices", "Kafka", "Kubernetes", "Docker", "Terraform"]` to the JSON-LD Person schema in `index.html` — enriches structured data so search engines can surface Peter's expertise in knowledge panels and entity cards. (4) Update README "108+" to "109+" to reflect actual completed iteration count. HTML-only changes to `index.html`; README update. Build passes, commit.
 
 ### Phase 62 — SEO & Structured Data
 
@@ -322,6 +326,7 @@ Tasks are ordered by dependency. Complete them top to bottom.
 
 | # | Date | Task | Files Changed | Notes |
 |---|------|------|---------------|-------|
+| 110 | 2026-05-06 | og:type profile + JSON-LD knowsAbout + README iteration count | index.html, README.md | Changed og:type from "website" to "profile"; added profile:first_name, profile:last_name, profile:username namespace tags; added knowsAbout array to JSON-LD Person schema (9 expertise areas); updated README "108+" to "109+"; build passes |
 | 109 | 2026-05-06 | RALPH iteration count in projects description + README update | index.html, README.md | Added "108+ iterations" reference to petermark.dev project description second paragraph for a more compelling RALPH showcase; updated README "107+" to "108+"; HTML-only change to index.html; build passes |
 | 108 | 2026-05-06 | JSON-LD Person schema enhancement + README iteration count | index.html, README.md | Added "description" and "image" properties to JSON-LD Person schema; description mirrors meta description for knowledge panel snippets; image points to og-image for visual search results; updated README "106+" to "107+"; build passes |
 | 107 | 2026-05-06 | Social icon link hover color consistency + README iteration count | css/style.css, README.md | Added .hero__social-link:hover and .footer__social-link:hover with color:var(--color-accent) to match established accent-hover pattern; updated README "105+" to "106+"; build passes |
@@ -341,5 +346,4 @@ Tasks are ordered by dependency. Complete them top to bottom.
 | 93 | 2026-03-05 | Replace hero photo with new source image | img/peter.jpg, img/peter-600.jpg, img/peter.webp, img/peter-600.webp, spec/peter_website.png | New source 1799×2105 portrait (correct orientation: hands up, sky at top); converted to JPEG, generated 600px variant, generated WebP variants via Python/Pillow (sips WebP unsupported); all four img/ variants verified upright; build passes |
 | 92 | 2026-03-04 | Theme FOUC prevention | index.html, 404.html | Added tiny inline script that reads localStorage + prefers-color-scheme and synchronously applies data-theme="light"/colorScheme="light" before CSS renders; SHA-256 hash added to script-src CSP in both files; eliminates dark background flash for light-mode OS users; build passes |
 | 91 | 2026-03-04 | Hero entrance stagger animation | css/style.css | Added @keyframes heroFadeUp (opacity+translateY) in prefers-reduced-motion: no-preference block; staggered animation-delay on 8 hero child elements (0.05s–0.65s); animation-fill-mode: both keeps elements invisible before delay fires; removed redundant .section and .hero no-ops from reduce block; build passes |
-| 90 | 2026-03-04 | Section scroll animations prefers-reduced-motion guard | css/style.css | Moved .section opacity/transform/transition and .section.is-visible overrides into @media (prefers-reduced-motion: no-preference) block; reduced-motion users now see all sections at full opacity immediately; no JS or HTML changes; build passes |
 
