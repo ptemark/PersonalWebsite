@@ -7,11 +7,15 @@ See `RALPH.md` for the full loop process. See `DESIGN.md` for all design decisio
 
 ## Current Task
 
-_None in progress. Last completed: Task 105._
+_None in progress. Last completed: Task 106._
 
 ---
 
 ## Queued Tasks
+
+### Phase 60 — SEO & Metadata
+
+- [x] **106** — Twitter image alt + sitemap lastmod + README iteration count: (1) Add `<meta name="twitter:image:alt" content="Peter Mark — Senior Software Engineer">` to `index.html` immediately after `twitter:image` — mirrors `og:image:alt` added in task 101 and provides accessible alt text for Twitter card images. (2) Add `<lastmod>2026-05-06</lastmod>` to `sitemap.xml` `<url>` block so search crawlers know when the site was last updated. (3) Update README "104+" to "105+" to reflect actual completed iteration count. HTML-only change to index.html; no CSS, JS, or webpack changes. Build passes, commit.
 
 ### Phase 59 — SEO & Maintenance
 
@@ -310,6 +314,7 @@ Tasks are ordered by dependency. Complete them top to bottom.
 
 | # | Date | Task | Files Changed | Notes |
 |---|------|------|---------------|-------|
+| 106 | 2026-05-06 | Twitter image alt + sitemap lastmod + README iteration count | index.html, sitemap.xml, README.md | Added twitter:image:alt meta tag to index.html (mirrors og:image:alt from task 101); added <lastmod>2026-05-06</lastmod> to sitemap.xml; updated README "104+" to "105+"; build passes |
 | 105 | 2026-05-06 | README iteration count + sitemap link tag | README.md, index.html | Updated "102+" to "104+" in README Built with RALPH section; added <link rel="sitemap" type="application/xml" href="/sitemap.xml"> to <head> in index.html before canonical link for HTML-based sitemap discovery; build passes |
 | 104 | 2026-05-06 | JetLag Hide-and-Seek project entry | index.html, css/style.css | Added second project block after hr.projects__divider; full-width .projects__feature-content with 9 tech tags and View on GitHub button; added .projects__divider CSS rule; no JS changes; build passes |
 | 103 | 2026-03-05 | PWA manifest improvements + README iteration count | site.webmanifest, README.md | Added display:"browser" and description fields to site.webmanifest; updated README "100+" to "102+"; build passes |
@@ -329,5 +334,4 @@ Tasks are ordered by dependency. Complete them top to bottom.
 | 89 | 2026-03-04 | RALPH loop improvements: interrupted run recovery + graceful Ctrl+C | RALPH.md, ralph.sh | Added "Interrupted Runs" section to RALPH.md with 5-step recovery checklist; ralph.sh: added STOP_REQUESTED flag, handle_interrupt() trap allows current iteration to finish on first Ctrl+C, force-quits on second; improved completion message |
 | 88 | 2026-03-04 | Branded apple touch icon | icon.png | Generated 180×180 PNG with Python/Pillow: #7C3AED purple rounded-rect background, bold white "PM" (Arial Bold 72px); replaces HTML5 Boilerplate default; no HTML/webpack changes; build passes |
 | 87 | 2026-03-04 | Scroll spy sticky active state for nav-less sections | js/app.js | Added sectionsArray (Array.from sections NodeList); when topmost visible section has no nav link, walk backwards to nearest preceding section that does; nav stays lit while scrolling through #skills and #hobbies; build passes |
-| 86 | 2026-03-04 | Move hobbies section to bottom (after leadership, before footer) | index.html | Relocated <section id="hobbies"> to appear after <section id="leadership"> and immediately before </main>; no nav link for hobbies existed; scroll spy unaffected (IntersectionObserver watches by class); build passes |
 
