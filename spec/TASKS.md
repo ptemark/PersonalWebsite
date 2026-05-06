@@ -7,11 +7,17 @@ See `RALPH.md` for the full loop process. See `DESIGN.md` for all design decisio
 
 ## Current Task
 
-_None in progress. Last completed: Task 104._
+_None in progress. Last completed: Task 105._
 
 ---
 
 ## Queued Tasks
+
+### Phase 59 — SEO & Maintenance
+
+- [x] **105** — README iteration count + sitemap link tag: (1) Update README.md "102+ RALPH iterations" to "104+" to reflect actual completed iterations. (2) Add `<link rel="sitemap" type="application/xml" href="/sitemap.xml">` to `<head>` in `index.html` immediately before the `<link rel="canonical">` tag — Google and other crawlers support this HTML discovery mechanism for sitemap files in addition to the `robots.txt` `Sitemap:` directive already present. HTML-only change for index.html; no CSS, JS, or webpack changes. Build passes, commit.
+
+---
 
 ### Phase 58 — JetLag Hide-and-Seek Project
 
@@ -304,6 +310,7 @@ Tasks are ordered by dependency. Complete them top to bottom.
 
 | # | Date | Task | Files Changed | Notes |
 |---|------|------|---------------|-------|
+| 105 | 2026-05-06 | README iteration count + sitemap link tag | README.md, index.html | Updated "102+" to "104+" in README Built with RALPH section; added <link rel="sitemap" type="application/xml" href="/sitemap.xml"> to <head> in index.html before canonical link for HTML-based sitemap discovery; build passes |
 | 104 | 2026-05-06 | JetLag Hide-and-Seek project entry | index.html, css/style.css | Added second project block after hr.projects__divider; full-width .projects__feature-content with 9 tech tags and View on GitHub button; added .projects__divider CSS rule; no JS changes; build passes |
 | 103 | 2026-03-05 | PWA manifest improvements + README iteration count | site.webmanifest, README.md | Added display:"browser" and description fields to site.webmanifest; updated README "100+" to "102+"; build passes |
 | 102 | 2026-03-05 | rel="me" on profile links | index.html | Added rel="me noopener noreferrer" to GitHub and LinkedIn links in hero social row and footer (4 links total); establishes IndieWeb identity verification; no CSS/JS changes; build passes |
@@ -323,7 +330,4 @@ Tasks are ordered by dependency. Complete them top to bottom.
 | 88 | 2026-03-04 | Branded apple touch icon | icon.png | Generated 180×180 PNG with Python/Pillow: #7C3AED purple rounded-rect background, bold white "PM" (Arial Bold 72px); replaces HTML5 Boilerplate default; no HTML/webpack changes; build passes |
 | 87 | 2026-03-04 | Scroll spy sticky active state for nav-less sections | js/app.js | Added sectionsArray (Array.from sections NodeList); when topmost visible section has no nav link, walk backwards to nearest preceding section that does; nav stays lit while scrolling through #skills and #hobbies; build passes |
 | 86 | 2026-03-04 | Move hobbies section to bottom (after leadership, before footer) | index.html | Relocated <section id="hobbies"> to appear after <section id="leadership"> and immediately before </main>; no nav link for hobbies existed; scroll spy unaffected (IntersectionObserver watches by class); build passes |
-| 85 | 2026-03-04 | Periodic codebase review (iteration 85) | css/style.css, index.html | CSS ordering bug: nav desktop overrides were in a 768px block before the base rules, causing links hidden and hamburger shown on desktop; moved desktop overrides to a 768px block after base nav rules. Removed role="status" from static hero badge (live region misuse). Added color: var(--color-accent) to .nav__wordmark:hover to prevent global a:hover color bleed. Build passes. |
-| 84 | 2026-03-04 | WebP hero image | index.html, img/peter.webp, img/peter-600.webp | Generated WebP variants with Pillow (321KB full, 42KB 600w); wrapped hero <img> in <picture> with WebP <source>; JPEG preload unchanged; img/ CopyPlugin covers .webp files; build passes |
-| 83 | 2026-03-04 | Fix "Download Résumé" button text | index.html | Changed "Download Resume" to "Download Résumé" (accent on final e); matches task 80/81 spec; build passes |
 
