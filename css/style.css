@@ -1009,6 +1009,12 @@ button {
   color: var(--color-accent);
 }
 
+.projects__divider {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: 3rem 0;
+}
+
 .projects__feature-diagram {
   display: flex;
   justify-content: center;

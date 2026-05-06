@@ -7,7 +7,15 @@ See `RALPH.md` for the full loop process. See `DESIGN.md` for all design decisio
 
 ## Current Task
 
-_None in progress. Last completed: Task 103._
+_None in progress. Last completed: Task 104._
+
+---
+
+## Queued Tasks
+
+### Phase 58 — JetLag Hide-and-Seek Project
+
+- [x] **104** — JetLag Hide-and-Seek project entry: add a second project to the `#projects` section in `index.html`, separated from the first by `<hr class="projects__divider">`. The new block uses the existing `.projects__feature` class with only a `.projects__feature-content` child (no diagram column — this entry is full-width). Content: `<h3 class="projects__feature-name">JetLag Hide-and-Seek</h3>`, two description paragraphs — (1) "A real-world transit-based hide-and-seek game. Hiders travel via public transit and hide in zones around stations; seekers ask yes/no questions to deduce their location." (2) "Built as a cost-optimised serverless stack: React + Vite frontend, Vercel serverless functions for the REST API, Neon (serverless PostgreSQL) for game state, and a Node.js WebSocket server containerised with Docker for real-time play. Location updates are throttled (10–20 s) for battery efficiency on mobile. Deployed via GitHub Actions." — tech tag pills: React, Vite, Node.js, WebSockets, PostgreSQL, Docker, Vercel, OpenStreetMap, GitHub Actions — a `<div class="projects__feature-links">` containing a single "View on GitHub" button (`<a href="https://github.com/ptemark/JetLag-Hide-and-Seek" class="projects__feature-btn" rel="noopener noreferrer" target="_blank">` with the GitHub SVG icon reused from the existing project). Add `.projects__divider` to `css/style.css`: `border: none; border-top: 1px solid var(--color-border); margin: 3rem 0`. No JS changes. Build passes, commit.
 
 
 ---
@@ -296,6 +304,7 @@ Tasks are ordered by dependency. Complete them top to bottom.
 
 | # | Date | Task | Files Changed | Notes |
 |---|------|------|---------------|-------|
+| 104 | 2026-05-06 | JetLag Hide-and-Seek project entry | index.html, css/style.css | Added second project block after hr.projects__divider; full-width .projects__feature-content with 9 tech tags and View on GitHub button; added .projects__divider CSS rule; no JS changes; build passes |
 | 103 | 2026-03-05 | PWA manifest improvements + README iteration count | site.webmanifest, README.md | Added display:"browser" and description fields to site.webmanifest; updated README "100+" to "102+"; build passes |
 | 102 | 2026-03-05 | rel="me" on profile links | index.html | Added rel="me noopener noreferrer" to GitHub and LinkedIn links in hero social row and footer (4 links total); establishes IndieWeb identity verification; no CSS/JS changes; build passes |
 | 101 | 2026-03-05 | Social meta improvements + JSON-LD alumniOf | index.html | Added og:site_name, og:locale, og:image:alt OG meta tags; added alumniOf Carleton University to JSON-LD Person schema; HTML-only changes; build passes |
