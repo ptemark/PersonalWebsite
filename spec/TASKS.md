@@ -7,11 +7,15 @@ See `RALPH.md` for the full loop process. See `DESIGN.md` for all design decisio
 
 ## Current Task
 
-_None in progress. Last completed: Task 106._
+_None in progress. Last completed: Task 107._
 
 ---
 
 ## Queued Tasks
+
+### Phase 61 — UX Polish
+
+- [x] **107** — Social icon link hover color consistency + README iteration count: (1) Add `.hero__social-link:hover { color: var(--color-accent); }` and `.footer__social-link:hover { color: var(--color-accent); }` to `css/style.css` — currently these links inherit the global `a:hover { color: var(--color-text); }` which turns them to primary text on hover, inconsistent with `.footer__email:hover` and `.footer__built-link:hover` which both use accent color. (2) Update `README.md`: change "105+" to "106+" in the Built with RALPH section. CSS-only change plus README update. Build passes, commit.
 
 ### Phase 60 — SEO & Metadata
 
@@ -314,6 +318,7 @@ Tasks are ordered by dependency. Complete them top to bottom.
 
 | # | Date | Task | Files Changed | Notes |
 |---|------|------|---------------|-------|
+| 107 | 2026-05-06 | Social icon link hover color consistency + README iteration count | css/style.css, README.md | Added .hero__social-link:hover and .footer__social-link:hover with color:var(--color-accent) to match established accent-hover pattern; updated README "105+" to "106+"; build passes |
 | 106 | 2026-05-06 | Twitter image alt + sitemap lastmod + README iteration count | index.html, sitemap.xml, README.md | Added twitter:image:alt meta tag to index.html (mirrors og:image:alt from task 101); added <lastmod>2026-05-06</lastmod> to sitemap.xml; updated README "104+" to "105+"; build passes |
 | 105 | 2026-05-06 | README iteration count + sitemap link tag | README.md, index.html | Updated "102+" to "104+" in README Built with RALPH section; added <link rel="sitemap" type="application/xml" href="/sitemap.xml"> to <head> in index.html before canonical link for HTML-based sitemap discovery; build passes |
 | 104 | 2026-05-06 | JetLag Hide-and-Seek project entry | index.html, css/style.css | Added second project block after hr.projects__divider; full-width .projects__feature-content with 9 tech tags and View on GitHub button; added .projects__divider CSS rule; no JS changes; build passes |
@@ -333,5 +338,4 @@ Tasks are ordered by dependency. Complete them top to bottom.
 | 90 | 2026-03-04 | Section scroll animations prefers-reduced-motion guard | css/style.css | Moved .section opacity/transform/transition and .section.is-visible overrides into @media (prefers-reduced-motion: no-preference) block; reduced-motion users now see all sections at full opacity immediately; no JS or HTML changes; build passes |
 | 89 | 2026-03-04 | RALPH loop improvements: interrupted run recovery + graceful Ctrl+C | RALPH.md, ralph.sh | Added "Interrupted Runs" section to RALPH.md with 5-step recovery checklist; ralph.sh: added STOP_REQUESTED flag, handle_interrupt() trap allows current iteration to finish on first Ctrl+C, force-quits on second; improved completion message |
 | 88 | 2026-03-04 | Branded apple touch icon | icon.png | Generated 180×180 PNG with Python/Pillow: #7C3AED purple rounded-rect background, bold white "PM" (Arial Bold 72px); replaces HTML5 Boilerplate default; no HTML/webpack changes; build passes |
-| 87 | 2026-03-04 | Scroll spy sticky active state for nav-less sections | js/app.js | Added sectionsArray (Array.from sections NodeList); when topmost visible section has no nav link, walk backwards to nearest preceding section that does; nav stays lit while scrolling through #skills and #hobbies; build passes |
 

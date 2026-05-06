@@ -654,6 +654,10 @@ button {
   color: var(--color-text-muted);
 }
 
+.hero__social-link:hover {
+  color: var(--color-accent);
+}
+
 .hero__photo-wrap {
   flex-shrink: 0;
 }
@@ -1201,6 +1205,10 @@ button {
   display: flex;
   align-items: center;
   color: var(--color-text-muted);
+}
+
+.footer__social-link:hover {
+  color: var(--color-accent);
 }
 
 .footer__meta {
