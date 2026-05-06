@@ -7,11 +7,15 @@ See `RALPH.md` for the full loop process. See `DESIGN.md` for all design decisio
 
 ## Current Task
 
-_None in progress. Last completed: Task 107._
+_None in progress. Last completed: Task 108._
 
 ---
 
 ## Queued Tasks
+
+### Phase 62 — SEO & Structured Data
+
+- [x] **108** — JSON-LD Person schema enhancement + README iteration count: (1) Add `"description"` property to the JSON-LD Person schema in `index.html` — mirrors the meta description to help search engines populate knowledge panels with a bio snippet. (2) Add `"image"` property pointing to `"https://petermark.dev/img/og-image.png"` — links the og-image as the canonical person photo in structured data, enabling richer visual results. (3) Update README "106+" to "107+" to reflect actual completed iteration count. HTML-only changes to `index.html`; README update. Build passes, commit.
 
 ### Phase 61 — UX Polish
 
@@ -318,6 +322,7 @@ Tasks are ordered by dependency. Complete them top to bottom.
 
 | # | Date | Task | Files Changed | Notes |
 |---|------|------|---------------|-------|
+| 108 | 2026-05-06 | JSON-LD Person schema enhancement + README iteration count | index.html, README.md | Added "description" and "image" properties to JSON-LD Person schema; description mirrors meta description for knowledge panel snippets; image points to og-image for visual search results; updated README "106+" to "107+"; build passes |
 | 107 | 2026-05-06 | Social icon link hover color consistency + README iteration count | css/style.css, README.md | Added .hero__social-link:hover and .footer__social-link:hover with color:var(--color-accent) to match established accent-hover pattern; updated README "105+" to "106+"; build passes |
 | 106 | 2026-05-06 | Twitter image alt + sitemap lastmod + README iteration count | index.html, sitemap.xml, README.md | Added twitter:image:alt meta tag to index.html (mirrors og:image:alt from task 101); added <lastmod>2026-05-06</lastmod> to sitemap.xml; updated README "104+" to "105+"; build passes |
 | 105 | 2026-05-06 | README iteration count + sitemap link tag | README.md, index.html | Updated "102+" to "104+" in README Built with RALPH section; added <link rel="sitemap" type="application/xml" href="/sitemap.xml"> to <head> in index.html before canonical link for HTML-based sitemap discovery; build passes |
@@ -337,5 +342,4 @@ Tasks are ordered by dependency. Complete them top to bottom.
 | 91 | 2026-03-04 | Hero entrance stagger animation | css/style.css | Added @keyframes heroFadeUp (opacity+translateY) in prefers-reduced-motion: no-preference block; staggered animation-delay on 8 hero child elements (0.05s–0.65s); animation-fill-mode: both keeps elements invisible before delay fires; removed redundant .section and .hero no-ops from reduce block; build passes |
 | 90 | 2026-03-04 | Section scroll animations prefers-reduced-motion guard | css/style.css | Moved .section opacity/transform/transition and .section.is-visible overrides into @media (prefers-reduced-motion: no-preference) block; reduced-motion users now see all sections at full opacity immediately; no JS or HTML changes; build passes |
 | 89 | 2026-03-04 | RALPH loop improvements: interrupted run recovery + graceful Ctrl+C | RALPH.md, ralph.sh | Added "Interrupted Runs" section to RALPH.md with 5-step recovery checklist; ralph.sh: added STOP_REQUESTED flag, handle_interrupt() trap allows current iteration to finish on first Ctrl+C, force-quits on second; improved completion message |
-| 88 | 2026-03-04 | Branded apple touch icon | icon.png | Generated 180×180 PNG with Python/Pillow: #7C3AED purple rounded-rect background, bold white "PM" (Arial Bold 72px); replaces HTML5 Boilerplate default; no HTML/webpack changes; build passes |
 
